@@ -1,0 +1,191 @@
+{
+  "format": 1,
+  "restore": {
+    "/run/media/coalyni/Ommi/Forest/Forest/Forest.Mac/Forest.Mac.csproj": {}
+  },
+  "projects": {
+    "/run/media/coalyni/Ommi/Forest/Forest/Forest.Mac/Forest.Mac.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/run/media/coalyni/Ommi/Forest/Forest/Forest.Mac/Forest.Mac.csproj",
+        "projectName": "Forest.Mac",
+        "projectPath": "/run/media/coalyni/Ommi/Forest/Forest/Forest.Mac/Forest.Mac.csproj",
+        "packagesPath": "/home/coalyni/.nuget/packages/",
+        "outputPath": "/run/media/coalyni/Ommi/Forest/Forest/Forest.Mac/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/coalyni/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "/usr/lib64/dotnet/library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "/run/media/coalyni/Ommi/Forest/Forest/Forest/Forest.csproj": {
+                "projectPath": "/run/media/coalyni/Ommi/Forest/Forest/Forest/Forest.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.100"
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Eto.Platform.Mac64": {
+              "target": "Package",
+              "version": "[2.10.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Runtime.osx-arm64",
+              "version": "[8.0.22, 8.0.22]"
+            },
+            {
+              "name": "Microsoft.AspNetCore.App.Runtime.osx-x64",
+              "version": "[8.0.22, 8.0.22]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.linux-x64",
+              "version": "[8.0.22, 8.0.22]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.osx-arm64",
+              "version": "[8.0.22, 8.0.22]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.osx-x64",
+              "version": "[8.0.22, 8.0.22]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Runtime.osx-arm64",
+              "version": "[8.0.22, 8.0.22]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Runtime.osx-x64",
+              "version": "[8.0.22, 8.0.22]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib64/dotnet/sdk/9.0.112/PortableRuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "osx-arm64": {
+          "#import": []
+        },
+        "osx-x64": {
+          "#import": []
+        }
+      }
+    },
+    "/run/media/coalyni/Ommi/Forest/Forest/Forest/Forest.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/run/media/coalyni/Ommi/Forest/Forest/Forest/Forest.csproj",
+        "projectName": "Forest",
+        "projectPath": "/run/media/coalyni/Ommi/Forest/Forest/Forest/Forest.csproj",
+        "packagesPath": "/home/coalyni/.nuget/packages/",
+        "outputPath": "/run/media/coalyni/Ommi/Forest/Forest/Forest/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/coalyni/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "/usr/lib64/dotnet/library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "targetAlias": "netstandard2.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.100"
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "targetAlias": "netstandard2.0",
+          "dependencies": {
+            "Eto.Forms": {
+              "target": "Package",
+              "version": "[2.10.2, )"
+            },
+            "MonoTorrent": {
+              "target": "Package",
+              "version": "[3.0.2, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            },
+            "System.Text.Json": {
+              "target": "Package",
+              "version": "[10.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "/usr/lib64/dotnet/sdk/9.0.112/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

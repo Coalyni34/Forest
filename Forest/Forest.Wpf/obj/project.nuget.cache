@@ -1,0 +1,32 @@
+{
+  "version": 2,
+  "dgSpecHash": "8UmceAeIGCY=",
+  "success": true,
+  "projectFilePath": "/run/media/coalyni/Ommi/Forest/Forest/Forest.Wpf/Forest.Wpf.csproj",
+  "expectedPackageFiles": [
+    "/home/coalyni/.nuget/packages/eto.forms/2.10.2/eto.forms.2.10.2.nupkg.sha512",
+    "/home/coalyni/.nuget/packages/eto.platform.wpf/2.10.2/eto.platform.wpf.2.10.2.nupkg.sha512",
+    "/home/coalyni/.nuget/packages/extended.wpf.toolkit/3.6.0/extended.wpf.toolkit.3.6.0.nupkg.sha512",
+    "/home/coalyni/.nuget/packages/microsoft-windowsapicodepack-core/1.1.4/microsoft-windowsapicodepack-core.1.1.4.nupkg.sha512",
+    "/home/coalyni/.nuget/packages/microsoft-windowsapicodepack-shell/1.1.4/microsoft-windowsapicodepack-shell.1.1.4.nupkg.sha512",
+    "/home/coalyni/.nuget/packages/mono.nat/3.0.0/mono.nat.3.0.0.nupkg.sha512",
+    "/home/coalyni/.nuget/packages/monotorrent/3.0.2/monotorrent.3.0.2.nupkg.sha512",
+    "/home/coalyni/.nuget/packages/reusabletasks/4.0.0/reusabletasks.4.0.0.nupkg.sha512",
+    "/home/coalyni/.nuget/packages/system.io.pipelines/10.0.0/system.io.pipelines.10.0.0.nupkg.sha512",
+    "/home/coalyni/.nuget/packages/system.text.encodings.web/10.0.0/system.text.encodings.web.10.0.0.nupkg.sha512",
+    "/home/coalyni/.nuget/packages/system.text.json/10.0.0/system.text.json.10.0.0.nupkg.sha512",
+    "/home/coalyni/.nuget/packages/microsoft.netcore.app.host.linux-x64/8.0.22/microsoft.netcore.app.host.linux-x64.8.0.22.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Extended.Wpf.Toolkit 3.6.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net8.0-windows7.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Extended.Wpf.Toolkit",
+      "targetGraphs": [
+        "net8.0-windows7.0"
+      ]
+    }
+  ]
+}

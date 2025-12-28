@@ -1,0 +1,354 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "Forest.Gtk/1.0.0": {
+        "dependencies": {
+          "Eto.Platform.Gtk": "2.10.2",
+          "Forest": "1.0.0"
+        },
+        "runtime": {
+          "Forest.Gtk.dll": {}
+        }
+      },
+      "AtkSharp/3.24.24.95": {
+        "dependencies": {
+          "GLibSharp": "3.24.24.95"
+        },
+        "runtime": {
+          "lib/net6.0/AtkSharp.dll": {
+            "assemblyVersion": "3.24.24.95",
+            "fileVersion": "3.24.24.95"
+          }
+        }
+      },
+      "CairoSharp/3.24.24.95": {
+        "runtime": {
+          "lib/net6.0/CairoSharp.dll": {
+            "assemblyVersion": "3.24.24.95",
+            "fileVersion": "3.24.24.95"
+          }
+        }
+      },
+      "Eto.Forms/2.10.2": {
+        "runtime": {
+          "lib/net8.0/Eto.dll": {
+            "assemblyVersion": "2.10.0.0",
+            "fileVersion": "2.10.9400.10470"
+          }
+        }
+      },
+      "Eto.Platform.Gtk/2.10.2": {
+        "dependencies": {
+          "Eto.Forms": "2.10.2",
+          "GtkSharp": "3.24.24.95"
+        },
+        "runtime": {
+          "lib/net6.0/Eto.Gtk.dll": {
+            "assemblyVersion": "2.10.0.0",
+            "fileVersion": "2.10.9400.10468"
+          }
+        }
+      },
+      "GdkSharp/3.24.24.95": {
+        "dependencies": {
+          "CairoSharp": "3.24.24.95",
+          "GLibSharp": "3.24.24.95",
+          "GioSharp": "3.24.24.95",
+          "PangoSharp": "3.24.24.95"
+        },
+        "runtime": {
+          "lib/net6.0/GdkSharp.dll": {
+            "assemblyVersion": "3.24.24.95",
+            "fileVersion": "3.24.24.95"
+          }
+        }
+      },
+      "GioSharp/3.24.24.95": {
+        "dependencies": {
+          "GLibSharp": "3.24.24.95"
+        },
+        "runtime": {
+          "lib/net6.0/GioSharp.dll": {
+            "assemblyVersion": "3.24.24.95",
+            "fileVersion": "3.24.24.95"
+          }
+        }
+      },
+      "GLibSharp/3.24.24.95": {
+        "runtime": {
+          "lib/net6.0/GLibSharp.dll": {
+            "assemblyVersion": "3.24.24.95",
+            "fileVersion": "3.24.24.95"
+          }
+        }
+      },
+      "GtkSharp/3.24.24.95": {
+        "dependencies": {
+          "AtkSharp": "3.24.24.95",
+          "CairoSharp": "3.24.24.95",
+          "GLibSharp": "3.24.24.95",
+          "GdkSharp": "3.24.24.95",
+          "GioSharp": "3.24.24.95",
+          "PangoSharp": "3.24.24.95"
+        },
+        "runtime": {
+          "lib/net6.0/GtkSharp.dll": {
+            "assemblyVersion": "3.24.24.95",
+            "fileVersion": "3.24.24.95"
+          }
+        }
+      },
+      "Mono.Nat/3.0.0": {
+        "runtime": {
+          "lib/netstandard2.1/Mono.Nat.dll": {
+            "assemblyVersion": "3.0.0.0",
+            "fileVersion": "3.0.0.0"
+          }
+        }
+      },
+      "MonoTorrent/3.0.2": {
+        "dependencies": {
+          "Mono.Nat": "3.0.0",
+          "ReusableTasks": "4.0.0"
+        },
+        "runtime": {
+          "lib/net6.0/MonoTorrent.BEncoding.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "3.0.2.0"
+          },
+          "lib/net6.0/MonoTorrent.Client.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "3.0.2.0"
+          },
+          "lib/net6.0/MonoTorrent.Connections.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "3.0.2.0"
+          },
+          "lib/net6.0/MonoTorrent.Dht.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "3.0.2.0"
+          },
+          "lib/net6.0/MonoTorrent.Factories.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "3.0.2.0"
+          },
+          "lib/net6.0/MonoTorrent.Messages.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "3.0.2.0"
+          },
+          "lib/net6.0/MonoTorrent.PiecePicking.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "3.0.2.0"
+          },
+          "lib/net6.0/MonoTorrent.PieceWriter.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "3.0.2.0"
+          },
+          "lib/net6.0/MonoTorrent.PortForwarding.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "3.0.2.0"
+          },
+          "lib/net6.0/MonoTorrent.Trackers.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "3.0.2.0"
+          },
+          "lib/net6.0/MonoTorrent.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "3.0.2.0"
+          }
+        }
+      },
+      "PangoSharp/3.24.24.95": {
+        "dependencies": {
+          "CairoSharp": "3.24.24.95",
+          "GLibSharp": "3.24.24.95"
+        },
+        "runtime": {
+          "lib/net6.0/PangoSharp.dll": {
+            "assemblyVersion": "3.24.24.95",
+            "fileVersion": "3.24.24.95"
+          }
+        }
+      },
+      "ReusableTasks/4.0.0": {
+        "runtime": {
+          "lib/net5.0/ReusableTasks.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "4.0.0.0"
+          }
+        }
+      },
+      "System.IO.Pipelines/10.0.0": {
+        "runtime": {
+          "lib/net8.0/System.IO.Pipelines.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.25.52411"
+          }
+        }
+      },
+      "System.Text.Encodings.Web/10.0.0": {
+        "runtime": {
+          "lib/net8.0/System.Text.Encodings.Web.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.25.52411"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/browser/lib/net8.0/System.Text.Encodings.Web.dll": {
+            "rid": "browser",
+            "assetType": "runtime",
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.25.52411"
+          }
+        }
+      },
+      "System.Text.Json/10.0.0": {
+        "dependencies": {
+          "System.IO.Pipelines": "10.0.0",
+          "System.Text.Encodings.Web": "10.0.0"
+        },
+        "runtime": {
+          "lib/net8.0/System.Text.Json.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.25.52411"
+          }
+        }
+      },
+      "Forest/1.0.0": {
+        "dependencies": {
+          "Eto.Forms": "2.10.2",
+          "MonoTorrent": "3.0.2",
+          "System.Text.Json": "10.0.0"
+        },
+        "runtime": {
+          "Forest.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Forest.Gtk/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "AtkSharp/3.24.24.95": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-LnSfsc0y11gfzczZj5bnpwcFkXFZuVTSSd92ML/FcHIM7FU+cAfm1UkAonv5BdwTRhzDbNDE39vihao/k75sUA==",
+      "path": "atksharp/3.24.24.95",
+      "hashPath": "atksharp.3.24.24.95.nupkg.sha512"
+    },
+    "CairoSharp/3.24.24.95": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-EZ9KT3pwVAol35XbZW0Uwdg2LqhDvPnWdhqIrsedhDx+Omnu56hLzxh8mZGqmQvEwJE8Opbda4w9CqDtXbX6Vw==",
+      "path": "cairosharp/3.24.24.95",
+      "hashPath": "cairosharp.3.24.24.95.nupkg.sha512"
+    },
+    "Eto.Forms/2.10.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-SFm7hgqhAnQ3sa3ohWedQT96wzLfScH3r1uopcLq2kBgGrP4yVd28D2/rWKSpb5hUmBRsm864UNkxjKSZzND8w==",
+      "path": "eto.forms/2.10.2",
+      "hashPath": "eto.forms.2.10.2.nupkg.sha512"
+    },
+    "Eto.Platform.Gtk/2.10.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-USDdAAXA4rU/yiyPcHowsbt4HWz5s/gvxWCBgcqXqPyNLuX0S30jHabOexMaQIcPN3WL2P4itSGojfD5HAHWkw==",
+      "path": "eto.platform.gtk/2.10.2",
+      "hashPath": "eto.platform.gtk.2.10.2.nupkg.sha512"
+    },
+    "GdkSharp/3.24.24.95": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-rABpIGkxr8lOdyhEmrKXzjih3z3932kjqUmm5qaQhWVSvu9YepEk3J1FApgnKCW/EWEzlerzxnJArsyOlgMsZQ==",
+      "path": "gdksharp/3.24.24.95",
+      "hashPath": "gdksharp.3.24.24.95.nupkg.sha512"
+    },
+    "GioSharp/3.24.24.95": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-avYEDFlYgbogb+Y7ZhIXQpyJfL83bnPpBKY642YEW9PQ+pRK3qf2k0opvd5oHccXfByj6kAQjmRUSIS0pj19Fg==",
+      "path": "giosharp/3.24.24.95",
+      "hashPath": "giosharp.3.24.24.95.nupkg.sha512"
+    },
+    "GLibSharp/3.24.24.95": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-1viZRMVjddf2HUCW7WDXT47rHssteHkAOimXQ2/pI8oGrPGNFuuw5MbX8BOIy73hCWVqo7JEMONv3z32OrCoCQ==",
+      "path": "glibsharp/3.24.24.95",
+      "hashPath": "glibsharp.3.24.24.95.nupkg.sha512"
+    },
+    "GtkSharp/3.24.24.95": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-RRUY45hAa5gsMcadvVjcLUzMjVtmuHSYTcIwM6j8LNgKhzFFHk69qM1D5ULfGxaWmVjicqNWiFtOtk8WsvPqaQ==",
+      "path": "gtksharp/3.24.24.95",
+      "hashPath": "gtksharp.3.24.24.95.nupkg.sha512"
+    },
+    "Mono.Nat/3.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-LgRC8/8plJfvr1nCPmyHNIwP4fs346doMA/UVDZvFN0RfGJdyD2uS7Dl1AydxjVLrIvad8ghozI0vYFWcfPeYQ==",
+      "path": "mono.nat/3.0.0",
+      "hashPath": "mono.nat.3.0.0.nupkg.sha512"
+    },
+    "MonoTorrent/3.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-kWy0mLj2MKX9uUGe3lnNYfyQhthjUK4IAMNJO8llXP9yB3ZYfGaAy9ag20wMcjTz2YfhKOW/uZ5FR//BYZGeYA==",
+      "path": "monotorrent/3.0.2",
+      "hashPath": "monotorrent.3.0.2.nupkg.sha512"
+    },
+    "PangoSharp/3.24.24.95": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-H7JeyEvLsgvsbamGpRgoNtdvzPiGwwsUuoeTobN1C/JRjw1J8Snw0yf2WBr7CKx5GLwbrwpQYOb7N/HD17ME8A==",
+      "path": "pangosharp/3.24.24.95",
+      "hashPath": "pangosharp.3.24.24.95.nupkg.sha512"
+    },
+    "ReusableTasks/4.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-6EKzscjq+Q+uxD0N5GWUBO2N34cuDiJ08ZxRs1lqS0Hwvnjp6AgimUIX/8dqIxRZbPOG4gcikTMo+PM4D9CfaQ==",
+      "path": "reusabletasks/4.0.0",
+      "hashPath": "reusabletasks.4.0.0.nupkg.sha512"
+    },
+    "System.IO.Pipelines/10.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-M1eb3nfXntaRJPrrMVM9EFS8I1bDTnt0uvUS6QP/SicZf/ZZjydMD5NiXxfmwW/uQwaMDP/yX2P+zQN1NBHChg==",
+      "path": "system.io.pipelines/10.0.0",
+      "hashPath": "system.io.pipelines.10.0.0.nupkg.sha512"
+    },
+    "System.Text.Encodings.Web/10.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-257hh1ep1Gqm1Lm0ulxf7vVBVMJuGN6EL4xSWjpi46DffXzm1058IiWsfSC06zSm7SniN+Tb5160UnXsSa8rRg==",
+      "path": "system.text.encodings.web/10.0.0",
+      "hashPath": "system.text.encodings.web.10.0.0.nupkg.sha512"
+    },
+    "System.Text.Json/10.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-1Dpjwq9peG/Wt5BNbrzIhTpclfOSqBWZsUO28vVr59yQlkvL5jLBWfpfzRmJ1OY+6DciaY0DUcltyzs4fuZHjw==",
+      "path": "system.text.json/10.0.0",
+      "hashPath": "system.text.json.10.0.0.nupkg.sha512"
+    },
+    "Forest/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

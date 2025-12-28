@@ -1,0 +1,837 @@
+{
+  "version": 3,
+  "targets": {
+    "net8.0-windows7.0": {
+      "Eto.Forms/2.10.2": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/Eto.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Eto.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "build/_._": {}
+        }
+      },
+      "Eto.Platform.Wpf/2.10.2": {
+        "type": "package",
+        "dependencies": {
+          "Eto.Forms": "2.10.2",
+          "Extended.Wpf.Toolkit": "3.6.0",
+          "Microsoft-WindowsAPICodePack-Shell": "1.1.4"
+        },
+        "compile": {
+          "lib/net6.0-windows7.0/Eto.Wpf.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0-windows7.0/Eto.Wpf.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App"
+        ]
+      },
+      "Extended.Wpf.Toolkit/3.6.0": {
+        "type": "package",
+        "compile": {
+          "lib/net40/Xceed.Wpf.AvalonDock.Themes.Aero.dll": {},
+          "lib/net40/Xceed.Wpf.AvalonDock.Themes.Metro.dll": {},
+          "lib/net40/Xceed.Wpf.AvalonDock.Themes.VS2010.dll": {},
+          "lib/net40/Xceed.Wpf.AvalonDock.dll": {},
+          "lib/net40/Xceed.Wpf.Toolkit.dll": {}
+        },
+        "runtime": {
+          "lib/net40/Xceed.Wpf.AvalonDock.Themes.Aero.dll": {},
+          "lib/net40/Xceed.Wpf.AvalonDock.Themes.Metro.dll": {},
+          "lib/net40/Xceed.Wpf.AvalonDock.Themes.VS2010.dll": {},
+          "lib/net40/Xceed.Wpf.AvalonDock.dll": {},
+          "lib/net40/Xceed.Wpf.Toolkit.dll": {}
+        },
+        "resource": {
+          "lib/net40/de/Xceed.Wpf.AvalonDock.resources.dll": {
+            "locale": "de"
+          },
+          "lib/net40/es/Xceed.Wpf.AvalonDock.resources.dll": {
+            "locale": "es"
+          },
+          "lib/net40/fr/Xceed.Wpf.AvalonDock.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/net40/hu/Xceed.Wpf.AvalonDock.resources.dll": {
+            "locale": "hu"
+          },
+          "lib/net40/it/Xceed.Wpf.AvalonDock.resources.dll": {
+            "locale": "it"
+          },
+          "lib/net40/pt-BR/Xceed.Wpf.AvalonDock.resources.dll": {
+            "locale": "pt-BR"
+          },
+          "lib/net40/ro/Xceed.Wpf.AvalonDock.resources.dll": {
+            "locale": "ro"
+          },
+          "lib/net40/ru/Xceed.Wpf.AvalonDock.resources.dll": {
+            "locale": "ru"
+          },
+          "lib/net40/sv/Xceed.Wpf.AvalonDock.resources.dll": {
+            "locale": "sv"
+          },
+          "lib/net40/zh-Hans/Xceed.Wpf.AvalonDock.resources.dll": {
+            "locale": "zh-Hans"
+          }
+        }
+      },
+      "Microsoft-WindowsAPICodePack-Core/1.1.4": {
+        "type": "package",
+        "compile": {
+          "lib/netcoreapp3.1/Microsoft.WindowsAPICodePack.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.WindowsAPICodePack.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WindowsForms"
+        ]
+      },
+      "Microsoft-WindowsAPICodePack-Shell/1.1.4": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft-WindowsAPICodePack-Core": "1.1.4"
+        },
+        "compile": {
+          "lib/netcoreapp3.1/Microsoft.WindowsAPICodePack.Shell.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.WindowsAPICodePack.Shell.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App"
+        ]
+      },
+      "Mono.Nat/3.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.1/_._": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.1/Mono.Nat.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "MonoTorrent/3.0.2": {
+        "type": "package",
+        "dependencies": {
+          "Mono.Nat": "3.0.0",
+          "ReusableTasks": "4.0.0"
+        },
+        "compile": {
+          "lib/net6.0/MonoTorrent.BEncoding.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0/MonoTorrent.Client.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0/MonoTorrent.Connections.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0/MonoTorrent.Dht.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0/MonoTorrent.Factories.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0/MonoTorrent.Messages.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0/MonoTorrent.PiecePicking.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0/MonoTorrent.PieceWriter.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0/MonoTorrent.PortForwarding.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0/MonoTorrent.Trackers.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0/MonoTorrent.dll": {
+            "related": ".BEncoding.xml;.Client.xml;.Connections.xml;.Dht.xml;.Factories.xml;.Messages.xml;.PiecePicking.xml;.PieceWriter.xml;.PortForwarding.xml;.Trackers.xml;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/MonoTorrent.BEncoding.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0/MonoTorrent.Client.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0/MonoTorrent.Connections.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0/MonoTorrent.Dht.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0/MonoTorrent.Factories.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0/MonoTorrent.Messages.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0/MonoTorrent.PiecePicking.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0/MonoTorrent.PieceWriter.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0/MonoTorrent.PortForwarding.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0/MonoTorrent.Trackers.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0/MonoTorrent.dll": {
+            "related": ".BEncoding.xml;.Client.xml;.Connections.xml;.Dht.xml;.Factories.xml;.Messages.xml;.PiecePicking.xml;.PieceWriter.xml;.PortForwarding.xml;.Trackers.xml;.xml"
+          }
+        }
+      },
+      "ReusableTasks/4.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net5.0/ReusableTasks.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net5.0/ReusableTasks.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "build/_._": {}
+        }
+      },
+      "System.IO.Pipelines/10.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/System.IO.Pipelines.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/System.IO.Pipelines.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net8.0/_._": {}
+        }
+      },
+      "System.Text.Encodings.Web/10.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/System.Text.Encodings.Web.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/System.Text.Encodings.Web.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net8.0/_._": {}
+        },
+        "runtimeTargets": {
+          "runtimes/browser/lib/net8.0/System.Text.Encodings.Web.dll": {
+            "assetType": "runtime",
+            "rid": "browser"
+          }
+        }
+      },
+      "System.Text.Json/10.0.0": {
+        "type": "package",
+        "dependencies": {
+          "System.IO.Pipelines": "10.0.0",
+          "System.Text.Encodings.Web": "10.0.0"
+        },
+        "compile": {
+          "lib/net8.0/System.Text.Json.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/System.Text.Json.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net8.0/System.Text.Json.targets": {}
+        }
+      },
+      "Forest/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "Eto.Forms": "2.10.2",
+          "MonoTorrent": "3.0.2",
+          "System.Text.Json": "10.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Forest.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Forest.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Eto.Forms/2.10.2": {
+      "sha512": "SFm7hgqhAnQ3sa3ohWedQT96wzLfScH3r1uopcLq2kBgGrP4yVd28D2/rWKSpb5hUmBRsm864UNkxjKSZzND8w==",
+      "type": "package",
+      "path": "eto.forms/2.10.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Eto-LICENSE.txt",
+        "build/Eto.Forms.targets",
+        "eto.forms.2.10.2.nupkg.sha512",
+        "eto.forms.nuspec",
+        "lib/net6.0/Eto.dll",
+        "lib/net6.0/Eto.xml",
+        "lib/net8.0/Eto.dll",
+        "lib/net8.0/Eto.xml",
+        "lib/netstandard2.0/Eto.dll",
+        "lib/netstandard2.0/Eto.xml",
+        "sdk/Sdk.props",
+        "sdk/Sdk.targets"
+      ]
+    },
+    "Eto.Platform.Wpf/2.10.2": {
+      "sha512": "7DBMUHIYtt2aMfXe8B1EjWbZImkIsLp6lIkv/MppYNh7TCnCnxmMpIYy88VFiejoi0kN5FS272wxYCNtEVKKyQ==",
+      "type": "package",
+      "path": "eto.platform.wpf/2.10.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Eto-LICENSE.txt",
+        "eto.platform.wpf.2.10.2.nupkg.sha512",
+        "eto.platform.wpf.nuspec",
+        "lib/net462/Eto.Wpf.dll",
+        "lib/net6.0-windows7.0/Eto.Wpf.dll"
+      ]
+    },
+    "Extended.Wpf.Toolkit/3.6.0": {
+      "sha512": "flfPS2rtbCCXJv7m43MXBJWaPN0RsVRQn3MZO2VmMjs4pOHzL7WnsaSXbs0OHTLj71SA/+T4hdZC8f4FhvJSkA==",
+      "type": "package",
+      "path": "extended.wpf.toolkit/3.6.0",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "extended.wpf.toolkit.3.6.0.nupkg.sha512",
+        "extended.wpf.toolkit.nuspec",
+        "lib/net40/Xceed.Wpf.AvalonDock.Themes.Aero.dll",
+        "lib/net40/Xceed.Wpf.AvalonDock.Themes.Metro.dll",
+        "lib/net40/Xceed.Wpf.AvalonDock.Themes.VS2010.dll",
+        "lib/net40/Xceed.Wpf.AvalonDock.dll",
+        "lib/net40/Xceed.Wpf.Toolkit.dll",
+        "lib/net40/de/Xceed.Wpf.AvalonDock.resources.dll",
+        "lib/net40/es/Xceed.Wpf.AvalonDock.resources.dll",
+        "lib/net40/fr/Xceed.Wpf.AvalonDock.resources.dll",
+        "lib/net40/hu/Xceed.Wpf.AvalonDock.resources.dll",
+        "lib/net40/it/Xceed.Wpf.AvalonDock.resources.dll",
+        "lib/net40/pt-BR/Xceed.Wpf.AvalonDock.resources.dll",
+        "lib/net40/ro/Xceed.Wpf.AvalonDock.resources.dll",
+        "lib/net40/ru/Xceed.Wpf.AvalonDock.resources.dll",
+        "lib/net40/sv/Xceed.Wpf.AvalonDock.resources.dll",
+        "lib/net40/zh-Hans/Xceed.Wpf.AvalonDock.resources.dll",
+        "tools/install.ps1"
+      ]
+    },
+    "Microsoft-WindowsAPICodePack-Core/1.1.4": {
+      "sha512": "gsEStalyKPTR5/HKyAHYvIoDZTGUTUgIBS1eeGvkjWgDYB7f5aSBFAAJfxhhDsOGDjLs6O0uzw1H0EWYWZGDmg==",
+      "type": "package",
+      "path": "microsoft-windowsapicodepack-core/1.1.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net452/Microsoft.WindowsAPICodePack.dll",
+        "lib/net452/Microsoft.WindowsAPICodePack.xml",
+        "lib/net462/Microsoft.WindowsAPICodePack.dll",
+        "lib/net462/Microsoft.WindowsAPICodePack.xml",
+        "lib/net472/Microsoft.WindowsAPICodePack.dll",
+        "lib/net472/Microsoft.WindowsAPICodePack.xml",
+        "lib/net48/Microsoft.WindowsAPICodePack.dll",
+        "lib/net48/Microsoft.WindowsAPICodePack.xml",
+        "lib/netcoreapp3.0/Microsoft.WindowsAPICodePack.dll",
+        "lib/netcoreapp3.0/Microsoft.WindowsAPICodePack.xml",
+        "lib/netcoreapp3.1/Microsoft.WindowsAPICodePack.dll",
+        "lib/netcoreapp3.1/Microsoft.WindowsAPICodePack.xml",
+        "microsoft-windowsapicodepack-core.1.1.4.nupkg.sha512",
+        "microsoft-windowsapicodepack-core.nuspec"
+      ]
+    },
+    "Microsoft-WindowsAPICodePack-Shell/1.1.4": {
+      "sha512": "EtoEx9Fx3ZGW//sni9TB1vuBvzXIlyG8E2KNaX7bqV240aiU8RP+NmDHd1ox0YKbJDMxq7AWSI2jPhpLMYXKyw==",
+      "type": "package",
+      "path": "microsoft-windowsapicodepack-shell/1.1.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net452/Microsoft.WindowsAPICodePack.Shell.dll",
+        "lib/net452/Microsoft.WindowsAPICodePack.Shell.xml",
+        "lib/net462/Microsoft.WindowsAPICodePack.Shell.dll",
+        "lib/net462/Microsoft.WindowsAPICodePack.Shell.xml",
+        "lib/net472/Microsoft.WindowsAPICodePack.Shell.dll",
+        "lib/net472/Microsoft.WindowsAPICodePack.Shell.xml",
+        "lib/net48/Microsoft.WindowsAPICodePack.Shell.dll",
+        "lib/net48/Microsoft.WindowsAPICodePack.Shell.xml",
+        "lib/netcoreapp3.0/Microsoft.WindowsAPICodePack.Shell.dll",
+        "lib/netcoreapp3.0/Microsoft.WindowsAPICodePack.Shell.xml",
+        "lib/netcoreapp3.1/Microsoft.WindowsAPICodePack.Shell.dll",
+        "lib/netcoreapp3.1/Microsoft.WindowsAPICodePack.Shell.xml",
+        "microsoft-windowsapicodepack-shell.1.1.4.nupkg.sha512",
+        "microsoft-windowsapicodepack-shell.nuspec"
+      ]
+    },
+    "Mono.Nat/3.0.0": {
+      "sha512": "LgRC8/8plJfvr1nCPmyHNIwP4fs346doMA/UVDZvFN0RfGJdyD2uS7Dl1AydxjVLrIvad8ghozI0vYFWcfPeYQ==",
+      "type": "package",
+      "path": "mono.nat/3.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.md",
+        "lib/netstandard2.0/Mono.Nat.dll",
+        "lib/netstandard2.0/Mono.Nat.xml",
+        "lib/netstandard2.1/Mono.Nat.dll",
+        "lib/netstandard2.1/Mono.Nat.xml",
+        "mono.nat.3.0.0.nupkg.sha512",
+        "mono.nat.nuspec"
+      ]
+    },
+    "MonoTorrent/3.0.2": {
+      "sha512": "kWy0mLj2MKX9uUGe3lnNYfyQhthjUK4IAMNJO8llXP9yB3ZYfGaAy9ag20wMcjTz2YfhKOW/uZ5FR//BYZGeYA==",
+      "type": "package",
+      "path": "monotorrent/3.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "lib/net472/Mono.Nat.dll",
+        "lib/net472/MonoTorrent.BEncoding.dll",
+        "lib/net472/MonoTorrent.BEncoding.xml",
+        "lib/net472/MonoTorrent.Client.dll",
+        "lib/net472/MonoTorrent.Client.xml",
+        "lib/net472/MonoTorrent.Connections.dll",
+        "lib/net472/MonoTorrent.Connections.xml",
+        "lib/net472/MonoTorrent.Dht.dll",
+        "lib/net472/MonoTorrent.Dht.xml",
+        "lib/net472/MonoTorrent.Factories.dll",
+        "lib/net472/MonoTorrent.Factories.xml",
+        "lib/net472/MonoTorrent.Messages.dll",
+        "lib/net472/MonoTorrent.Messages.xml",
+        "lib/net472/MonoTorrent.PiecePicking.dll",
+        "lib/net472/MonoTorrent.PiecePicking.xml",
+        "lib/net472/MonoTorrent.PieceWriter.dll",
+        "lib/net472/MonoTorrent.PieceWriter.xml",
+        "lib/net472/MonoTorrent.PortForwarding.dll",
+        "lib/net472/MonoTorrent.PortForwarding.xml",
+        "lib/net472/MonoTorrent.Trackers.dll",
+        "lib/net472/MonoTorrent.Trackers.xml",
+        "lib/net472/MonoTorrent.dll",
+        "lib/net472/MonoTorrent.xml",
+        "lib/net5.0/MonoTorrent.BEncoding.dll",
+        "lib/net5.0/MonoTorrent.BEncoding.xml",
+        "lib/net5.0/MonoTorrent.Client.dll",
+        "lib/net5.0/MonoTorrent.Client.xml",
+        "lib/net5.0/MonoTorrent.Connections.dll",
+        "lib/net5.0/MonoTorrent.Connections.xml",
+        "lib/net5.0/MonoTorrent.Dht.dll",
+        "lib/net5.0/MonoTorrent.Dht.xml",
+        "lib/net5.0/MonoTorrent.Factories.dll",
+        "lib/net5.0/MonoTorrent.Factories.xml",
+        "lib/net5.0/MonoTorrent.Messages.dll",
+        "lib/net5.0/MonoTorrent.Messages.xml",
+        "lib/net5.0/MonoTorrent.PiecePicking.dll",
+        "lib/net5.0/MonoTorrent.PiecePicking.xml",
+        "lib/net5.0/MonoTorrent.PieceWriter.dll",
+        "lib/net5.0/MonoTorrent.PieceWriter.xml",
+        "lib/net5.0/MonoTorrent.PortForwarding.dll",
+        "lib/net5.0/MonoTorrent.PortForwarding.xml",
+        "lib/net5.0/MonoTorrent.Trackers.dll",
+        "lib/net5.0/MonoTorrent.Trackers.xml",
+        "lib/net5.0/MonoTorrent.dll",
+        "lib/net5.0/MonoTorrent.xml",
+        "lib/net6.0/MonoTorrent.BEncoding.dll",
+        "lib/net6.0/MonoTorrent.BEncoding.xml",
+        "lib/net6.0/MonoTorrent.Client.dll",
+        "lib/net6.0/MonoTorrent.Client.xml",
+        "lib/net6.0/MonoTorrent.Connections.dll",
+        "lib/net6.0/MonoTorrent.Connections.xml",
+        "lib/net6.0/MonoTorrent.Dht.dll",
+        "lib/net6.0/MonoTorrent.Dht.xml",
+        "lib/net6.0/MonoTorrent.Factories.dll",
+        "lib/net6.0/MonoTorrent.Factories.xml",
+        "lib/net6.0/MonoTorrent.Messages.dll",
+        "lib/net6.0/MonoTorrent.Messages.xml",
+        "lib/net6.0/MonoTorrent.PiecePicking.dll",
+        "lib/net6.0/MonoTorrent.PiecePicking.xml",
+        "lib/net6.0/MonoTorrent.PieceWriter.dll",
+        "lib/net6.0/MonoTorrent.PieceWriter.xml",
+        "lib/net6.0/MonoTorrent.PortForwarding.dll",
+        "lib/net6.0/MonoTorrent.PortForwarding.xml",
+        "lib/net6.0/MonoTorrent.Trackers.dll",
+        "lib/net6.0/MonoTorrent.Trackers.xml",
+        "lib/net6.0/MonoTorrent.dll",
+        "lib/net6.0/MonoTorrent.xml",
+        "lib/netcoreapp3.0/MonoTorrent.BEncoding.dll",
+        "lib/netcoreapp3.0/MonoTorrent.BEncoding.xml",
+        "lib/netcoreapp3.0/MonoTorrent.Client.dll",
+        "lib/netcoreapp3.0/MonoTorrent.Client.xml",
+        "lib/netcoreapp3.0/MonoTorrent.Connections.dll",
+        "lib/netcoreapp3.0/MonoTorrent.Connections.xml",
+        "lib/netcoreapp3.0/MonoTorrent.Dht.dll",
+        "lib/netcoreapp3.0/MonoTorrent.Dht.xml",
+        "lib/netcoreapp3.0/MonoTorrent.Factories.dll",
+        "lib/netcoreapp3.0/MonoTorrent.Factories.xml",
+        "lib/netcoreapp3.0/MonoTorrent.Messages.dll",
+        "lib/netcoreapp3.0/MonoTorrent.Messages.xml",
+        "lib/netcoreapp3.0/MonoTorrent.PiecePicking.dll",
+        "lib/netcoreapp3.0/MonoTorrent.PiecePicking.xml",
+        "lib/netcoreapp3.0/MonoTorrent.PieceWriter.dll",
+        "lib/netcoreapp3.0/MonoTorrent.PieceWriter.xml",
+        "lib/netcoreapp3.0/MonoTorrent.PortForwarding.dll",
+        "lib/netcoreapp3.0/MonoTorrent.PortForwarding.xml",
+        "lib/netcoreapp3.0/MonoTorrent.Trackers.dll",
+        "lib/netcoreapp3.0/MonoTorrent.Trackers.xml",
+        "lib/netcoreapp3.0/MonoTorrent.dll",
+        "lib/netcoreapp3.0/MonoTorrent.xml",
+        "lib/netstandard2.0/MonoTorrent.BEncoding.dll",
+        "lib/netstandard2.0/MonoTorrent.BEncoding.xml",
+        "lib/netstandard2.0/MonoTorrent.Client.dll",
+        "lib/netstandard2.0/MonoTorrent.Client.xml",
+        "lib/netstandard2.0/MonoTorrent.Connections.dll",
+        "lib/netstandard2.0/MonoTorrent.Connections.xml",
+        "lib/netstandard2.0/MonoTorrent.Dht.dll",
+        "lib/netstandard2.0/MonoTorrent.Dht.xml",
+        "lib/netstandard2.0/MonoTorrent.Factories.dll",
+        "lib/netstandard2.0/MonoTorrent.Factories.xml",
+        "lib/netstandard2.0/MonoTorrent.Messages.dll",
+        "lib/netstandard2.0/MonoTorrent.Messages.xml",
+        "lib/netstandard2.0/MonoTorrent.PiecePicking.dll",
+        "lib/netstandard2.0/MonoTorrent.PiecePicking.xml",
+        "lib/netstandard2.0/MonoTorrent.PieceWriter.dll",
+        "lib/netstandard2.0/MonoTorrent.PieceWriter.xml",
+        "lib/netstandard2.0/MonoTorrent.PortForwarding.dll",
+        "lib/netstandard2.0/MonoTorrent.PortForwarding.xml",
+        "lib/netstandard2.0/MonoTorrent.Trackers.dll",
+        "lib/netstandard2.0/MonoTorrent.Trackers.xml",
+        "lib/netstandard2.0/MonoTorrent.dll",
+        "lib/netstandard2.0/MonoTorrent.xml",
+        "lib/netstandard2.1/MonoTorrent.BEncoding.dll",
+        "lib/netstandard2.1/MonoTorrent.BEncoding.xml",
+        "lib/netstandard2.1/MonoTorrent.Client.dll",
+        "lib/netstandard2.1/MonoTorrent.Client.xml",
+        "lib/netstandard2.1/MonoTorrent.Connections.dll",
+        "lib/netstandard2.1/MonoTorrent.Connections.xml",
+        "lib/netstandard2.1/MonoTorrent.Dht.dll",
+        "lib/netstandard2.1/MonoTorrent.Dht.xml",
+        "lib/netstandard2.1/MonoTorrent.Factories.dll",
+        "lib/netstandard2.1/MonoTorrent.Factories.xml",
+        "lib/netstandard2.1/MonoTorrent.Messages.dll",
+        "lib/netstandard2.1/MonoTorrent.Messages.xml",
+        "lib/netstandard2.1/MonoTorrent.PiecePicking.dll",
+        "lib/netstandard2.1/MonoTorrent.PiecePicking.xml",
+        "lib/netstandard2.1/MonoTorrent.PieceWriter.dll",
+        "lib/netstandard2.1/MonoTorrent.PieceWriter.xml",
+        "lib/netstandard2.1/MonoTorrent.PortForwarding.dll",
+        "lib/netstandard2.1/MonoTorrent.PortForwarding.xml",
+        "lib/netstandard2.1/MonoTorrent.Trackers.dll",
+        "lib/netstandard2.1/MonoTorrent.Trackers.xml",
+        "lib/netstandard2.1/MonoTorrent.dll",
+        "lib/netstandard2.1/MonoTorrent.xml",
+        "monotorrent.3.0.2.nupkg.sha512",
+        "monotorrent.nuspec"
+      ]
+    },
+    "ReusableTasks/4.0.0": {
+      "sha512": "6EKzscjq+Q+uxD0N5GWUBO2N34cuDiJ08ZxRs1lqS0Hwvnjp6AgimUIX/8dqIxRZbPOG4gcikTMo+PM4D9CfaQ==",
+      "type": "package",
+      "path": "reusabletasks/4.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.md",
+        "build/AsyncVoidMethodBuilder.cs",
+        "build/ReusableTasks.targets",
+        "lib/net5.0/ReusableTasks.dll",
+        "lib/net5.0/ReusableTasks.xml",
+        "lib/netcoreapp3.0/ReusableTasks.dll",
+        "lib/netcoreapp3.0/ReusableTasks.xml",
+        "lib/netstandard2.0/ReusableTasks.dll",
+        "lib/netstandard2.0/ReusableTasks.xml",
+        "lib/netstandard2.1/ReusableTasks.dll",
+        "lib/netstandard2.1/ReusableTasks.xml",
+        "reusabletasks.4.0.0.nupkg.sha512",
+        "reusabletasks.nuspec"
+      ]
+    },
+    "System.IO.Pipelines/10.0.0": {
+      "sha512": "M1eb3nfXntaRJPrrMVM9EFS8I1bDTnt0uvUS6QP/SicZf/ZZjydMD5NiXxfmwW/uQwaMDP/yX2P+zQN1NBHChg==",
+      "type": "package",
+      "path": "system.io.pipelines/10.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "PACKAGE.md",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net461/System.IO.Pipelines.targets",
+        "buildTransitive/net462/_._",
+        "buildTransitive/net8.0/_._",
+        "buildTransitive/netcoreapp2.0/System.IO.Pipelines.targets",
+        "lib/net10.0/System.IO.Pipelines.dll",
+        "lib/net10.0/System.IO.Pipelines.xml",
+        "lib/net462/System.IO.Pipelines.dll",
+        "lib/net462/System.IO.Pipelines.xml",
+        "lib/net8.0/System.IO.Pipelines.dll",
+        "lib/net8.0/System.IO.Pipelines.xml",
+        "lib/net9.0/System.IO.Pipelines.dll",
+        "lib/net9.0/System.IO.Pipelines.xml",
+        "lib/netstandard2.0/System.IO.Pipelines.dll",
+        "lib/netstandard2.0/System.IO.Pipelines.xml",
+        "system.io.pipelines.10.0.0.nupkg.sha512",
+        "system.io.pipelines.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "System.Text.Encodings.Web/10.0.0": {
+      "sha512": "257hh1ep1Gqm1Lm0ulxf7vVBVMJuGN6EL4xSWjpi46DffXzm1058IiWsfSC06zSm7SniN+Tb5160UnXsSa8rRg==",
+      "type": "package",
+      "path": "system.text.encodings.web/10.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "PACKAGE.md",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net461/System.Text.Encodings.Web.targets",
+        "buildTransitive/net462/_._",
+        "buildTransitive/net8.0/_._",
+        "buildTransitive/netcoreapp2.0/System.Text.Encodings.Web.targets",
+        "lib/net10.0/System.Text.Encodings.Web.dll",
+        "lib/net10.0/System.Text.Encodings.Web.xml",
+        "lib/net462/System.Text.Encodings.Web.dll",
+        "lib/net462/System.Text.Encodings.Web.xml",
+        "lib/net8.0/System.Text.Encodings.Web.dll",
+        "lib/net8.0/System.Text.Encodings.Web.xml",
+        "lib/net9.0/System.Text.Encodings.Web.dll",
+        "lib/net9.0/System.Text.Encodings.Web.xml",
+        "lib/netstandard2.0/System.Text.Encodings.Web.dll",
+        "lib/netstandard2.0/System.Text.Encodings.Web.xml",
+        "runtimes/browser/lib/net10.0/System.Text.Encodings.Web.dll",
+        "runtimes/browser/lib/net10.0/System.Text.Encodings.Web.xml",
+        "runtimes/browser/lib/net8.0/System.Text.Encodings.Web.dll",
+        "runtimes/browser/lib/net8.0/System.Text.Encodings.Web.xml",
+        "runtimes/wasi/lib/net10.0/System.Text.Encodings.Web.dll",
+        "runtimes/wasi/lib/net10.0/System.Text.Encodings.Web.xml",
+        "runtimes/win/lib/net9.0/System.Text.Encodings.Web.dll",
+        "runtimes/win/lib/net9.0/System.Text.Encodings.Web.xml",
+        "system.text.encodings.web.10.0.0.nupkg.sha512",
+        "system.text.encodings.web.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "System.Text.Json/10.0.0": {
+      "sha512": "1Dpjwq9peG/Wt5BNbrzIhTpclfOSqBWZsUO28vVr59yQlkvL5jLBWfpfzRmJ1OY+6DciaY0DUcltyzs4fuZHjw==",
+      "type": "package",
+      "path": "system.text.json/10.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "PACKAGE.md",
+        "THIRD-PARTY-NOTICES.TXT",
+        "analyzers/dotnet/roslyn3.11/cs/System.Text.Json.SourceGeneration.dll",
+        "analyzers/dotnet/roslyn3.11/cs/cs/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/de/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/es/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/fr/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/it/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/ja/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/ko/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/pl/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/pt-BR/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/ru/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/tr/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/zh-Hans/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/zh-Hant/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/System.Text.Json.SourceGeneration.dll",
+        "analyzers/dotnet/roslyn4.0/cs/cs/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/de/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/es/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/fr/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/it/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/ja/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/ko/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/pl/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/pt-BR/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/ru/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/tr/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/zh-Hans/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/zh-Hant/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/System.Text.Json.SourceGeneration.dll",
+        "analyzers/dotnet/roslyn4.4/cs/cs/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/de/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/es/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/fr/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/it/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/ja/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/ko/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/pl/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/pt-BR/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/ru/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/tr/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/zh-Hans/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/zh-Hant/System.Text.Json.SourceGeneration.resources.dll",
+        "buildTransitive/net461/System.Text.Json.targets",
+        "buildTransitive/net462/System.Text.Json.targets",
+        "buildTransitive/net8.0/System.Text.Json.targets",
+        "buildTransitive/netcoreapp2.0/System.Text.Json.targets",
+        "buildTransitive/netstandard2.0/System.Text.Json.targets",
+        "lib/net10.0/System.Text.Json.dll",
+        "lib/net10.0/System.Text.Json.xml",
+        "lib/net462/System.Text.Json.dll",
+        "lib/net462/System.Text.Json.xml",
+        "lib/net8.0/System.Text.Json.dll",
+        "lib/net8.0/System.Text.Json.xml",
+        "lib/net9.0/System.Text.Json.dll",
+        "lib/net9.0/System.Text.Json.xml",
+        "lib/netstandard2.0/System.Text.Json.dll",
+        "lib/netstandard2.0/System.Text.Json.xml",
+        "system.text.json.10.0.0.nupkg.sha512",
+        "system.text.json.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "Forest/1.0.0": {
+      "type": "project",
+      "path": "../Forest/Forest.csproj",
+      "msbuildProject": "../Forest/Forest.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net8.0-windows7.0": [
+      "Eto.Platform.Wpf >= 2.10.2",
+      "Forest >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "/home/coalyni/.nuget/packages/": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "/run/media/coalyni/Ommi/Forest/Forest/Forest.Wpf/Forest.Wpf.csproj",
+      "projectName": "Forest.Wpf",
+      "projectPath": "/run/media/coalyni/Ommi/Forest/Forest/Forest.Wpf/Forest.Wpf.csproj",
+      "packagesPath": "/home/coalyni/.nuget/packages/",
+      "outputPath": "/run/media/coalyni/Ommi/Forest/Forest/Forest.Wpf/obj/",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "/home/coalyni/.nuget/NuGet/NuGet.Config"
+      ],
+      "originalTargetFrameworks": [
+        "net8.0-windows"
+      ],
+      "sources": {
+        "/usr/lib64/dotnet/library-packs": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net8.0-windows7.0": {
+          "targetAlias": "net8.0-windows",
+          "projectReferences": {
+            "/run/media/coalyni/Ommi/Forest/Forest/Forest/Forest.csproj": {
+              "projectPath": "/run/media/coalyni/Ommi/Forest/Forest/Forest/Forest.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
+      },
+      "SdkAnalysisLevel": "9.0.100"
+    },
+    "frameworks": {
+      "net8.0-windows7.0": {
+        "targetAlias": "net8.0-windows",
+        "dependencies": {
+          "Eto.Platform.Wpf": {
+            "target": "Package",
+            "version": "[2.10.2, )"
+          }
+        },
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.NETCore.App.Host.linux-x64",
+            "version": "[8.0.22, 8.0.22]"
+          }
+        ],
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "/usr/lib64/dotnet/sdk/9.0.112/PortableRuntimeIdentifierGraph.json"
+      }
+    }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Extended.Wpf.Toolkit 3.6.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net8.0-windows7.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Extended.Wpf.Toolkit",
+      "targetGraphs": [
+        "net8.0-windows7.0"
+      ]
+    }
+  ]
+}

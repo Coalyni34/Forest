@@ -1,0 +1,24 @@
+{
+  "version": 2,
+  "dgSpecHash": "jlSnrhwzRQk=",
+  "success": true,
+  "projectFilePath": "/run/media/coalyni/Ommi/Forest/Forest/Forest.Mac/Forest.Mac.csproj",
+  "expectedPackageFiles": [
+    "/home/coalyni/.nuget/packages/eto.forms/2.10.2/eto.forms.2.10.2.nupkg.sha512",
+    "/home/coalyni/.nuget/packages/eto.platform.mac64/2.10.2/eto.platform.mac64.2.10.2.nupkg.sha512",
+    "/home/coalyni/.nuget/packages/mono.nat/3.0.0/mono.nat.3.0.0.nupkg.sha512",
+    "/home/coalyni/.nuget/packages/monotorrent/3.0.2/monotorrent.3.0.2.nupkg.sha512",
+    "/home/coalyni/.nuget/packages/reusabletasks/4.0.0/reusabletasks.4.0.0.nupkg.sha512",
+    "/home/coalyni/.nuget/packages/system.io.pipelines/10.0.0/system.io.pipelines.10.0.0.nupkg.sha512",
+    "/home/coalyni/.nuget/packages/system.text.encodings.web/10.0.0/system.text.encodings.web.10.0.0.nupkg.sha512",
+    "/home/coalyni/.nuget/packages/system.text.json/10.0.0/system.text.json.10.0.0.nupkg.sha512",
+    "/home/coalyni/.nuget/packages/microsoft.netcore.app.runtime.osx-x64/8.0.22/microsoft.netcore.app.runtime.osx-x64.8.0.22.nupkg.sha512",
+    "/home/coalyni/.nuget/packages/microsoft.netcore.app.runtime.osx-arm64/8.0.22/microsoft.netcore.app.runtime.osx-arm64.8.0.22.nupkg.sha512",
+    "/home/coalyni/.nuget/packages/microsoft.aspnetcore.app.runtime.osx-x64/8.0.22/microsoft.aspnetcore.app.runtime.osx-x64.8.0.22.nupkg.sha512",
+    "/home/coalyni/.nuget/packages/microsoft.aspnetcore.app.runtime.osx-arm64/8.0.22/microsoft.aspnetcore.app.runtime.osx-arm64.8.0.22.nupkg.sha512",
+    "/home/coalyni/.nuget/packages/microsoft.netcore.app.host.linux-x64/8.0.22/microsoft.netcore.app.host.linux-x64.8.0.22.nupkg.sha512",
+    "/home/coalyni/.nuget/packages/microsoft.netcore.app.host.osx-x64/8.0.22/microsoft.netcore.app.host.osx-x64.8.0.22.nupkg.sha512",
+    "/home/coalyni/.nuget/packages/microsoft.netcore.app.host.osx-arm64/8.0.22/microsoft.netcore.app.host.osx-arm64.8.0.22.nupkg.sha512"
+  ],
+  "logs": []
+}
