@@ -60,17 +60,41 @@ public class EncryptionService
         {
             try
             {
-                var dictionary = File.ReadAllLines(LocalDictionaryPath);                
-                var words = new List<string>();
-                for (short i = 0; i < WordsCount; i++)
+                if(File.Exists(LocalDictionaryPath))
                 {
-                    var rnd = new Random();
-                    var newIndex = rnd.Next(0, dictionary.Length - 1);
-                    words.Add(dictionary[newIndex]);
+                    var dictionary = File.ReadAllLines(LocalDictionaryPath);
+                    var words = new List<string>();
+                    for (short i = 0; i < WordsCount; i++)
+                    {
+                        var rnd = new Random();
+                        var newIndex = rnd.Next(0, dictionary.Length - 1);
+                        words.Add(dictionary[newIndex]);
+                    }
+                    var MnemonicPhrase = new MnemonicPhrase(words);
+                    var jsonPhrase = JsonSerializer.Serialize(MnemonicPhrase.MnemonicWords);
+                    if(!File.Exists(LocalMnemonicPhrasePath))
+                    {
+                        File.WriteAllText(LocalMnemonicPhrasePath, jsonPhrase);
+                    }                    
                 }
-                var MnemonicPhrase = new MnemonicPhrase(words);
-                var jsonPhrase = JsonSerializer.Serialize(MnemonicPhrase.MnemonicWords);
-                File.WriteAllText(LocalMnemonicPhrasePath, jsonPhrase);
+                else
+                {
+                    CreateMnemonicDictionary();
+                    var dictionary = File.ReadAllLines(LocalDictionaryPath);
+                    var words = new List<string>();
+                    for (short i = 0; i < WordsCount; i++)
+                    {
+                        var rnd = new Random();
+                        var newIndex = rnd.Next(0, dictionary.Length - 1);
+                        words.Add(dictionary[newIndex]);
+                    }
+                    var MnemonicPhrase = new MnemonicPhrase(words);
+                    var jsonPhrase = JsonSerializer.Serialize(MnemonicPhrase.MnemonicWords);
+                    if (!File.Exists(LocalMnemonicPhrasePath))
+                    {
+                        File.WriteAllText(LocalMnemonicPhrasePath, jsonPhrase);
+                    }
+                }
             }
             catch (Exception e)
             {
