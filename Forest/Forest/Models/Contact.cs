@@ -7,7 +7,10 @@ public class Contact
     public string PrivateId { set; get; }
     public string PublicId {set; get;}
     public bool isPublic { set; get; }
-    public Contact() { }
+    public Contact()
+    {
+        
+    }
     public Contact(string PublicId, string Name, bool isPublic, string Salt = "forest_messenger_v1")
     {
         this.Name = Name;
@@ -15,11 +18,7 @@ public class Contact
         this.PublicId = PublicId;
 
         PrivateId = IdGenerator.GenerateUserId(PublicId, Salt);
-    }
-    public bool Verify(string Salt = "forest_messenger_v1")
-    {
-        return IdGenerator.VerifyId(PrivateId, PublicId, Salt);
-    }
+    }    
     public static Contact Deserialize(string json)
     {
         try
