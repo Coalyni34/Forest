@@ -3,10 +3,6 @@ using System.IO;
 
 public class DirectoryService
 {
-    public class FileService
-    {
-        
-    }
     public class FolderService
     {
         private readonly static string MainFolderPath = "MainFolder";
@@ -25,6 +21,22 @@ public class DirectoryService
                             Directory.CreateDirectory(MainFolderPath + "/" + name);
                         }
                     }
+                    foreach(var name in MustHaveFoldersPath)
+                    {
+                        switch(name)
+                        {
+                            case "UserInfo":
+                                var mFolders = new string[] { "ContactInfo", "Security" };
+                                foreach(var f in mFolders)
+                                {
+                                    if(!Directory.Exists(f))
+                                    {
+                                        Directory.CreateDirectory($"{MainFolderPath}/{name}/{f}");
+                                    }
+                                }
+                                break;
+                        }
+                    }
                 }
                 else
                 {
@@ -33,6 +45,19 @@ public class DirectoryService
                         if (!Directory.Exists(name))
                         {
                             Directory.CreateDirectory(MainFolderPath + "/" + name);
+                            switch (name)
+                            {
+                                case "UserInfo":
+                                    var mFolders = new string[] { "ContactInfo", "Security" };
+                                    foreach (var f in mFolders)
+                                    {
+                                        if (!Directory.Exists(f))
+                                        {
+                                            Directory.CreateDirectory($"{MainFolderPath}/{name}/{f}");
+                                        }
+                                    }
+                                    break;
+                            }
                         }
                     }
                 }

@@ -1,6 +1,7 @@
 using Eto.Forms;
 using Eto.Drawing;
 using System.Collections.Generic;
+using System;
 
 namespace Forest
 {
@@ -9,11 +10,11 @@ namespace Forest
 		public MainForm()
 		{
 			Title = "Forest";
-			MinimumSize = new Size(500, 500);
-
-			
+			MinimumSize = new Size(500, 500);			
 
 			DirectoryService.FolderService.CreateAllFolders();
+
+			EncryptionService.PhrasesGenerator.CreateMnemonicPhraseFile();
 		}
 	}
 }

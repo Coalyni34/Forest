@@ -8,3 +8,4 @@
 /run/media/coalyni/Ommi/Forest/Forest/Forest/obj/Debug/netstandard2.0/Forest.csproj.CoreCompileInputs.cache
 /run/media/coalyni/Ommi/Forest/Forest/Forest/obj/Debug/netstandard2.0/Forest.dll
 /run/media/coalyni/Ommi/Forest/Forest/Forest/obj/Debug/netstandard2.0/Forest.pdb
+/run/media/coalyni/Ommi/Forest/Forest/Forest/obj/Debug/netstandard2.0/Forest.sourcelink.json
