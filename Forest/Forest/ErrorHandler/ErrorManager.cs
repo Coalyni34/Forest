@@ -7,6 +7,15 @@ public class ErrorManager
     public void LogError(string text)
     {
         var path = $"{Name}_{DateTime.Now}.txt";
-        File.WriteAllText(path, text);
+        if(!File.Exists(path))
+        {
+            File.WriteAllText(path, text);
+        }
+        else
+        {
+            var oldText = File.ReadAllText(path);
+            var newText = oldText + "\n" + text;
+            File.WriteAllText(path, newText);
+        }        
     }
 }
