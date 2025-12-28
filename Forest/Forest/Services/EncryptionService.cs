@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Runtime.InteropServices;
@@ -59,15 +60,16 @@ public class EncryptionService
         {
             try
             {
-                var dictionary = File.ReadAllLines(LocalDictionaryPath);
-                var MnemonicPhrase = new MnemonicPhrase();
+                var dictionary = File.ReadAllLines(LocalDictionaryPath);                
+                var words = new List<string>();
                 for (short i = 0; i < WordsCount; i++)
                 {
                     var rnd = new Random();
                     var newIndex = rnd.Next(0, dictionary.Length - 1);
-                    MnemonicPhrase.MnemonicWords.Add(dictionary[newIndex]);
+                    words.Add(dictionary[newIndex]);
                 }
-                var jsonPhrase = JsonSerializer.Serialize(MnemonicPhrase);
+                var MnemonicPhrase = new MnemonicPhrase(words);
+                var jsonPhrase = JsonSerializer.Serialize(MnemonicPhrase.MnemonicWords);
                 File.WriteAllText(LocalMnemonicPhrasePath, jsonPhrase);
             }
             catch (Exception e)
