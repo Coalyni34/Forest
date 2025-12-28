@@ -7,9 +7,11 @@ public class Contact
     public string PrivateId { set; get; }
     public string PublicId {set; get;}
     public bool isPublic { set; get; }
-    public Contact()
+    public Contact(string Name, bool isPublic)
     {
-        
+        this.Name = Name;
+        this.isPublic = isPublic;
+
     }
     public Contact(string PublicId, string Name, bool isPublic, string Salt = "forest_messenger_v1")
     {
