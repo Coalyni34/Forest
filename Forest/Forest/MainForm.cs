@@ -18,7 +18,6 @@ namespace Forest
 		{
 			DirectoryService.FolderService.CreateAllFolders();
 			EncryptionService.PhrasesGenerator.CreateMnemonicDictionary();
-			Console.WriteLine(EncryptionService.PhrasesGenerator.CreateSecureMnemonicPhraseString());
 		}
 	}
 }

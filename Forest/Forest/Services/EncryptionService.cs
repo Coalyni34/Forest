@@ -2,9 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
-using System.Runtime.InteropServices;
-using System.Text.Json;
-using System.Text.Json.Serialization;
 using System.Security.Cryptography;
 using System.Text;
 public class EncryptionService
@@ -24,7 +21,7 @@ public class EncryptionService
             try
             {
                 var folderName = "MainFolder/UserInfo/Security/Mnemonic/BaseDictionary";
-                if(!Directory.Exists(folderName))
+                if (!Directory.Exists(folderName))
                 {
                     Directory.CreateDirectory(folderName);
                     if (!File.Exists(LocalDictionaryPath))
@@ -33,7 +30,7 @@ public class EncryptionService
                         var dictionary = webClient.DownloadString(WebPath);
                         File.WriteAllText(LocalDictionaryPath, dictionary);
                     }
-                }               
+                }
                 else
                 {
                     if (!File.Exists(LocalDictionaryPath))
@@ -42,7 +39,7 @@ public class EncryptionService
                         var dictionary = webClient.DownloadString(WebPath);
                         File.WriteAllText(LocalDictionaryPath, dictionary);
                     }
-                } 
+                }
             }
             catch (Exception e)
             {
@@ -61,7 +58,7 @@ public class EncryptionService
 
                 for (short i = 0; i < WordsCount; i++)
                 {
-                    byte[] randomBytes = new byte[4]; 
+                    byte[] randomBytes = new byte[4];
                     rng.GetBytes(randomBytes);
 
                     uint randomNumber = BitConverter.ToUInt32(randomBytes, 0);
@@ -92,7 +89,7 @@ public class EncryptionService
 
             return (int)(random % (uint)length);
         }
-        public static string AddChecksum(string phrase)
+        public static string CreateChecksum(string phrase)
         {
             var sha256 = SHA256.Create();
             byte[] hash = sha256.ComputeHash(Encoding.UTF8.GetBytes(phrase));
@@ -101,7 +98,7 @@ public class EncryptionService
                 .Replace("-", "")
                 .ToLower();
 
-            return $"{phrase}-{checksum}";
-        }
+            return $"{checksum}";
+        }       
     }
 }
