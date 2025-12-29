@@ -10,11 +10,15 @@ namespace Forest
 		public MainForm()
 		{
 			Title = "Forest";
-			MinimumSize = new Size(500, 500);			
+			MinimumSize = new Size(500, 500);		
 
+			MainFormInitialization();
+		}
+		private void MainFormInitialization()
+		{
 			DirectoryService.FolderService.CreateAllFolders();
-
-			EncryptionService.PhrasesGenerator.CreateMnemonicPhraseFile();
+			EncryptionService.PhrasesGenerator.CreateMnemonicDictionary();
+			Console.WriteLine(EncryptionService.PhrasesGenerator.CreateSecureMnemonicPhraseString());
 		}
 	}
 }

@@ -5,15 +5,16 @@ using System.Net;
 using System.Runtime.InteropServices;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-
+using System.Security.Cryptography;
+using System.Text;
 public class EncryptionService
 {
     public class PhrasesGenerator
     {
         public static string WebPath = "https://people.sc.fsu.edu/~jburkardt/datasets/words/anagram_dictionary.txt";
-        public static string LocalDictionaryPath = "MainFolder/UserInfo/Security/mnemonicdictionary.txt";
-        public static string LocalMnemonicPhrasePath = "MainFolder/UserInfo/Security/mnemonicphrase.json";
-        public static short WordsCount = 32;
+        public static string LocalDictionaryPath = "MainFolder/UserInfo/Security/Mnemonic/BaseDictionary/mnemonicdictionary.txt";
+        public static string LocalBaseMnemonicPhrasePath = "MainFolder/UserInfo/Security/Mnemonic/";
+        public static short WordsCount = 24;
         public PhrasesGenerator()
         {
 
@@ -22,12 +23,26 @@ public class EncryptionService
         {
             try
             {
-                if (!File.Exists(LocalDictionaryPath))
+                var folderName = "MainFolder/UserInfo/Security/Mnemonic/BaseDictionary";
+                if(!Directory.Exists(folderName))
                 {
-                    var webClient = new WebClient();
-                    var dictionary = webClient.DownloadString(WebPath);
-                    File.WriteAllText(LocalDictionaryPath, dictionary);
-                }
+                    Directory.CreateDirectory(folderName);
+                    if (!File.Exists(LocalDictionaryPath))
+                    {
+                        var webClient = new WebClient();
+                        var dictionary = webClient.DownloadString(WebPath);
+                        File.WriteAllText(LocalDictionaryPath, dictionary);
+                    }
+                }               
+                else
+                {
+                    if (!File.Exists(LocalDictionaryPath))
+                    {
+                        var webClient = new WebClient();
+                        var dictionary = webClient.DownloadString(WebPath);
+                        File.WriteAllText(LocalDictionaryPath, dictionary);
+                    }
+                } 
             }
             catch (Exception e)
             {
@@ -35,19 +50,28 @@ public class EncryptionService
                 logger.LogError(e.ToString());
             }
         }
-        public static string CreateMnemonicPhraseString()
+        public static string CreateSecureMnemonicPhraseString()
         {
             try
             {
                 var dictionary = File.ReadAllLines(LocalDictionaryPath);
-                var words = string.Empty;
+                var words = new List<string>();
+
+                var rng = RandomNumberGenerator.Create();
+
                 for (short i = 0; i < WordsCount; i++)
                 {
-                    var rnd = new Random();
-                    var newIndex = rnd.Next(0, dictionary.Length - 1);
-                    words += dictionary[newIndex] + " ";
+                    byte[] randomBytes = new byte[4]; 
+                    rng.GetBytes(randomBytes);
+
+                    uint randomNumber = BitConverter.ToUInt32(randomBytes, 0);
+
+                    int index = GetUniformRandomIndex(randomNumber, dictionary.Length);
+
+                    words.Add(dictionary[index]);
                 }
-                return words.Trim();
+
+                return string.Join(" ", words);
             }
             catch (Exception e)
             {
@@ -56,51 +80,28 @@ public class EncryptionService
                 return null;
             }
         }
-        public static void CreateMnemonicPhraseFile()
+
+        private static int GetUniformRandomIndex(uint random, int length)
         {
-            try
+            uint maxAcceptable = uint.MaxValue - (uint.MaxValue % (uint)length);
+
+            while (random >= maxAcceptable)
             {
-                if(File.Exists(LocalDictionaryPath))
-                {
-                    var dictionary = File.ReadAllLines(LocalDictionaryPath);
-                    var words = new List<string>();
-                    for (short i = 0; i < WordsCount; i++)
-                    {
-                        var rnd = new Random();
-                        var newIndex = rnd.Next(0, dictionary.Length - 1);
-                        words.Add(dictionary[newIndex]);
-                    }
-                    var MnemonicPhrase = new MnemonicPhrase(words);
-                    var jsonPhrase = JsonSerializer.Serialize(MnemonicPhrase.MnemonicWords);
-                    if(!File.Exists(LocalMnemonicPhrasePath))
-                    {
-                        File.WriteAllText(LocalMnemonicPhrasePath, jsonPhrase);
-                    }                    
-                }
-                else
-                {
-                    CreateMnemonicDictionary();
-                    var dictionary = File.ReadAllLines(LocalDictionaryPath);
-                    var words = new List<string>();
-                    for (short i = 0; i < WordsCount; i++)
-                    {
-                        var rnd = new Random();
-                        var newIndex = rnd.Next(0, dictionary.Length - 1);
-                        words.Add(dictionary[newIndex]);
-                    }
-                    var MnemonicPhrase = new MnemonicPhrase(words);
-                    var jsonPhrase = JsonSerializer.Serialize(MnemonicPhrase.MnemonicWords);
-                    if (!File.Exists(LocalMnemonicPhrasePath))
-                    {
-                        File.WriteAllText(LocalMnemonicPhrasePath, jsonPhrase);
-                    }
-                }
+                random = random / 2 + 12345;
             }
-            catch (Exception e)
-            {
-                var logger = new ErrorManager();
-                logger.LogError(e.ToString());
-            }
+
+            return (int)(random % (uint)length);
+        }
+        public static string AddChecksum(string phrase)
+        {
+            var sha256 = SHA256.Create();
+            byte[] hash = sha256.ComputeHash(Encoding.UTF8.GetBytes(phrase));
+
+            string checksum = BitConverter.ToString(hash, 0, 2)
+                .Replace("-", "")
+                .ToLower();
+
+            return $"{phrase}-{checksum}";
         }
     }
 }
