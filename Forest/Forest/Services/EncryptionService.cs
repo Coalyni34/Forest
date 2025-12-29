@@ -52,20 +52,20 @@ public class EncryptionService
             try
             {
                 var dictionary = File.ReadAllLines(LocalDictionaryPath);
-                var words = new List<string>();
 
-                var rng = RandomNumberGenerator.Create();
+                var words = new List<string>(WordsCount); 
 
-                for (short i = 0; i < WordsCount; i++)
+                using (var rng = RandomNumberGenerator.Create())
                 {
-                    byte[] randomBytes = new byte[4];
-                    rng.GetBytes(randomBytes);
+                    byte[] randomBuffer = new byte[WordsCount * 4];
+                    rng.GetBytes(randomBuffer);
 
-                    uint randomNumber = BitConverter.ToUInt32(randomBytes, 0);
-
-                    int index = GetUniformRandomIndex(randomNumber, dictionary.Length);
-
-                    words.Add(dictionary[index]);
+                    for (int i = 0; i < WordsCount; i++)
+                    {
+                        uint randomNumber = BitConverter.ToUInt32(randomBuffer, i * 4);
+                        int index = (int)(randomNumber % (uint)dictionary.Length);
+                        words.Add(dictionary[index]);
+                    }
                 }
 
                 return string.Join(" ", words);
@@ -78,17 +78,6 @@ public class EncryptionService
             }
         }
 
-        private static int GetUniformRandomIndex(uint random, int length)
-        {
-            uint maxAcceptable = uint.MaxValue - (uint.MaxValue % (uint)length);
-
-            while (random >= maxAcceptable)
-            {
-                random = random / 2 + 12345;
-            }
-
-            return (int)(random % (uint)length);
-        }
         public static string CreateChecksum(string phrase)
         {
             var sha256 = SHA256.Create();
@@ -99,10 +88,10 @@ public class EncryptionService
                 .ToLower();
 
             return $"{checksum}";
-        }       
+        }
         public static bool CheckUpCheckSum(string phrase, string checksum)
         {
-            if(CreateChecksum(phrase) == checksum)
+            if (CreateChecksum(phrase) == checksum)
             {
                 return true;
             }
