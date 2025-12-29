@@ -50,7 +50,13 @@ public class ContactService
             byte[] randomBytes = new byte[32]; 
             var rng = RandomNumberGenerator.Create();
             rng.GetBytes(randomBytes);
-            return randomBytes.ToString().ToLower();
+            
+            var Id = string.Empty;
+            foreach(var b in randomBytes)
+            {
+                Id += b.ToString();
+            }
+            return Id;
         }
 
         private static string GenerateDeterministicPublicId(string seed, string salt)
@@ -61,7 +67,7 @@ public class ContactService
     public class ContactWriter
     {
         public readonly static string ContactsPath = "MainFolder/Contacts";
-        public static void WriteContact(dynamic contact)
+        public static void WriteContact(Contact contact)
         {
             var contactFolderPath = $"{ContactsPath}/{contact.Name}";
             var contactJsonPath = $"{contactFolderPath}/{contact.Name}.json";
