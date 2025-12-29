@@ -100,5 +100,16 @@ public class EncryptionService
 
             return $"{checksum}";
         }       
+        public static bool CheckUpCheckSum(string phrase, string checksum)
+        {
+            if(CreateChecksum(phrase) == checksum)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }
