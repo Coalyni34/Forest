@@ -11,5 +11,12 @@ public class Contact
         this.PrivateId = PrivateId;
         this.PublicId = PublicId;
     }
-    public Contact() { }
+    public Contact(string Name, bool isPublic, string PublicId)
+    {
+        
+    }
+    public Contact()
+    {
+        
+    }
 }

@@ -4,6 +4,7 @@ using System.IO;
 using System.Net;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.Json;
 public class EncryptionService
 {
     public class PhrasesGenerator
@@ -45,6 +46,28 @@ public class EncryptionService
             {
                 var logger = new ErrorManager();
                 logger.LogError(e.ToString());
+            }
+        }
+        public static void WriteSecureMnemonicPhraseString(string folderName, string fileName)
+        {
+            var phrase = CreateSecureMnemonicPhraseString().Split(' ');
+            var basefolderpath = "MainFolder/UserInfo/Security/Mnemonic/";
+            if(!Directory.Exists(basefolderpath + folderName))
+            {
+                Directory.CreateDirectory(basefolderpath + folderName);
+                if(!File.Exists(basefolderpath + folderName + "/" + fileName))
+                {
+                    var json = JsonSerializer.Serialize(phrase);
+                    File.WriteAllText(basefolderpath + folderName + "/" + fileName, json);
+                }
+            }
+            else
+            {
+                if(!File.Exists(basefolderpath + folderName + "/" + fileName))
+                {
+                    var json = JsonSerializer.Serialize(phrase);
+                    File.WriteAllText(basefolderpath + folderName + "/" + fileName, json);
+                }
             }
         }
         public static string CreateSecureMnemonicPhraseString()
