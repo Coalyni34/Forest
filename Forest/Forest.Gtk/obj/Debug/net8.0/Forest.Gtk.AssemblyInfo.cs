@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Forest.Gtk")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a49234ffe231f90f732e63fdec502cbe84d250aa")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1785c76a7b7364b374f46bd73732177e1c044c1e")]
 [assembly: System.Reflection.AssemblyProductAttribute("Forest.Gtk")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Forest.Gtk")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

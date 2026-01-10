@@ -13,7 +13,9 @@ public class Contact
     }
     public Contact(string Name, bool isPublic, string PublicId)
     {
-        
+        this.Name = Name;
+        this.isPublic = isPublic;
+        this.PublicId = PublicId;
     }
     public Contact()
     {

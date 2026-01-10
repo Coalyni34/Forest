@@ -6,7 +6,7 @@ public class DirectoryService
     public class FolderService
     {
         private readonly static string MainFolderPath = "MainFolder";
-        private readonly static string[] MustHaveFoldersPath = { "UserInfo", "Contacts", "Settings", "Translations" };
+        private readonly static string[] MustHaveFoldersPath = { "UserInfo", "Contacts", "Settings", "Translations", "Chats" };
         public static void CreateAllFolders()
         {
             try
