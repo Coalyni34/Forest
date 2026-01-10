@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "atfP8Z5MSNA=",
+  "dgSpecHash": "qwo9/qKMOao=",
   "success": true,
-  "projectFilePath": "/run/media/coalyni/Ommi/Forest/Forest/Forest.Gtk/Forest.Gtk.csproj",
+  "projectFilePath": "/run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest.Gtk/Forest.Gtk.csproj",
   "expectedPackageFiles": [
     "/home/coalyni/.nuget/packages/atksharp/3.24.24.95/atksharp.3.24.24.95.nupkg.sha512",
     "/home/coalyni/.nuget/packages/cairosharp/3.24.24.95/cairosharp.3.24.24.95.nupkg.sha512",

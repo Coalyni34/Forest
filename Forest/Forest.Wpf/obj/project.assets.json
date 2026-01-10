@@ -749,11 +749,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/run/media/coalyni/Ommi/Forest/Forest/Forest.Wpf/Forest.Wpf.csproj",
+      "projectUniqueName": "/run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest.Wpf/Forest.Wpf.csproj",
       "projectName": "Forest.Wpf",
-      "projectPath": "/run/media/coalyni/Ommi/Forest/Forest/Forest.Wpf/Forest.Wpf.csproj",
+      "projectPath": "/run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest.Wpf/Forest.Wpf.csproj",
       "packagesPath": "/home/coalyni/.nuget/packages/",
-      "outputPath": "/run/media/coalyni/Ommi/Forest/Forest/Forest.Wpf/obj/",
+      "outputPath": "/run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest.Wpf/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/coalyni/.nuget/NuGet/NuGet.Config"
@@ -769,8 +769,8 @@
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "projectReferences": {
-            "/run/media/coalyni/Ommi/Forest/Forest/Forest/Forest.csproj": {
-              "projectPath": "/run/media/coalyni/Ommi/Forest/Forest/Forest/Forest.csproj"
+            "/run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest/Forest.csproj": {
+              "projectPath": "/run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest/Forest.csproj"
             }
           }
         }

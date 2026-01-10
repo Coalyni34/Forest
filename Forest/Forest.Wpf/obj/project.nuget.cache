@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "8UmceAeIGCY=",
+  "dgSpecHash": "IBUc6N+lfgY=",
   "success": true,
-  "projectFilePath": "/run/media/coalyni/Ommi/Forest/Forest/Forest.Wpf/Forest.Wpf.csproj",
+  "projectFilePath": "/run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest.Wpf/Forest.Wpf.csproj",
   "expectedPackageFiles": [
     "/home/coalyni/.nuget/packages/eto.forms/2.10.2/eto.forms.2.10.2.nupkg.sha512",
     "/home/coalyni/.nuget/packages/eto.platform.wpf/2.10.2/eto.platform.wpf.2.10.2.nupkg.sha512",

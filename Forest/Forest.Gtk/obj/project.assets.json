@@ -769,11 +769,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/run/media/coalyni/Ommi/Forest/Forest/Forest.Gtk/Forest.Gtk.csproj",
+      "projectUniqueName": "/run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest.Gtk/Forest.Gtk.csproj",
       "projectName": "Forest.Gtk",
-      "projectPath": "/run/media/coalyni/Ommi/Forest/Forest/Forest.Gtk/Forest.Gtk.csproj",
+      "projectPath": "/run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest.Gtk/Forest.Gtk.csproj",
       "packagesPath": "/home/coalyni/.nuget/packages/",
-      "outputPath": "/run/media/coalyni/Ommi/Forest/Forest/Forest.Gtk/obj/",
+      "outputPath": "/run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest.Gtk/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/coalyni/.nuget/NuGet/NuGet.Config"
@@ -789,8 +789,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "/run/media/coalyni/Ommi/Forest/Forest/Forest/Forest.csproj": {
-              "projectPath": "/run/media/coalyni/Ommi/Forest/Forest/Forest/Forest.csproj"
+            "/run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest/Forest.csproj": {
+              "projectPath": "/run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest/Forest.csproj"
             }
           }
         }

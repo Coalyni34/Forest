@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/run/media/coalyni/Ommi/Forest/Forest/Forest/Forest.csproj": {}
+    "/run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest/Forest.csproj": {}
   },
   "projects": {
-    "/run/media/coalyni/Ommi/Forest/Forest/Forest/Forest.csproj": {
+    "/run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest/Forest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/run/media/coalyni/Ommi/Forest/Forest/Forest/Forest.csproj",
+        "projectUniqueName": "/run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest/Forest.csproj",
         "projectName": "Forest",
-        "projectPath": "/run/media/coalyni/Ommi/Forest/Forest/Forest/Forest.csproj",
+        "projectPath": "/run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest/Forest.csproj",
         "packagesPath": "/home/coalyni/.nuget/packages/",
-        "outputPath": "/run/media/coalyni/Ommi/Forest/Forest/Forest/obj/",
+        "outputPath": "/run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/coalyni/.nuget/NuGet/NuGet.Config"

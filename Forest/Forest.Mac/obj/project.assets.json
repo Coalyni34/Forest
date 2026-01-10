@@ -1026,11 +1026,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/run/media/coalyni/Ommi/Forest/Forest/Forest.Mac/Forest.Mac.csproj",
+      "projectUniqueName": "/run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest.Mac/Forest.Mac.csproj",
       "projectName": "Forest.Mac",
-      "projectPath": "/run/media/coalyni/Ommi/Forest/Forest/Forest.Mac/Forest.Mac.csproj",
+      "projectPath": "/run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest.Mac/Forest.Mac.csproj",
       "packagesPath": "/home/coalyni/.nuget/packages/",
-      "outputPath": "/run/media/coalyni/Ommi/Forest/Forest/Forest.Mac/obj/",
+      "outputPath": "/run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest.Mac/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/coalyni/.nuget/NuGet/NuGet.Config"
@@ -1046,8 +1046,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "/run/media/coalyni/Ommi/Forest/Forest/Forest/Forest.csproj": {
-              "projectPath": "/run/media/coalyni/Ommi/Forest/Forest/Forest/Forest.csproj"
+            "/run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest/Forest.csproj": {
+              "projectPath": "/run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest/Forest.csproj"
             }
           }
         }
