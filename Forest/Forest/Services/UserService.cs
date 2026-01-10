@@ -7,12 +7,12 @@ public class UserService
     private readonly static string UserInfoPath = "MainFolder/UserInfo/ContactInfo/";
     public static class UserCreator
     {
-        public static void WriteUserInfo(string path, Contact user)
+        public static void WriteUserInfo(Contact user)
         {
             var json = ContactService.ContactSerializer.SerializeContact(user);
             if(!File.Exists($"{user.PublicId}.json"))
             {
-                File.WriteAllText(path, json);
+                File.WriteAllText(UserInfoPath, json);
             }
         }
         public static Contact CreateUserInfo(string name, bool isPublic)

@@ -9,4 +9,6 @@ public class Message
     public string MagnetLink { get; set; } = string.Empty;
     public DateTime SentAt { get; set; } = DateTime.Now;
     public bool IsDownloaded { get; set; } = false;
+    public MessageType messageType { get; set; }
+    public string MediaSourcePath { get; set; } = string.Empty;
 }

@@ -1,5 +1,7 @@
 using Eto.Forms;
 using Eto.Drawing;
+using System.Threading.Tasks;
+using System;
 
 namespace Forest
 {
@@ -10,9 +12,15 @@ namespace Forest
 			Title = "Forest";
 			MinimumSize = new Size(500, 500);		
 
-			MainFormInitialization();
+		    Load += MainForm_Load;
 		}
-		private void MainFormInitialization()
+
+        private async void MainForm_Load(object sender, EventArgs e)
+        {
+            await MainFormInitialization();
+        }
+
+        private async Task MainFormInitialization()
 		{
 			DirectoryService.FolderService.CreateAllFolders();
 			EncryptionService.PhrasesGenerator.CreateMnemonicDictionary();
