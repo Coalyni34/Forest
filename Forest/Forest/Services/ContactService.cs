@@ -37,8 +37,8 @@ public class ContactService
         private readonly static string ContactsPath = "MainFolder/Contacts";
         public static void WriteContact(Contact contact)
         {
-            var contactFolderPath = $"{ContactsPath}/{contact.Name}";
-            var contactJsonPath = $"{contactFolderPath}/{contact.Name}.json";
+            var contactFolderPath = $"{ContactsPath}/{contact.PublicId}";
+            var contactJsonPath = $"{contactFolderPath}/{contact.PublicId}.json";
             //var contactTorrentPath = $"{contactFolderPath}/{contact.Name}.torrent"; Soon
             if(!Directory.Exists(contactFolderPath))
             {

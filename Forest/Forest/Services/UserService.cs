@@ -10,7 +10,7 @@ public class UserService
         public static void WriteUserInfo(string path, Contact user)
         {
             var json = ContactService.ContactSerializer.SerializeContact(user);
-            if(File.Exists("userinfo.json"))
+            if(!File.Exists($"{user.PublicId}.json"))
             {
                 File.WriteAllText(path, json);
             }
