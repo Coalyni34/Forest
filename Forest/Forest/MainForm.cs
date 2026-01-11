@@ -10,9 +10,40 @@ namespace Forest
 		public MainForm()
 		{
 			Title = "Forest";
-			MinimumSize = new Size(500, 500);		
+			MinimumSize = new Size(700, 600);		
+			Padding = new Padding(0);
+			
+			var leftPanel = new Panel();
+			var middlePanel = new Panel();
+			var mainPanel = new Panel();
 
-		    Load += MainForm_Load;
+			leftPanel.BackgroundColor = Color.FromArgb(40, 40, 40);
+			leftPanel.MinimumSize = new Size(70, 0);
+			leftPanel.Tag = "leftPanel";
+
+			middlePanel.BackgroundColor = Color.FromArgb(50, 50, 50);
+			middlePanel.MinimumSize = new Size(300, 0);
+			middlePanel.Tag = "middlePanel";
+
+			mainPanel.BackgroundColor = Color.FromArgb(30, 30, 30);
+			mainPanel.Tag = "mainPanel";
+
+			var mainLayout = new TableLayout
+			{
+				Spacing = new Size(0, 0),
+				Padding = new Padding(0)				
+			};
+
+			mainLayout.Rows.Add(new TableRow(
+				leftPanel,
+				middlePanel,
+				mainPanel
+			));
+
+
+			Content = mainLayout;
+
+		    Load += MainForm_Load;		
 		}
 
         private async void MainForm_Load(object sender, EventArgs e)
@@ -21,9 +52,14 @@ namespace Forest
         }
 
         private async Task MainFormInitialization()
-		{
-			DirectoryService.FolderService.CreateAllFolders();
-			EncryptionService.PhrasesGenerator.CreateMnemonicDictionary();
-		}
-	}
+        {
+            FileInitialization();
+        }
+
+        private static void FileInitialization()
+        {
+            DirectoryService.FolderService.CreateAllFolders();
+            EncryptionService.PhrasesGenerator.CreateMnemonicDictionary();
+        }		
+    }
 }
