@@ -18,21 +18,7 @@ public class UserService
         public static Contact CreateUserInfo(string name, bool isPublic)
         {
             string publicId = GenerateDeterministicPublicId(name, DateTime.UtcNow.Ticks.ToString());
-            string privateId = GenerateRandomPrivateId();
-            return new Contact(name, isPublic, publicId, privateId);
-        }
-        private static string GenerateRandomPrivateId()
-        {
-            byte[] randomBytes = new byte[32]; 
-            var rng = RandomNumberGenerator.Create();
-            rng.GetBytes(randomBytes);
-            
-            var Id = string.Empty;
-            foreach(var b in randomBytes)
-            {
-                Id += b.ToString();
-            }
-            return Id;
+            return new Contact(name, isPublic, publicId);
         }
 
         private static string GenerateDeterministicPublicId(string seed, string salt)

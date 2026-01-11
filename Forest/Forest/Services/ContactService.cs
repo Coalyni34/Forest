@@ -5,24 +5,18 @@ using System.Text.Json;
 public class ContactService
 {
     public class ContactSerializer
-    {
-        private class ContactDataObject
-        {
-            public string PublicId { get; set; }
-            public string Name { get; set; }
-            public bool IsPublic { get; set; }
-        }
+    {       
         public static string SerializeContact(Contact contact)
         {
-            var publicContact = new { contact.PublicId, contact.Name, contact.isPublic };
-            return JsonSerializer.Serialize(publicContact);
+            var newContact = new { contact.PublicId, contact.Name, contact.isPublic };
+            return JsonSerializer.Serialize(newContact);
         }
         public static Contact DeserializeContact(string json)
         {
             try
             {
-                var data = JsonSerializer.Deserialize<ContactDataObject>(json);
-                return new Contact(data.Name, data.IsPublic, data.PublicId);
+                var data = JsonSerializer.Deserialize<Contact>(json);
+                return new Contact(data.Name, data.isPublic, data.PublicId);
             }
             catch(Exception e)
             {

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 public class Message
 {
@@ -10,5 +11,5 @@ public class Message
     public DateTime SentAt { get; set; } = DateTime.Now;
     public bool IsDownloaded { get; set; } = false;
     public MessageType messageType { get; set; }
-    public string MediaSourcePath { get; set; } = string.Empty;
+    public List<string> MediaSourcePath { get; set; } = new List<string>();
 }
