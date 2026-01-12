@@ -2,6 +2,8 @@ using Eto.Forms;
 using Eto.Drawing;
 using System.Threading.Tasks;
 using System;
+using System.IO;
+using System.Text.Json;
 
 namespace Forest
 {
@@ -60,6 +62,8 @@ namespace Forest
         {
             DirectoryService.FolderService.CreateAllFolders();
             EncryptionService.PhrasesGenerator.CreateMnemonicDictionary();
+			var UserInfo = UserService.UserCreator.CreateUser("CoalyNi", true, "12345678");
+			File.WriteAllText(UserService.UserInfoPath + "info.json", JsonSerializer.Serialize(UserInfo.contact));
         }		
     }
 }

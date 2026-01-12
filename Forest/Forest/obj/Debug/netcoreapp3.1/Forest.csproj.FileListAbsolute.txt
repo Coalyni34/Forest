@@ -1,0 +1,11 @@
+/run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest/bin/Debug/netcoreapp3.1/Forest.deps.json
+/run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest/bin/Debug/netcoreapp3.1/Forest.dll
+/run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest/bin/Debug/netcoreapp3.1/Forest.pdb
+/run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest/obj/Debug/netcoreapp3.1/Forest.csproj.AssemblyReference.cache
+/run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest/obj/Debug/netcoreapp3.1/Forest.GeneratedMSBuildEditorConfig.editorconfig
+/run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest/obj/Debug/netcoreapp3.1/Forest.AssemblyInfoInputs.cache
+/run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest/obj/Debug/netcoreapp3.1/Forest.AssemblyInfo.cs
+/run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest/obj/Debug/netcoreapp3.1/Forest.csproj.CoreCompileInputs.cache
+/run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest/obj/Debug/netcoreapp3.1/Forest.sourcelink.json
+/run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest/obj/Debug/netcoreapp3.1/Forest.dll
+/run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest/obj/Debug/netcoreapp3.1/Forest.pdb

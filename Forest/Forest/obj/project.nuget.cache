@@ -1,27 +1,18 @@
 {
   "version": 2,
-  "dgSpecHash": "8uZTacFmMbs=",
+  "dgSpecHash": "Tft24qWxp8U=",
   "success": true,
   "projectFilePath": "/run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest/Forest.csproj",
   "expectedPackageFiles": [
     "/home/coalyni/.nuget/packages/chaos.nacl.standard/1.0.0/chaos.nacl.standard.1.0.0.nupkg.sha512",
     "/home/coalyni/.nuget/packages/eto.forms/2.10.2/eto.forms.2.10.2.nupkg.sha512",
-    "/home/coalyni/.nuget/packages/microsoft.bcl.asyncinterfaces/10.0.0/microsoft.bcl.asyncinterfaces.10.0.0.nupkg.sha512",
-    "/home/coalyni/.nuget/packages/microsoft.netcore.platforms/1.1.0/microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "/home/coalyni/.nuget/packages/mono.nat/3.0.0/mono.nat.3.0.0.nupkg.sha512",
     "/home/coalyni/.nuget/packages/monotorrent/3.0.2/monotorrent.3.0.2.nupkg.sha512",
-    "/home/coalyni/.nuget/packages/netstandard.library/2.0.3/netstandard.library.2.0.3.nupkg.sha512",
     "/home/coalyni/.nuget/packages/reusabletasks/4.0.0/reusabletasks.4.0.0.nupkg.sha512",
     "/home/coalyni/.nuget/packages/standardsocketshttphandler/2.2.0.4/standardsocketshttphandler.2.2.0.4.nupkg.sha512",
-    "/home/coalyni/.nuget/packages/system.buffers/4.6.1/system.buffers.4.6.1.nupkg.sha512",
     "/home/coalyni/.nuget/packages/system.componentmodel.annotations/5.0.0/system.componentmodel.annotations.5.0.0.nupkg.sha512",
-    "/home/coalyni/.nuget/packages/system.io.pipelines/10.0.0/system.io.pipelines.10.0.0.nupkg.sha512",
-    "/home/coalyni/.nuget/packages/system.memory/4.6.3/system.memory.4.6.3.nupkg.sha512",
-    "/home/coalyni/.nuget/packages/system.numerics.vectors/4.6.1/system.numerics.vectors.4.6.1.nupkg.sha512",
-    "/home/coalyni/.nuget/packages/system.runtime.compilerservices.unsafe/6.1.2/system.runtime.compilerservices.unsafe.6.1.2.nupkg.sha512",
-    "/home/coalyni/.nuget/packages/system.text.encodings.web/10.0.0/system.text.encodings.web.10.0.0.nupkg.sha512",
-    "/home/coalyni/.nuget/packages/system.text.json/10.0.0/system.text.json.10.0.0.nupkg.sha512",
-    "/home/coalyni/.nuget/packages/system.threading.tasks.extensions/4.6.3/system.threading.tasks.extensions.4.6.3.nupkg.sha512"
+    "/home/coalyni/.nuget/packages/microsoft.netcore.app.ref/3.1.0/microsoft.netcore.app.ref.3.1.0.nupkg.sha512",
+    "/home/coalyni/.nuget/packages/microsoft.aspnetcore.app.ref/3.1.10/microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512"
   ],
   "logs": []
 }

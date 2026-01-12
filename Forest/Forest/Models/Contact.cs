@@ -1,13 +1,16 @@
 public class Contact
 {
     public string Name { set; get; }
-    public string PublicId {set; get;}
-    public bool isPublic { set; get; }
     public string Avatar { set; get; }
-    public Contact(string Name, bool isPublic, string PublicId, string Avatar = null)
+    public string PublicId { set; get;}
+    public string PublicKey { set; get; }
+    public string EncryptionKey { set; get; }
+    public bool IsPublic { set; get; }   
+    
+    public Contact(string Name, bool IsPublic, string PublicId, string Avatar = "")
     {
         this.Name = Name;
-        this.isPublic = isPublic;
+        this.IsPublic = IsPublic;
         this.PublicId = PublicId;
         this.Avatar = Avatar;
     }

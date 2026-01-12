@@ -70,10 +70,6 @@
 /run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest.Gtk/bin/Debug/net8.0/MonoTorrent.dll
 /run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest.Gtk/bin/Debug/net8.0/PangoSharp.dll
 /run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest.Gtk/bin/Debug/net8.0/ReusableTasks.dll
-/run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest.Gtk/bin/Debug/net8.0/System.IO.Pipelines.dll
-/run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest.Gtk/bin/Debug/net8.0/System.Text.Encodings.Web.dll
-/run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest.Gtk/bin/Debug/net8.0/System.Text.Json.dll
-/run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest.Gtk/bin/Debug/net8.0/runtimes/browser/lib/net8.0/System.Text.Encodings.Web.dll
 /run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest.Gtk/bin/Debug/net8.0/Forest.dll
 /run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest.Gtk/bin/Debug/net8.0/Forest.pdb
 /run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest.Gtk/obj/Debug/net8.0/Forest.Gtk.csproj.AssemblyReference.cache

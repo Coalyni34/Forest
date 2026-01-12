@@ -14,8 +14,7 @@ public class ContactService
         {
             try
             {
-                var data = JsonSerializer.Deserialize<Contact>(json);
-                return new Contact(data.Name, data.isPublic, data.PublicId);
+                return JsonSerializer.Deserialize<Contact>(json);
             }
             catch(Exception e)
             {
@@ -37,8 +36,7 @@ public class ContactService
                 Directory.CreateDirectory(contactFolderPath);
                 if(!File.Exists(contactJsonPath))
                 {
-                    var jsonContact = JsonSerializer.Serialize(contact);
-                    File.WriteAllText(contactJsonPath, jsonContact);
+                    File.WriteAllText(contactJsonPath, JsonSerializer.Serialize(contact));
                 }
             }
         }
