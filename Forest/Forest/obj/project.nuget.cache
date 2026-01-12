@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "UbjA3Sh51Dk=",
+  "dgSpecHash": "8uZTacFmMbs=",
   "success": true,
   "projectFilePath": "/run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest/Forest.csproj",
   "expectedPackageFiles": [
+    "/home/coalyni/.nuget/packages/chaos.nacl.standard/1.0.0/chaos.nacl.standard.1.0.0.nupkg.sha512",
     "/home/coalyni/.nuget/packages/eto.forms/2.10.2/eto.forms.2.10.2.nupkg.sha512",
     "/home/coalyni/.nuget/packages/microsoft.bcl.asyncinterfaces/10.0.0/microsoft.bcl.asyncinterfaces.10.0.0.nupkg.sha512",
     "/home/coalyni/.nuget/packages/microsoft.netcore.platforms/1.1.0/microsoft.netcore.platforms.1.1.0.nupkg.sha512",

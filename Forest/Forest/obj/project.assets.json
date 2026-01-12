@@ -2,6 +2,15 @@
   "version": 3,
   "targets": {
     ".NETStandard,Version=v2.0": {
+      "Chaos.NaCl.Standard/1.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Chaos.NaCl.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Chaos.NaCl.dll": {}
+        }
+      },
       "Eto.Forms/2.10.2": {
         "type": "package",
         "dependencies": {
@@ -332,6 +341,18 @@
     }
   },
   "libraries": {
+    "Chaos.NaCl.Standard/1.0.0": {
+      "sha512": "8ajPyzu49LSIdPgeg56eDdKu1j8FZJngKgTn9rXHV3GNVly49XFvPAwoWuUT8xPze3OjVUOWQZaO82HWrYFFEw==",
+      "type": "package",
+      "path": "chaos.nacl.standard/1.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "chaos.nacl.standard.1.0.0.nupkg.sha512",
+        "chaos.nacl.standard.nuspec",
+        "lib/netstandard2.0/Chaos.NaCl.dll"
+      ]
+    },
     "Eto.Forms/2.10.2": {
       "sha512": "SFm7hgqhAnQ3sa3ohWedQT96wzLfScH3r1uopcLq2kBgGrP4yVd28D2/rWKSpb5hUmBRsm864UNkxjKSZzND8w==",
       "type": "package",
@@ -1055,6 +1076,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
+      "Chaos.NaCl.Standard >= 1.0.0",
       "Eto.Forms >= 2.10.2",
       "MonoTorrent >= 3.0.2",
       "NETStandard.Library >= 2.0.3",
@@ -1105,6 +1127,10 @@
       "netstandard2.0": {
         "targetAlias": "netstandard2.0",
         "dependencies": {
+          "Chaos.NaCl.Standard": {
+            "target": "Package",
+            "version": "[1.0.0, )"
+          },
           "Eto.Forms": {
             "target": "Package",
             "version": "[2.10.2, )"

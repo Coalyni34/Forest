@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "IBUc6N+lfgY=",
+  "dgSpecHash": "6dKxVJVlyic=",
   "success": true,
   "projectFilePath": "/run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest.Wpf/Forest.Wpf.csproj",
   "expectedPackageFiles": [
+    "/home/coalyni/.nuget/packages/chaos.nacl.standard/1.0.0/chaos.nacl.standard.1.0.0.nupkg.sha512",
     "/home/coalyni/.nuget/packages/eto.forms/2.10.2/eto.forms.2.10.2.nupkg.sha512",
     "/home/coalyni/.nuget/packages/eto.platform.wpf/2.10.2/eto.platform.wpf.2.10.2.nupkg.sha512",
     "/home/coalyni/.nuget/packages/extended.wpf.toolkit/3.6.0/extended.wpf.toolkit.3.6.0.nupkg.sha512",

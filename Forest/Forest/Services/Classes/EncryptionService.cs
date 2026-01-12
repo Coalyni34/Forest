@@ -6,7 +6,29 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json;
 public class EncryptionService
-{
+{  
+    public class CryptoIdentityService
+    {
+        public class KeyPair
+        {
+            public byte[] PublicKey { get; set; } = new byte[32];
+            public byte[] PrivateKey { get; set; } = new byte[64];
+
+            public byte[] EncryptionPrivateKey { get; set; } = new byte[32];
+            public byte[] EncryptionPublicKey { get; set; } = new byte[32];
+
+            public string MnemonicPhrase { get; set; }
+            public DateTime GenerateAt { get; set; } = DateTime.UtcNow;
+
+            public string PublicKeyBase64 => Convert.ToBase64String(PublicKey);
+            public string EncryptionPublicKeyBase64 => Convert.ToBase64String(EncryptionPublicKey);
+        }
+        
+        public static KeyPair GenerateNewkeyPair()
+        {
+            return null;
+        }
+    }
     public class PhrasesGenerator
     {
         public static string WebPath = "https://people.sc.fsu.edu/~jburkardt/datasets/words/anagram_dictionary.txt";

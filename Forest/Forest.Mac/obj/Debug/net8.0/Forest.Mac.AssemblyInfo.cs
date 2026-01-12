@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Forest.Mac")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c5f1f30ea9f1308d8822254f174b8db74d6348b3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b9f4c839d8883fccbe7fef0d44ebf11de674236d")]
 [assembly: System.Reflection.AssemblyProductAttribute("Forest.Mac")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Forest.Mac")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -88,3 +88,4 @@
 /run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest.Gtk/obj/Debug/net8.0/Forest.Gtk.pdb
 /run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest.Gtk/obj/Debug/net8.0/Forest.Gtk.genruntimeconfig.cache
 /run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest.Gtk/obj/Debug/net8.0/ref/Forest.Gtk.dll
+/run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest.Gtk/bin/Debug/net8.0/Chaos.NaCl.dll

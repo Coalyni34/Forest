@@ -9,6 +9,7 @@
     ".NETStandard,Version=v2.0/": {
       "Forest/1.0.0": {
         "dependencies": {
+          "Chaos.NaCl.Standard": "1.0.0",
           "Eto.Forms": "2.10.2",
           "MonoTorrent": "3.0.2",
           "NETStandard.Library": "2.0.3",
@@ -16,6 +17,14 @@
         },
         "runtime": {
           "Forest.dll": {}
+        }
+      },
+      "Chaos.NaCl.Standard/1.0.0": {
+        "runtime": {
+          "lib/netstandard2.0/Chaos.NaCl.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "Eto.Forms/2.10.2": {
@@ -236,6 +245,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "Chaos.NaCl.Standard/1.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-8ajPyzu49LSIdPgeg56eDdKu1j8FZJngKgTn9rXHV3GNVly49XFvPAwoWuUT8xPze3OjVUOWQZaO82HWrYFFEw==",
+      "path": "chaos.nacl.standard/1.0.0",
+      "hashPath": "chaos.nacl.standard.1.0.0.nupkg.sha512"
     },
     "Eto.Forms/2.10.2": {
       "type": "package",

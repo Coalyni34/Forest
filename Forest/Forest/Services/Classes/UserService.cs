@@ -1,6 +1,5 @@
 using System;
 using System.IO;
-using System.Security.Cryptography;
 
 public class UserService
 {
@@ -23,7 +22,7 @@ public class UserService
 
         private static string GenerateDeterministicPublicId(string seed, string salt)
         {
-            return IdGenerator.GenerateUserId(seed, salt);
+            return IdGenerator.GeneratePublicUserId(seed, salt);
         }
     }
 }

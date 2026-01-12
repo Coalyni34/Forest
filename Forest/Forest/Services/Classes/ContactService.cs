@@ -7,9 +7,8 @@ public class ContactService
     public class ContactSerializer
     {       
         public static string SerializeContact(Contact contact)
-        {
-            var newContact = new { contact.PublicId, contact.Name, contact.isPublic };
-            return JsonSerializer.Serialize(newContact);
+        {            
+            return JsonSerializer.Serialize(contact);
         }
         public static Contact DeserializeContact(string json)
         {
@@ -33,7 +32,6 @@ public class ContactService
         {
             var contactFolderPath = $"{ContactsPath}/{contact.PublicId}";
             var contactJsonPath = $"{contactFolderPath}/{contact.PublicId}.json";
-            //var contactTorrentPath = $"{contactFolderPath}/{contact.Name}.torrent"; Soon
             if(!Directory.Exists(contactFolderPath))
             {
                 Directory.CreateDirectory(contactFolderPath);

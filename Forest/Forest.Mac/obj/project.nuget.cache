@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "RRXEA555Skc=",
+  "dgSpecHash": "lmeOa+5bT1Q=",
   "success": true,
   "projectFilePath": "/run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest.Mac/Forest.Mac.csproj",
   "expectedPackageFiles": [
+    "/home/coalyni/.nuget/packages/chaos.nacl.standard/1.0.0/chaos.nacl.standard.1.0.0.nupkg.sha512",
     "/home/coalyni/.nuget/packages/eto.forms/2.10.2/eto.forms.2.10.2.nupkg.sha512",
     "/home/coalyni/.nuget/packages/eto.platform.mac64/2.10.2/eto.platform.mac64.2.10.2.nupkg.sha512",
     "/home/coalyni/.nuget/packages/mono.nat/3.0.0/mono.nat.3.0.0.nupkg.sha512",

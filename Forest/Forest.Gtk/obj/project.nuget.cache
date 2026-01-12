@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "qwo9/qKMOao=",
+  "dgSpecHash": "5ADazRlClK0=",
   "success": true,
   "projectFilePath": "/run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest.Gtk/Forest.Gtk.csproj",
   "expectedPackageFiles": [
     "/home/coalyni/.nuget/packages/atksharp/3.24.24.95/atksharp.3.24.24.95.nupkg.sha512",
     "/home/coalyni/.nuget/packages/cairosharp/3.24.24.95/cairosharp.3.24.24.95.nupkg.sha512",
+    "/home/coalyni/.nuget/packages/chaos.nacl.standard/1.0.0/chaos.nacl.standard.1.0.0.nupkg.sha512",
     "/home/coalyni/.nuget/packages/eto.forms/2.10.2/eto.forms.2.10.2.nupkg.sha512",
     "/home/coalyni/.nuget/packages/eto.platform.gtk/2.10.2/eto.platform.gtk.2.10.2.nupkg.sha512",
     "/home/coalyni/.nuget/packages/gdksharp/3.24.24.95/gdksharp.3.24.24.95.nupkg.sha512",

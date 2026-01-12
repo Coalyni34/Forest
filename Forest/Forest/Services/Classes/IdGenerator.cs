@@ -4,7 +4,7 @@ using System.Text;
 
 public class IdGenerator
 {    
-    public static string GenerateUserId(string seed, string salt = null)
+    public static string GeneratePublicUserId(string seed, string salt = null)
     {
         string raw = seed + "|" + salt;
         
@@ -15,7 +15,7 @@ public class IdGenerator
     }
     public static bool VerifyId(string id, string seed, string salt = "")
     {
-        string expectedId = GenerateUserId(seed, salt);
+        string expectedId = GeneratePublicUserId(seed, salt);
         
         return string.Equals(id, expectedId, StringComparison.OrdinalIgnoreCase);
     }
