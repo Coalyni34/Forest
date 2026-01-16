@@ -6,6 +6,7 @@ public class ErrorManager
     private string Name { set; get; } = "log_errors";
     public void LogError(string text)
     {
+        Console.WriteLine(text);
         var path = $"{Name}_{DateTime.Now}.txt";
         if(!File.Exists(path))
         {

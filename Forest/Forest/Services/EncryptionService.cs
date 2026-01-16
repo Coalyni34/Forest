@@ -1,14 +1,441 @@
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Data.SqlTypes;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json;
+using Chaos.NaCl;
 public class EncryptionService
 {  
-    public class CryptoIdentityService
+    public class EncryptedMessagePacket
+    {
+        public string ChatId { get; set; }
+        public string SenderId { get; set; }
+        public ulong MessageId { get; set; }
+
+        public DateTime SentAt { get; set; }
+        public MessageType MessageType { get; set; }
+
+        public byte[] Ciphertext { get; set; }
+        public byte[] Nonce { get; set; }
+        public byte[] AuthTag { get; set; }
+        public byte[] Signature { get; set; }
+
+        public string ToJson() => JsonSerializer.Serialize(this);
+        public static EncryptedMessagePacket FromJson(string json) => JsonSerializer.Deserialize<EncryptedMessagePacket>(json);
+    }
+    public class ChatSession
+    {
+        public string ChatId { get; set; }
+        public byte[] RootKey { get; set; }
+        public byte[] ChatSalt { get; set; }
+
+        public string SelfId { get; set; }
+        public string PeerId { get; set; }
+        public byte[] PeerPublicKey { get; set; }
+
+        public ulong NextMessageId { get; set; }
+    }
+    public class MessageEncoder
+    {
+        public (EncryptedMessagePacket packet, Message message) EncryptMessage(
+            Message message, 
+            ChatSession session,
+            byte[] senderPrivateKey)
+        {
+            ValidateParameters(message, session, senderPrivateKey);
+
+            if (message.Id == 0)
+            {
+                message.Id = session.NextMessageId;
+                session.NextMessageId++;
+            }
+
+            if (string.IsNullOrEmpty(message.SenderId))
+            {
+                message.SenderId = session.SelfId;
+            }
+
+            message.SentAt = DateTime.UtcNow;
+
+            string messageJson = SerializeMessage(message);
+            byte[] plaintextBytes = Encoding.UTF8.GetBytes(messageJson);
+
+            var (messageKey, messageNonce) = DeriveMessageKey(
+                session.RootKey,
+                session.ChatSalt,
+                message.Id
+            ); 
+
+            byte[] ciphertext = new byte[plaintextBytes.Length];
+            byte[] authTag = new byte[16];
+
+            using (var aes = new AesGcm(messageKey))
+            {
+                aes.Encrypt(messageNonce, plaintextBytes, ciphertext, authTag);
+            }
+
+            byte[] signature = SignMessageData(
+                session.ChatId,
+                message.Id,
+                ciphertext,
+                authTag,
+                messageNonce,
+                senderPrivateKey
+            );
+
+            var encryptedPacket = new EncryptedMessagePacket
+            {
+                ChatId = session.ChatId,
+                SenderId = message.SenderId,
+                MessageId = message.Id,
+                SentAt = message.SentAt,
+                MessageType = message.MessageType,
+                Ciphertext = ciphertext,
+                Nonce = messageNonce,
+                AuthTag = authTag,
+                Signature = signature        
+            };
+
+            return (encryptedPacket, message);
+        }
+        public (EncryptedMessagePacket packet, Message message) EncryptTextMessage(
+            string text,
+            ChatSession session,
+            byte[] senderPrivateKey,
+            ulong? messageId = null
+        )
+        {
+            var message = new Message(
+                Id: messageId ?? 0,
+                SenderId: session.SelfId,
+                Data: Encoding.UTF8.GetBytes(text),
+                IsDownloaded: false,
+                MessageType: MessageType.Text,
+                MediaSourcePath: new List<string>()
+            );
+
+            return EncryptMessage(message, session,  senderPrivateKey);
+        }
+        public (EncryptedMessagePacket packet, Message message) EncryptMediaMessage(
+            MessageType mediaType,
+            string magnetLink,
+            string description,
+            ChatSession session,
+            byte[] senderPrivateKey,
+            ulong? messageId = null
+        )
+        {
+            var message = new Message(
+                Id: messageId ?? 0,
+                SenderId: session.SelfId,
+                Data: Encoding.UTF8.GetBytes(description),
+                IsDownloaded: false,
+                MessageType: mediaType,
+                MediaSourcePath: new List<string> { magnetLink }
+            );
+
+            return EncryptMessage(message, session, senderPrivateKey);
+        }
+        public (EncryptedMessagePacket, Message mesage) EncryptMessageWithId(
+            Message message,
+            ChatSession session,
+            byte[] senderPrivateKey
+        )
+        {
+            if(message.Id == 0)
+            {
+                throw new ArgumentException("ID can't be null");
+            }
+
+            return EncryptMessage(message, session, senderPrivateKey);
+        }
+        
+        public Message DecryptMessage(
+            EncryptedMessagePacket packet,
+            ChatSession session
+        )
+        {
+            ValidatePacket(packet);
+
+            if (!VerifyMessageSignature(packet, session.PeerPublicKey))
+            {
+                throw new CryptographicException(
+                    $"Wrong signature of the message: \n{packet.MessageId}\nThe message is maybe a fake."
+                );
+            }
+
+            var (expectedKey, expectedNonce) = DeriveMessageKey(
+                session.RootKey,
+                session.ChatSalt,
+                packet.MessageId
+            );
+
+            if (!packet.Nonce.SequenceEqual(expectedNonce))
+            {
+                throw new CryptographicException(
+                    $"Wrong nonce for the message:\n{packet.MessageId}\nThe message is maybe a fake"
+                );
+            }
+
+            byte[] plaintextBytes = new byte[packet.Ciphertext.Length];
+
+            using (var aes = new AesGcm(expectedKey))
+            {
+                try
+                {
+                    aes.Decrypt(
+                        packet.Nonce,
+                        packet.Ciphertext,
+                        packet.AuthTag,
+                        plaintextBytes
+                    );
+                }
+                catch (CryptographicException ex)
+                {
+                    throw new CryptographicException(
+                        $"Couldn't decrypt the message:\n{packet.MessageId}\n"
+                        + $"Data is damaged or a key is not correct.", ex
+                    );
+                }
+            }
+
+            Message message;
+            try
+            {
+                string messageJson = Encoding.UTF8.GetString(plaintextBytes);
+                message = DeserializeMessage(messageJson);
+            }
+            catch(JsonException ex)
+            {
+                throw new CryptographicException(
+                    $"Couldn't deserialize a decrypted message:\n{packet.MessageId}\n", ex
+                );
+            }
+
+            ValidateDecryptedMessage(message, packet);
+
+            message.IsDownloaded = true;
+
+            if (message.Id >= session.NextMessageId)
+            {
+                session.NextMessageId = message.Id + 1;
+            }
+
+            return message;
+        } 
+        public Message DecryptMessageFromJson(
+            string encryptedJson,
+            ChatSession session
+        )
+        {
+            var packet = EncryptedMessagePacket.FromJson(encryptedJson);
+            return DecryptMessage(packet, session);
+        }
+
+        public bool VerifySignatureOnly(
+            EncryptedMessagePacket packet,
+            byte[] senderPublicKey
+        )
+        {
+            try
+            {
+                return VerifyMessageSignature(packet, senderPublicKey);
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        
+        private (byte[] key, byte[] nonce) DeriveMessageKey(
+            byte[] rootkey,
+            byte[] chatSalt,
+            ulong messageId
+        )
+        {
+            var hkdf = new HMACSHA256(rootkey);
+
+            byte[] idBytes = BitConverter.GetBytes(messageId);
+            byte[] hkdfSalt = new byte[chatSalt.Length + idBytes.Length];
+            Buffer.BlockCopy(chatSalt, 0, hkdfSalt, 0, chatSalt.Length);
+            Buffer.BlockCopy(idBytes, 0, hkdfSalt, chatSalt.Length, idBytes.Length);
+
+            byte[] prk = hkdf.ComputeHash(hkdfSalt);
+            byte[] info = Encoding.UTF8.GetBytes("FOREST_MESSAGE_KEY_V1");
+            byte[] keyMaterial = hkdf.ComputeHash(prk.Concat(info).ToArray());
+
+            byte[] key = new byte[32];
+            byte[] nonce = new byte[12];
+            Buffer.BlockCopy(keyMaterial, 0, key, 0, 32);
+            Buffer.BlockCopy(keyMaterial, 32, nonce, 0, 12);
+
+            return (key, nonce);
+        }
+        private byte[] SignMessageData(
+            string chatId,
+            ulong messageId,
+            byte[] ciphertext,
+            byte[] authTag,
+            byte[] nonce,
+            byte[] senderPrivateKey
+        )
+        {
+            byte[] chatIdBytes = Encoding.UTF8.GetBytes(chatId);
+            byte[] idBytes = BitConverter.GetBytes(messageId);
+
+            byte[] dataToSign = new byte[
+                chatIdBytes.Length + 
+                idBytes.Length +
+                ciphertext.Length +
+                authTag.Length + 
+                nonce.Length
+            ];
+
+            int offset = 0;
+            Buffer.BlockCopy(chatIdBytes, 0, dataToSign, offset, chatIdBytes.Length);
+            offset += chatIdBytes.Length;
+
+            Buffer.BlockCopy(idBytes, 0, dataToSign, offset, idBytes.Length);
+            offset += idBytes.Length;
+
+            Buffer.BlockCopy(ciphertext, 0, dataToSign, offset, ciphertext.Length);
+            offset += ciphertext.Length;
+
+            Buffer.BlockCopy(authTag, 0, dataToSign, offset, authTag.Length);
+            offset += authTag.Length;
+
+            Buffer.BlockCopy(nonce, 0, dataToSign, offset, nonce.Length);
+
+            return Ed25519.Sign(dataToSign, senderPrivateKey);
+        }
+        private bool VerifyMessageSignature(
+            EncryptedMessagePacket packet,
+            byte[] senderPublicKey
+        )
+        {
+            try
+            {
+                byte[] chatIdBytes = Encoding.UTF8.GetBytes(packet.ChatId);
+                byte[] idBytes = BitConverter.GetBytes(packet.MessageId);
+
+                byte[] dataToVerify = new byte[
+                    chatIdBytes.Length + 
+                    idBytes.Length + 
+                    packet.Ciphertext.Length +
+                    packet.AuthTag.Length + 
+                    packet.Nonce.Length
+                ];
+
+                int offset = 0;
+                Buffer.BlockCopy(chatIdBytes, 0, dataToVerify, offset, chatIdBytes.Length);
+                offset += chatIdBytes.Length;
+
+                Buffer.BlockCopy(idBytes, 0, dataToVerify, offset, idBytes.Length);
+                offset += idBytes.Length;
+
+                Buffer.BlockCopy(packet.Ciphertext, 0, dataToVerify, offset, packet.Ciphertext.Length);
+                offset += packet.Ciphertext.Length;
+
+                Buffer.BlockCopy(packet.AuthTag, 0, dataToVerify, offset, packet.AuthTag.Length);
+                offset += packet.AuthTag.Length;
+
+                Buffer.BlockCopy(packet.Nonce, 0, dataToVerify, offset, packet.Nonce.Length);
+
+                return Ed25519.Verify(packet.Signature, dataToVerify, senderPublicKey);       
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        private void ValidateParameters(Message message, ChatSession session, byte[] senderPrivateKey)
+        {
+            if (message == null) throw new ArgumentNullException(nameof(message));
+            if (session == null) throw new ArgumentNullException(nameof(session));
+            if (senderPrivateKey == null || senderPrivateKey.Length != 64)
+            { throw new ArgumentException("PrivateKey must be 64 byte", nameof(senderPrivateKey)); }
+            
+            if (message.Data == null)
+            { throw new ArgumentNullException("Message.Data can't be null"); }
+
+            if (message.MediaSourcePath == null)
+            { message.MediaSourcePath = new List<string>(); }
+        }
+        private void ValidatePacket(EncryptedMessagePacket packet)
+        {
+            if (packet == null) throw new ArgumentNullException(nameof(packet));
+            if (string.IsNullOrEmpty(packet.ChatId))
+            { throw new ArgumentException("ChatId can't be null"); }
+            if (string.IsNullOrEmpty(packet.SenderId))
+            { throw new ArgumentException("SenderId can't be null"); }
+            if (packet.Ciphertext == null || packet.Ciphertext.Length == 0)
+            { throw new ArgumentException("Ciphertext can't be null"); }
+            if (packet.Nonce == null || packet.Nonce.Length != 12)
+            { throw new ArgumentException("Nonce must be 12 bytes"); }
+            if (packet.AuthTag == null || packet.AuthTag.Length != 16)
+            { throw new ArgumentException("AuthTag must be 16 bytes"); }
+            if (packet.Signature == null || packet.Signature.Length == 0)
+            { throw new ArgumentException("Signature can't be null"); }
+        }
+        private void ValidateDecryptedMessage(Message message, EncryptedMessagePacket packet)
+        {
+            if (message == null)
+            { throw new CryptographicException("Decoded message is null"); }
+            if (message.SenderId != packet.SenderId)
+            {
+                throw new CryptographicException(
+                    $"Sender's ID is not the same: message = {message.SenderId}, packet = {packet.SenderId}"
+                );
+            }
+            if (message.MessageType != packet.MessageType)
+            {
+                throw new CryptographicException(
+                    $"MessageType is not the same: message = {message.MessageType}, packet = {packet.MessageType}"
+                );
+            }
+            if (message.Id != packet.MessageId)
+            {
+                throw new CryptographicException(
+                    $"Sender's ID is not the same: message = {message.Id}, packet = {message.Id}"
+                );
+            }
+            
+            TimeSpan age = DateTime.UtcNow - message.SentAt;
+            if (age > TimeSpan.FromHours(24))
+            {
+                throw new CryptographicException(
+                    $"Message too old: {age.TotalHours:F1} hours. Maximum 24 hours."
+                );
+            }
+        }
+        
+        private string SerializeMessage(Message message)
+        {
+            var options = new JsonSerializerOptions
+            {
+                WriteIndented = false,
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+            };
+
+            return JsonSerializer.Serialize(message, options);
+        }
+        private Message DeserializeMessage(string json)
+        {
+            var options = new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true                
+            };
+
+            return JsonSerializer.Deserialize<Message>(json, options);
+        }
+    }
+    public class CryptoKeysGenerator
     {
         public class KeyPair
         {
@@ -33,7 +460,7 @@ public class EncryptionService
                 rng.GetBytes(ed25519Seed);
             }
 
-            Chaos.NaCl.Ed25519.KeyPairFromSeed(out byte[] ed25519PublicKey, out byte[] ed25519PrivateKey, ed25519Seed);
+            Ed25519.KeyPairFromSeed(out byte[] ed25519PublicKey, out byte[] ed25519PrivateKey, ed25519Seed);
 
             byte[] x25519PrivateKey = new byte[32];
             byte[] x25519PublicKey = new byte[32];
@@ -43,8 +470,8 @@ public class EncryptionService
                 rng.GetBytes(x25519PrivateKey);
             }
 
-            x25519PrivateKey = Chaos.NaCl.Ed25519.ExpandedPrivateKeyFromSeed(ed25519Seed).Take(32).ToArray();
-            x25519PublicKey = Chaos.NaCl.MontgomeryCurve25519.GetPublicKey(x25519PrivateKey);
+            x25519PrivateKey = Ed25519.ExpandedPrivateKeyFromSeed(ed25519Seed).Take(32).ToArray();
+            x25519PublicKey = MontgomeryCurve25519.GetPublicKey(x25519PrivateKey);
 
             return new KeyPair
             {
@@ -61,10 +488,10 @@ public class EncryptionService
             
             byte[] ed25519Seed = masterSeed.Take(32).ToArray();
 
-            Chaos.NaCl.Ed25519.KeyPairFromSeed(out byte[] ed25519PublicKey, out byte[] ed25519PrivateKey, ed25519Seed);
+            Ed25519.KeyPairFromSeed(out byte[] ed25519PublicKey, out byte[] ed25519PrivateKey, ed25519Seed);
 
-            byte[] x25519PrivateKey = Chaos.NaCl.Ed25519.ExpandedPrivateKeyFromSeed(ed25519Seed).Take(32).ToArray();
-            byte[] x25519PublicKey = Chaos.NaCl.MontgomeryCurve25519.GetPublicKey(x25519PrivateKey);
+            byte[] x25519PrivateKey = Ed25519.ExpandedPrivateKeyFromSeed(ed25519Seed).Take(32).ToArray();
+            byte[] x25519PublicKey = MontgomeryCurve25519.GetPublicKey(x25519PrivateKey);
 
             return new KeyPair
             {
@@ -95,7 +522,7 @@ public class EncryptionService
             if (data == null) throw new ArgumentNullException(nameof(data));
             if (keyPair?.PrivateKey == null) throw new ArgumentNullException(nameof(keyPair));
 
-            return Chaos.NaCl.Ed25519.Sign(data, keyPair.PrivateKey);
+            return Ed25519.Sign(data, keyPair.PrivateKey);
         }
         public static bool VerifySignature(byte[] data, byte[] signature, byte[] publicKey)
         {
@@ -103,7 +530,7 @@ public class EncryptionService
 
             try
             {
-                return Chaos.NaCl.Ed25519.Verify(signature, data, publicKey);
+                return Ed25519.Verify(signature, data, publicKey);
             }
             catch
             {
@@ -117,7 +544,7 @@ public class EncryptionService
 
             try
             {
-                return Chaos.NaCl.MontgomeryCurve25519.KeyExchange(peerPublicKey, myPrivateKey);
+                return MontgomeryCurve25519.KeyExchange(peerPublicKey, myPrivateKey);
             }
             catch
             {

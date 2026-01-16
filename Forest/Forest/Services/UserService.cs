@@ -10,7 +10,7 @@ public class UserService
         {            
             string mnemonic = EncryptionService.PhrasesGenerator.CreateSecureMnemonicPhraseString();
 
-            var keyPair = EncryptionService.CryptoIdentityService.GenerateFromMnemonic(mnemonic);
+            var keyPair = EncryptionService.CryptoKeysGenerator.GenerateFromMnemonic(mnemonic);
 
             string publicId = IdGenerator.GeneratePublicUserId(
                 keyPair.PublicKeyBase64,
@@ -34,15 +34,18 @@ public class UserService
             return (contact, mnemonic);
         }        
 
-        private static void SaveKeyPairSecurely(EncryptionService.CryptoIdentityService.KeyPair keyPair, string password)
+        private static void SaveKeyPairSecurely(EncryptionService.CryptoKeysGenerator.KeyPair keyPair, string encryptionPassword)
         {
-            string encryptedkeyJson = EncryptionService.CryptoIdentityService.ExportKeyPair(keyPair, password);
+            string encryptedkeyJson = EncryptionService.CryptoKeysGenerator.ExportKeyPair(keyPair, encryptionPassword);
 
             string path = $"MainFolder/UserInfo/Security/CryptoKeys";
             if(!Directory.Exists(path))
             {
                 Directory.CreateDirectory(path);
-                File.WriteAllText($"{path}/UserCryptoKeys.json", encryptedkeyJson);
+                if(!File.Exists($"{path}/UserCryptoKeys.json"))
+                {
+                    File.WriteAllText($"{path}/UserCryptoKeys.json", encryptedkeyJson);
+                }                
             }
         }
         private static void SaveMnemonic(string mnemonic)
@@ -52,7 +55,10 @@ public class UserService
             if(!Directory.Exists(path))
             {
                 Directory.CreateDirectory(path);
-                File.WriteAllText($"{path}/UserMnemonicPhrase.txt", mnemonic);
+                if(!File.Exists($"{path}/UserMnemonicPhrase.txt"))
+                {
+                    File.WriteAllText($"{path}/UserMnemonicPhrase.txt", mnemonic);                
+                }
             }
         }
     }

@@ -3,8 +3,8 @@ using System.Collections.Generic;
 
 public class Chat
 {
-    public string Id { get; set; } = Guid.NewGuid().ToString();
-    public string[] SenderIds = new string[2];
-    public string Keys { set; get; } = string.Empty;
+    public string Id { get; set; }
+    public string SelfId { set; get; }
+    public string PeerId { set; get; }
     public List<Message> Messages = new List<Message>();
 }
