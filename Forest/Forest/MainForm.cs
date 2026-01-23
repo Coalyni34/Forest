@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using System;
 using System.IO;
 using System.Text.Json;
+using static EncryptionService;
 
 namespace Forest
 {
@@ -61,7 +62,7 @@ namespace Forest
         private static void FileInitialization()
         {
             DirectoryService.FolderService.CreateAllFolders();
-            EncryptionService.PhrasesGenerator.CreateMnemonicDictionary();
+            PhrasesGenerator.CreateMnemonicDictionary();
 			var UserInfo = UserService.UserCreator.CreateUser("CoalyNi", true, "12345678");
 			File.WriteAllText(UserService.UserInfoPath + "info.json", JsonSerializer.Serialize(UserInfo.contact));
         }		
