@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "oV6ceI7ysOc=",
+  "dgSpecHash": "2ap48FJrpO8=",
   "success": true,
   "projectFilePath": "/run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest.Mac/Forest.Mac.csproj",
   "expectedPackageFiles": [
@@ -10,13 +10,13 @@
     "/home/coalyni/.nuget/packages/mono.nat/3.0.0/mono.nat.3.0.0.nupkg.sha512",
     "/home/coalyni/.nuget/packages/monotorrent/3.0.2/monotorrent.3.0.2.nupkg.sha512",
     "/home/coalyni/.nuget/packages/reusabletasks/4.0.0/reusabletasks.4.0.0.nupkg.sha512",
-    "/home/coalyni/.nuget/packages/microsoft.netcore.app.runtime.osx-x64/8.0.22/microsoft.netcore.app.runtime.osx-x64.8.0.22.nupkg.sha512",
-    "/home/coalyni/.nuget/packages/microsoft.netcore.app.runtime.osx-arm64/8.0.22/microsoft.netcore.app.runtime.osx-arm64.8.0.22.nupkg.sha512",
-    "/home/coalyni/.nuget/packages/microsoft.aspnetcore.app.runtime.osx-x64/8.0.22/microsoft.aspnetcore.app.runtime.osx-x64.8.0.22.nupkg.sha512",
-    "/home/coalyni/.nuget/packages/microsoft.aspnetcore.app.runtime.osx-arm64/8.0.22/microsoft.aspnetcore.app.runtime.osx-arm64.8.0.22.nupkg.sha512",
-    "/home/coalyni/.nuget/packages/microsoft.netcore.app.host.linux-x64/8.0.22/microsoft.netcore.app.host.linux-x64.8.0.22.nupkg.sha512",
-    "/home/coalyni/.nuget/packages/microsoft.netcore.app.host.osx-x64/8.0.22/microsoft.netcore.app.host.osx-x64.8.0.22.nupkg.sha512",
-    "/home/coalyni/.nuget/packages/microsoft.netcore.app.host.osx-arm64/8.0.22/microsoft.netcore.app.host.osx-arm64.8.0.22.nupkg.sha512"
+    "/home/coalyni/.nuget/packages/microsoft.netcore.app.runtime.osx-x64/8.0.23/microsoft.netcore.app.runtime.osx-x64.8.0.23.nupkg.sha512",
+    "/home/coalyni/.nuget/packages/microsoft.netcore.app.runtime.osx-arm64/8.0.23/microsoft.netcore.app.runtime.osx-arm64.8.0.23.nupkg.sha512",
+    "/home/coalyni/.nuget/packages/microsoft.aspnetcore.app.runtime.osx-x64/8.0.23/microsoft.aspnetcore.app.runtime.osx-x64.8.0.23.nupkg.sha512",
+    "/home/coalyni/.nuget/packages/microsoft.aspnetcore.app.runtime.osx-arm64/8.0.23/microsoft.aspnetcore.app.runtime.osx-arm64.8.0.23.nupkg.sha512",
+    "/home/coalyni/.nuget/packages/microsoft.netcore.app.host.linux-x64/8.0.23/microsoft.netcore.app.host.linux-x64.8.0.23.nupkg.sha512",
+    "/home/coalyni/.nuget/packages/microsoft.netcore.app.host.osx-x64/8.0.23/microsoft.netcore.app.host.osx-x64.8.0.23.nupkg.sha512",
+    "/home/coalyni/.nuget/packages/microsoft.netcore.app.host.osx-arm64/8.0.23/microsoft.netcore.app.host.osx-arm64.8.0.23.nupkg.sha512"
   ],
   "logs": []
 }

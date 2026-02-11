@@ -1,11 +1,11 @@
 public class Contact
 {
-    public string Name { set; get; }
-    public string Avatar { set; get; }
-    public string PublicId { set; get;}
-    public string PublicKey { set; get; }
-    public string EncryptionKey { set; get; }
-    public bool IsPublic { set; get; }   
+    public string Name { set; get; } //Public Name
+    public string Avatar { set; get; } //Public Avatar
+    public string PublicId { set; get;} //Public ID 
+    public string PublicKey { set; get; } //Public Key, which you need for creating your cryptokeys
+    public string EncryptionKey { set; get; } //Encryption Key, which is not public
+    public bool IsPublic { set; get; }  //This value means that will you share your contact with other users or not
     
     public Contact(string Name, bool IsPublic, string PublicId, string Avatar = "")
     {

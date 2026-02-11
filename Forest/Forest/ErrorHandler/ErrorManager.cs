@@ -3,7 +3,7 @@ using System.IO;
 
 public class ErrorManager
 {
-    private string Name { set; get; } = "log_errors";
+    private string Name { set; get; } = "log_errors"; //Main name of the file
     public void LogError(string text)
     {
         Console.WriteLine(text);

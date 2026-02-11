@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "dxQOb7uNgXE=",
+  "dgSpecHash": "AUyTOcwxQzc=",
   "success": true,
   "projectFilePath": "/run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest.Gtk/Forest.Gtk.csproj",
   "expectedPackageFiles": [
@@ -17,7 +17,7 @@
     "/home/coalyni/.nuget/packages/monotorrent/3.0.2/monotorrent.3.0.2.nupkg.sha512",
     "/home/coalyni/.nuget/packages/pangosharp/3.24.24.95/pangosharp.3.24.24.95.nupkg.sha512",
     "/home/coalyni/.nuget/packages/reusabletasks/4.0.0/reusabletasks.4.0.0.nupkg.sha512",
-    "/home/coalyni/.nuget/packages/microsoft.netcore.app.host.linux-x64/8.0.22/microsoft.netcore.app.host.linux-x64.8.0.22.nupkg.sha512"
+    "/home/coalyni/.nuget/packages/microsoft.netcore.app.host.linux-x64/8.0.23/microsoft.netcore.app.host.linux-x64.8.0.23.nupkg.sha512"
   ],
   "logs": []
 }

@@ -9,34 +9,32 @@ using System.Text.Json;
 using Chaos.NaCl;
 public class EncryptionService
 {  
-    public class EncryptedMessagePacket
+    public class EncryptedMessagePacket 
     {
-        public string ChatId { get; set; }
-        public string SenderId { get; set; }
-        public ulong MessageId { get; set; }
+        public string ChatId { get; set; } //Chat ID
+        public string SenderId { get; set; } //Sender ID
+        public ulong MessageId { get; set; } //Message Id
 
-        public DateTime SentAt { get; set; }
-        public MessageType MessageType { get; set; }
+        public DateTime SentAt { get; set; } //SentAt date
+        public MessageType MessageType { get; set; } //Message Type
 
-        public byte[] Ciphertext { get; set; }
-        public byte[] Nonce { get; set; }
-        public byte[] AuthTag { get; set; }
-        public byte[] Signature { get; set; }
-
-        public string ToJson() => JsonSerializer.Serialize(this);
-        public static EncryptedMessagePacket FromJson(string json) => JsonSerializer.Deserialize<EncryptedMessagePacket>(json);
+        public byte[] Ciphertext { get; set; } //Ciphertext
+        public byte[] Nonce { get; set; } //Nonce
+        public byte[] AuthTag { get; set; } //AuthTag
+        public byte[] Signature { get; set; } //Signatures
+        public string ToJson() => JsonSerializer.Serialize(this); //ToJson built-in method
+        public static EncryptedMessagePacket FromJson(string json) => JsonSerializer.Deserialize<EncryptedMessagePacket>(json); //FromJson built-in method
     }
     public class ChatSession
     {
-        public string ChatId { get; set; }
-        public byte[] RootKey { get; set; }
-        public byte[] ChatSalt { get; set; }
+        public string ChatId { get; set; } //Chat ID
+        public byte[] RootKey { get; set; } //Root Key
+        public byte[] ChatSalt { get; set; } //CryptoSalt of the chat
 
-        public string SelfId { get; set; }
-        public string PeerId { get; set; }
-        public byte[] PeerPublicKey { get; set; }
-
-        public ulong NextMessageId { get; set; }
+        public string SelfId { get; set; } //Your ID
+        public string PeerId { get; set; } //Peer ID
+        public byte[] PeerPublicKey { get; set; } //Public Key of the peer
+        public ulong NextMessageId { get; set; } //ID of next message
     }
     public class MessageEncoder
     {
@@ -432,6 +430,38 @@ public class EncryptionService
 
             return JsonSerializer.Deserialize<Message>(json, options);
         }
+
+        public string SaveEncryptedMessageToFile(
+            EncryptedMessagePacket packet,
+            string folderPath
+        )
+        {
+            if(!Directory.Exists(folderPath))
+            {
+                Directory.CreateDirectory(folderPath);
+            }
+
+            string fileName = $"{packet.ChatId}_{packet.SenderId}_{packet.MessageId}.enc";
+            string filePath = Path.Combine(folderPath, fileName);
+
+            File.WriteAllText(filePath, packet.ToJson());
+
+            return filePath;
+        }
+        public Message LoadAndDecryptMessageFromFile(
+            string filePath,
+            ChatSession session
+        )
+        {
+            if (!File.Exists(filePath))
+            {
+                throw new FileNotFoundException($"File doesn't exist: {filePath}");
+            }
+
+            string encryptedJson = File.ReadAllText(filePath);
+            return DecryptMessageFromJson(encryptedJson, session);
+        }
+
     }
     public class CryptoKeysGenerator
     {
