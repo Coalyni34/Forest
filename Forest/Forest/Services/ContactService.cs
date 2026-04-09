@@ -36,9 +36,13 @@ public class ContactService
                 Directory.CreateDirectory(contactFolderPath); //Creating folder
                 if(!File.Exists(contactJsonPath))
                 {
-                    File.WriteAllText(contactJsonPath, JsonSerializer.Serialize(contact)); //Writing contact as a json file.
+                    File.WriteAllText(contactJsonPath, JsonSerializer.Serialize(contact));//Writing contact as a json file.
                 }
             }
+        }        
+        public static void CreateContact()
+        {
+            
         }
     }
 }

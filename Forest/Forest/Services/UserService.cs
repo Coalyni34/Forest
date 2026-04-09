@@ -6,7 +6,7 @@ public class UserService
     public readonly static string UserInfoPath = "MainFolder/UserInfo/ContactInfo/"; //Path of folder with user info
     public static class UserCreator
     {        
-        public static (Contact contact, string mnemonicPhrase) CreateUser(string name, bool isPublic, string password = "")
+        public static (Contact contact, string mnemonicPhrase) CreateUser(string name, bool isPrivate, string password = "")
         {            
             string mnemonic = EncryptionService.PhrasesGenerator.CreateSecureMnemonicPhraseString(); //Creating the mnemonic phrase
 
@@ -14,7 +14,7 @@ public class UserService
 
             string publicId = IdGenerator.GeneratePublicUserId(
                 keyPair.PublicKeyBase64,
-                "FOREST_V1"
+                "FOREST_V0.0.1"
             ); //Generating public ID of this user
 
             var contact = new Contact
@@ -24,7 +24,7 @@ public class UserService
                 PublicKey = keyPair.PublicKeyBase64,
                 EncryptionKey = keyPair.EncryptionPublicKeyBase64,
 
-                IsPublic = isPublic
+                isPrivate = isPrivate
             }; //Creating contact object
 
             SaveKeyPairSecurely(keyPair, password); //Saving KeyPair

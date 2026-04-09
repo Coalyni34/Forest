@@ -2,6 +2,7 @@ using Eto.Forms;
 using System.Threading.Tasks;
 using System;
 using static EncryptionService;
+using ReusableTasks;
 
 namespace Forest
 {
@@ -26,8 +27,17 @@ namespace Forest
 
         private async Task MainFormInitialization()
         {
-            FileInitialization();
-        }
+            FileInitialization();     
+            await Test();
+        }   
+        public async Task Test()
+        {
+            var bob = new Contact("Bob", false, IdGenerator.GeneratePublicUserId("Bob"));
+            ContactService.ContactCreator.WriteContact(bob);
+            var torrentService = new TorrentService("MainFolder/Contacts");
+            await torrentService.CreateContactTorrentAsync($"MainFolder/Contacts/{bob.PublicId}/{bob.PublicId}.json", $"{bob.PublicId}", false);          
+            await torrentService.StartContactTorrentAsync($"MainFolder/Contacts/{bob.PublicId}", $"{bob.PublicId}.torrent");
+        }    
 
         private static void FileInitialization()
         {
