@@ -39,10 +39,6 @@ public class ContactService
                     File.WriteAllText(contactJsonPath, JsonSerializer.Serialize(contact));//Writing contact as a json file.
                 }
             }
-        }        
-        public static void CreateContact()
-        {
-            
-        }
+        }    
     }
 }

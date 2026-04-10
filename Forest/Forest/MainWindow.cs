@@ -28,7 +28,7 @@ namespace Forest
         private async Task MainFormInitialization()
         {
             FileInitialization();     
-            await Test();
+            //await Test();
         }   
         public async Task Test()
         {
