@@ -48,19 +48,20 @@ public class TorrentService
 
         await manager.StartAsync();
 
-        Console.WriteLine($"Torrent: {contactTorrent.Name}");
-        Console.WriteLine($"State: {manager.State}");
-        Console.WriteLine($"CanUseDht: {manager.CanUseDht}");
-        Console.WriteLine($"Complete: {manager.Complete}");
-        Console.WriteLine($"Peers Available: {manager.Peers.Available}");
-
         string magnetLink = manager.MagnetLink?.ToV1String() ?? "N/A";
-        Console.WriteLine($"Magnet: {magnetLink}");
+
+        var logMessage = $"Torrent: {contactTorrent.Name}\n"
+        + $"State: {manager.State}\n"
+        + $"CanUseDht: {manager.CanUseDht}\n"
+        + $"Complete: {manager.Complete}\n"
+        + $"Peers Available: {manager.Peers.Available}\n"
+        + $"Magnet: {magnetLink}";
+        Logger.WriteLog(logMessage);
 
         manager.TorrentStateChanged += (s, e) =>
-            Console.WriteLine($"State changed to: {manager.State}");
+            Logger.WriteLog($"State changed to: {manager.State}");
         manager.PeerConnected += (s, e) =>
-            Console.WriteLine($"Peer connected: {e.Peer.Uri}");
+            Logger.WriteLog($"Peer connected: {e.Peer.Uri}");
     }
     public async Task CreateContactTorrentAsync(string contactPath, string contactId, bool isOnlyDHT, bool isPrivate = false)
     {
@@ -93,7 +94,7 @@ public class TorrentService
 
         creator.Hashed += (o, e) =>
         {
-            Console.WriteLine($"[ForestTorrentCreator] Hashing: {e.OverallCompletion:F1}%");
+            Logger.WriteLog($"[ForestTorrentCreator] Hashing: {e.OverallCompletion:F1}%");
         };
 
         await Task.Run(() => creator.Create(new TorrentFileSource(contactPath), torrentPath));

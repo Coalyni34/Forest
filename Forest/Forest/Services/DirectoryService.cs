@@ -4,7 +4,7 @@ using System.IO;
 public class DirectoryService
 {
     private readonly static string MainFolderPath = "MainFolder"; //Main Folder of the app for the working
-    private readonly static string[] MustHaveFoldersPath = { "UserInfo", "Contacts", "Settings", "Translations", "Chats" }; //The list of the msuthave folders
+    private readonly static string[] MustHaveFoldersPath = { "UserInfo", "Contacts", "Settings", "Translations", "Chats" }; //The list of the musthave folders
     public static void CreateAllFolders() //This method creates all folders, which the app needs to work 
     {
         try

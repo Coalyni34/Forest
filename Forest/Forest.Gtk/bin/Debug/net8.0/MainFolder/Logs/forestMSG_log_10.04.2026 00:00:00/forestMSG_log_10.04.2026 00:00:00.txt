@@ -1,0 +1,14 @@
+Time: 10.04.2026 23:29:20
+Log: [ForestTorrentCreator] Hashing: 1,0%
+
+Time: 10.04.2026 23:29:20
+Log: Torrent: 73db438a1217d9d40f706aca37314b0149a11fea29686dfdecdb6e96bb49d816.json
+State: Hashing
+CanUseDht: True
+Complete: False
+Peers Available: 0
+Magnet: magnet:?xt=urn:btih:09775D984B563B8786C3ECD60569C085FB6DE7AC&dn=73db438a1217d9d40f706aca37314b0149a11fea29686dfdecdb6e96bb49d816.json&tr=udp%3a%2f%2ftracker.opentrackr.org%3a1337%2fannounce&tr=udp%3a%2f%2ftracker.coppersurfer.tk%3a6969%2fannounce&tr=udp%3a%2f%2ftracker.leechers-paradise.org%3a6969%2fannounce
+
+Time: 10.04.2026 23:29:20
+Log: State changed to: Seeding
+
