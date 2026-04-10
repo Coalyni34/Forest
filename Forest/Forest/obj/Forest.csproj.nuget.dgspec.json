@@ -56,6 +56,10 @@
             "MonoTorrent": {
               "target": "Package",
               "version": "[3.0.2, )"
+            },
+            "QRCoder": {
+              "target": "Package",
+              "version": "[1.8.0, )"
             }
           },
           "imports": [

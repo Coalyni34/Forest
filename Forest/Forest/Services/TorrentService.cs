@@ -48,7 +48,11 @@ public class TorrentService
 
         await manager.StartAsync();
 
-        string magnetLink = manager.MagnetLink?.ToV1String() ?? "N/A";
+        string magnetLink = manager.MagnetLink?.ToV1String() ?? "N/A";     
+
+        
+        var qrCodeCreator = new QRCodeCreator();
+        qrCodeCreator.CreateQRCode(magnetLink, Path.Combine(contactFolderPath, $"{contactFileName}.png"));   
 
         var logMessage = $"Torrent: {contactTorrent.Name}\n"
         + $"State: {manager.State}\n"
@@ -71,7 +75,7 @@ public class TorrentService
         }
 
         string torrentFileName = $"{contactId}.torrent";
-        string torrentPath = Path.Combine(torrentsFolder+$"/{contactId}/", torrentFileName);
+        string torrentPath = Path.Combine($"{torrentsFolder}/{contactId}/", torrentFileName);        
 
         var creator = new TorrentCreator
         {
@@ -85,9 +89,9 @@ public class TorrentService
         if(!isOnlyDHT)
         {
             var trackers = new List<string>() { 
-            "udp://tracker.opentrackr.org:1337/announce",
-            "udp://tracker.coppersurfer.tk:6969/announce",
-            "udp://tracker.leechers-paradise.org:6969/announce"
+            "http://211.75.205.189:6969/announce",
+            "udp://132.226.6.145:6969/announce",
+            "udp://152.53.152.105:54123/announce"
             };
             creator.Announces.Add(trackers);
         }
@@ -98,7 +102,5 @@ public class TorrentService
         };
 
         await Task.Run(() => creator.Create(new TorrentFileSource(contactPath), torrentPath));
-
-        var torrent = await Task.Run(() => Torrent.Load(torrentPath));
     }    
 }

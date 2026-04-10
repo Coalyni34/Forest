@@ -32,7 +32,7 @@ namespace Forest
         }   
         public async Task Test()
         {
-            var bob = new Contact("Bob", false, IdGenerator.GeneratePublicUserId("Bob"));
+            var bob = new Contact("Koya", false, IdGenerator.GeneratePublicUserId("Koya"));
             ContactService.ContactCreator.WriteContact(bob);
             var torrentService = new TorrentService("MainFolder/Contacts");
             await torrentService.CreateContactTorrentAsync($"MainFolder/Contacts/{bob.PublicId}/{bob.PublicId}.json", $"{bob.PublicId}", false);          

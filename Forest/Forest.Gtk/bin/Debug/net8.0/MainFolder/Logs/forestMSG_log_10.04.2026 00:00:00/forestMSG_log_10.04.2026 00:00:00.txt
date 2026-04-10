@@ -1,14 +1,25 @@
-Time: 10.04.2026 23:29:20
+Time: 10.04.2026 23:55:55
 Log: [ForestTorrentCreator] Hashing: 1,0%
 
-Time: 10.04.2026 23:29:20
-Log: Torrent: 73db438a1217d9d40f706aca37314b0149a11fea29686dfdecdb6e96bb49d816.json
-State: Hashing
+Time: 10.04.2026 23:55:56
+Log: Torrent: 84efda5434e4f5143e5199a7f59e026f44b5da2af23103a5db456bc132d1cec8.json
+State: Seeding
 CanUseDht: True
-Complete: False
+Complete: True
 Peers Available: 0
-Magnet: magnet:?xt=urn:btih:09775D984B563B8786C3ECD60569C085FB6DE7AC&dn=73db438a1217d9d40f706aca37314b0149a11fea29686dfdecdb6e96bb49d816.json&tr=udp%3a%2f%2ftracker.opentrackr.org%3a1337%2fannounce&tr=udp%3a%2f%2ftracker.coppersurfer.tk%3a6969%2fannounce&tr=udp%3a%2f%2ftracker.leechers-paradise.org%3a6969%2fannounce
+Magnet: magnet:?xt=urn:btih:CCE95933171E7B819E17B785193ED4EA827533BB&dn=84efda5434e4f5143e5199a7f59e026f44b5da2af23103a5db456bc132d1cec8.json&tr=udp%3a%2f%2ftracker.opentrackr.org%3a1337%2fannounce&tr=udp%3a%2f%2ftracker.coppersurfer.tk%3a6969%2fannounce&tr=udp%3a%2f%2ftracker.leechers-paradise.org%3a6969%2fannounce
 
-Time: 10.04.2026 23:29:20
-Log: State changed to: Seeding
+Time: 10.04.2026 23:57:42
+Log: [ForestTorrentCreator] Hashing: 1,0%
+
+Time: 10.04.2026 23:59:10
+Log: [ForestTorrentCreator] Hashing: 1,0%
+
+Time: 10.04.2026 23:59:10
+Log: Torrent: d54020f98540d2bcbe335ab1248cc62f979bc4480cfd8e9290e46c2a1bda8b48.json
+State: Seeding
+CanUseDht: True
+Complete: True
+Peers Available: 0
+Magnet: magnet:?xt=urn:btih:87107F9734A1DD7B9832A937B8609F3A29DCCACE&dn=d54020f98540d2bcbe335ab1248cc62f979bc4480cfd8e9290e46c2a1bda8b48.json
 

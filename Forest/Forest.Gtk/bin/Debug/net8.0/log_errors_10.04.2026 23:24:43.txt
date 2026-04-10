@@ -1,3 +1,0 @@
-Could not find a part of the path '/run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest.Gtk/bin/Debug/net8.0/MainFolder/Logs/forestMSG_log_10.04.2026 00:00:00/forestMSG_log_10.04.2026 00:00:00.json'.
-Could not find a part of the path '/run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest.Gtk/bin/Debug/net8.0/MainFolder/Logs/forestMSG_log_10.04.2026 00:00:00/forestMSG_log_10.04.2026 00:00:00.json'.
-Could not find a part of the path '/run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest.Gtk/bin/Debug/net8.0/MainFolder/Logs/forestMSG_log_10.04.2026 00:00:00/forestMSG_log_10.04.2026 00:00:00.json'.

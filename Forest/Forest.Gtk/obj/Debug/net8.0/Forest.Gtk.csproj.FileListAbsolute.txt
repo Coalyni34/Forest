@@ -85,3 +85,9 @@
 /run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest.Gtk/obj/Debug/net8.0/Forest.Gtk.genruntimeconfig.cache
 /run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest.Gtk/obj/Debug/net8.0/ref/Forest.Gtk.dll
 /run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest.Gtk/bin/Debug/net8.0/Chaos.NaCl.dll
+/run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest.Gtk/bin/Debug/net8.0/Microsoft.Win32.SystemEvents.dll
+/run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest.Gtk/bin/Debug/net8.0/QRCoder.dll
+/run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest.Gtk/bin/Debug/net8.0/System.Drawing.Common.dll
+/run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest.Gtk/bin/Debug/net8.0/runtimes/win/lib/net6.0/Microsoft.Win32.SystemEvents.dll
+/run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest.Gtk/bin/Debug/net8.0/runtimes/unix/lib/net6.0/System.Drawing.Common.dll
+/run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest.Gtk/bin/Debug/net8.0/runtimes/win/lib/net6.0/System.Drawing.Common.dll
