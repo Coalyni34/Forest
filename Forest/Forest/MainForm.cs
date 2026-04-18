@@ -56,9 +56,10 @@ namespace Forest
         }		
         private void AddTestChats()
         {
-            _mainWindow.AddChatToList("chat1", "Алиса", "Привет! Как дела?", "14:30", "А");
-            _mainWindow.AddChatToList("chat2", "Боб", "Скинь фото", "13:15", "Б");
-            _mainWindow.AddChatToList("chat3", "Чат группа", "Новое сообщение", "12:00", "Г");
+            for(int i = 0; i < 50; i++)
+            {
+                _mainWindow.AddChatToList("chat1", $"{i}", $"{i}+{i+5}", $"Z{i+1}");
+            }
         }       
         
         private void OnChatsClick(object sender, EventArgs e)

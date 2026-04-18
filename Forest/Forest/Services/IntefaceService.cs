@@ -1,6 +1,7 @@
 using Eto.Forms;
 using Eto.Drawing;
 using System;
+using System.Net.Mail;
 
 public class IntefaceService
 {
@@ -157,8 +158,9 @@ public class IntefaceService
 
                 SearchBox = new TextBox
                 {
-                    PlaceholderText = "Поиск чатов или контактов...",
-                    BackgroundColor = ThemeService.DefaultColors.InputBg
+                    PlaceholderText = "Поиск чатов...",
+                    BackgroundColor = ThemeService.DefaultColors.InputBg,
+                    Size = new Size(300, 12)
                 };
 
                 ChatListLayout = new StackLayout { Spacing = 1 };
@@ -166,10 +168,11 @@ public class IntefaceService
                 {
                     Content = ChatListLayout,
                     Border = BorderType.None,
-                    BackgroundColor = ThemeService.DefaultColors.MiddlePanelBg
+                    BackgroundColor = ThemeService.DefaultColors.MiddlePanelBg,
+                    Width = 300
                 };
 
-                layout.Items.Add(new StackLayoutItem(SearchBox, false));
+                layout.Items.Add(new StackLayoutItem(SearchBox, true));
                 layout.Items.Add(new StackLayoutItem(ChatListScroll, true));
 
                 MiddlePanel.Content = layout;
@@ -178,13 +181,13 @@ public class IntefaceService
             {
                 RightPanel = new Panel
                 {
-                    BackgroundColor = ThemeService.DefaultColors.RightPanelBg                    
+                    BackgroundColor = ThemeService.DefaultColors.RightPanelBg
                 };
 
                 var mainLayout = new StackLayout
                 {
                     Spacing = 0,
-                    Padding = new Padding(0)                    
+                    Padding = new Padding(0)
                 };
 
                 ChatTitle = new Label
@@ -192,16 +195,25 @@ public class IntefaceService
                     Text = "Выберите чат",
                     Font = new Font(SystemFont.Bold, 14),
                     TextColor = ThemeService.DefaultColors.TextPrimary,
-                    TextAlignment = TextAlignment.Center,
                     Height = 50,
-                    BackgroundColor = Color.FromArgb(35, 35, 35)                   
+                    BackgroundColor = Color.FromArgb(35, 35, 35),
+                    TextAlignment = TextAlignment.Center  
+                };
+
+                // Создаём панель для сообщений (растягивается)
+                MessagesLayout = new StackLayout { Spacing = 10 };
+                MessagesScroll = new Scrollable
+                {
+                    Content = MessagesLayout,
+                    Border = BorderType.None,
+                    BackgroundColor = ThemeService.DefaultColors.RightPanelBg
                 };
 
                 MessageInput = new TextBox
                 {
                     PlaceholderText = "Введите текст...",
                     BackgroundColor = ThemeService.DefaultColors.InputBg,
-                    TextColor = ThemeService.DefaultColors.TextPrimary,                                   
+                    TextColor = ThemeService.DefaultColors.TextPrimary
                 };
 
                 SendButton = new Button
@@ -209,7 +221,7 @@ public class IntefaceService
                     Text = "Отправить",
                     BackgroundColor = ThemeService.DefaultColors.Accent,
                     TextColor = Colors.White,
-                    Width = 80                   
+                    Width = 80
                 };
 
                 AttachButton = new Button
@@ -222,18 +234,20 @@ public class IntefaceService
                 };
 
                 InputLayout = new TableLayout(new TableRow(
-                    new TableCell(AttachButton, false),
-                    new TableCell(MessageInput, true),
-                    new TableCell(SendButton, false)
+                    new TableCell(MessageInput, true),   
+                    new TableCell(AttachButton, false),  
+                    new TableCell(SendButton, false)    
                 ))
                 {
                     Spacing = new Size(5, 0),
-                    Padding = new Padding(10),                    
+                    Padding = new Padding(10)
                 };
-                
+
                 mainLayout.Items.Add(new StackLayoutItem(ChatTitle, false));
-                mainLayout.Items.Add(new StackLayoutItem(MessagesScroll, true));
-                mainLayout.Items.Add(new StackLayoutItem(InputLayout, false));
+                mainLayout.Items.Add(new StackLayoutItem(MessagesScroll, true));  
+                mainLayout.Items.Add(new StackLayoutItem(InputLayout, false));    
+
+                mainLayout.HorizontalContentAlignment = HorizontalAlignment.Stretch;
 
                 RightPanel.Content = mainLayout;
             }
@@ -310,13 +324,13 @@ public class IntefaceService
                     AttachButton.TextColor = theme.TextColor;
     }
             }
-            public void AddChatToList(string chatId, string name, string lastMessage, string time, string avatar = null)
+            public void AddChatToList(string chatId, string name, string lastMessage, string avatar = null)
             {
-                var chatItem = CreateChatListItem(chatId, name, lastMessage, time, avatar);
+                var chatItem = CreateChatListItem(chatId, name, lastMessage, avatar);
                 ChatListLayout.Items.Add(chatItem);
             }
 
-            private StackLayoutItem CreateChatListItem(string chatId, string name, string lastMessage, string time, string avatar)
+            private StackLayoutItem CreateChatListItem(string chatId, string name, string lastMessage, string avatar)
             {
                 var panel = new Panel
                 {
@@ -350,19 +364,16 @@ public class IntefaceService
                     Text = name,
                     Font = new Font(SystemFont.Default, 10),
                     TextColor = ThemeService.DefaultColors.TextPrimary                    
-                };
+                };               
 
-                var timeLabel = new Label
-                {
-                    Text = time,
-                    Font = new Font(SystemFont.Default, 10),
-                    TextColor = ThemeService.DefaultColors.TextSecondary,
-                    TextAlignment = TextAlignment.Right                    
-                };
+                int maxMessageLength = 25;
+                string truncatedMessage = lastMessage.Length > maxMessageLength
+                    ? lastMessage.Substring(0, maxMessageLength) + "..."
+                    : lastMessage;
 
                 var messageLabel = new Label
                 {
-                    Text = lastMessage,
+                    Text = truncatedMessage,
                     Font = new Font(SystemFont.Default, 11),
                     TextColor = ThemeService.DefaultColors.TextSecondary                   
                 };
@@ -373,7 +384,7 @@ public class IntefaceService
                     {
                         Rows =
                         {
-                            new TableRow(nameLabel, timeLabel),
+                            new TableRow(nameLabel),
                             new TableRow(messageLabel)
                         }
                     }, true)
