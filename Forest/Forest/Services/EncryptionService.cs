@@ -639,22 +639,13 @@ public class EncryptionService
                 var folderName = "MainFolder/UserInfo/Security/Mnemonic/BaseDictionary";
                 if (!Directory.Exists(folderName))
                 {
-                    Directory.CreateDirectory(folderName);
-                    if (!File.Exists(LocalDictionaryPath))
-                    {
-                        var webClient = new WebClient();
-                        var dictionary = webClient.DownloadString(WebPath);
-                        File.WriteAllText(LocalDictionaryPath, dictionary);
-                    }
-                }
-                else
+                    Directory.CreateDirectory(folderName);                    
+                }                
+                if (!File.Exists(LocalDictionaryPath))
                 {
-                    if (!File.Exists(LocalDictionaryPath))
-                    {
-                        var webClient = new WebClient();
-                        var dictionary = webClient.DownloadString(WebPath);
-                        File.WriteAllText(LocalDictionaryPath, dictionary);
-                    }
+                    var webClient = new WebClient();
+                    var dictionary = webClient.DownloadString(WebPath);
+                    File.WriteAllText(LocalDictionaryPath, dictionary);
                 }
             }
             catch (Exception e)
@@ -672,18 +663,11 @@ public class EncryptionService
 
             if(!Directory.Exists($"{basefolderpath}/{folderName}"))
             {
-                Directory.CreateDirectory($"{basefolderpath}/{folderName}");
-                if(!File.Exists(fullPath))
-                {
-                    File.WriteAllText(fullPath, JsonSerializer.Serialize(phrase));
-                }
+                Directory.CreateDirectory($"{basefolderpath}/{folderName}");                
             }
-            else
+            if (!File.Exists(fullPath))
             {
-                if(!File.Exists(fullPath))
-                {
-                    File.WriteAllText(fullPath, JsonSerializer.Serialize(phrase));
-                }
+                File.WriteAllText(fullPath, JsonSerializer.Serialize(phrase));
             }
         }
         public static string CreateSecureMnemonicPhraseString()
