@@ -172,7 +172,7 @@ public class IntefaceService
                     Width = 300
                 };
 
-                layout.Items.Add(new StackLayoutItem(SearchBox, true));
+                layout.Items.Add(new StackLayoutItem(SearchBox, false));
                 layout.Items.Add(new StackLayoutItem(ChatListScroll, true));
 
                 MiddlePanel.Content = layout;
@@ -200,7 +200,6 @@ public class IntefaceService
                     TextAlignment = TextAlignment.Center  
                 };
 
-                // Создаём панель для сообщений (растягивается)
                 MessagesLayout = new StackLayout { Spacing = 10 };
                 MessagesScroll = new Scrollable
                 {
@@ -421,7 +420,7 @@ public class IntefaceService
                 layout.Items.Add(new Label
                 {
                     Text = text,
-                    Font = new Font(SystemFont.Default, 12),
+                    Font = new Font(SystemFont.Default, 10),
                     TextColor = ThemeService.DefaultColors.TextPrimary
                 });
 

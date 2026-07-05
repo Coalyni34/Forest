@@ -27,7 +27,6 @@ namespace Forest
         {
             await MainFormInitialization();
 
-            AddTestChats();
         }
 
         private void SubscribeToUIEvents()
@@ -54,13 +53,13 @@ namespace Forest
             DirectoryService.CreateAllFolders();
             PhrasesGenerator.CreateMnemonicDictionary();
         }		
-        private void AddTestChats()
+        /*private void AddTestChats()
         {
             for(int i = 0; i < 50; i++)
             {
                 _mainWindow.AddChatToList("chat1", $"{i}", $"{i}+{i+5}", $"Z{i+1}");
             }
-        }       
+        }       */
         
         private void OnChatsClick(object sender, EventArgs e)
         {

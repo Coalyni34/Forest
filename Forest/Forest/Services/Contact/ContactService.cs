@@ -26,11 +26,11 @@ public class ContactService
     }    
     public class ContactCreator
     {
-        private readonly static string ContactsPath = "MainFolder/Contacts"; //Contacts folder's path
+        private readonly static string ContactsPath = Path.Combine("MainFolder", "Contacts"); //Contacts folder's path
         public static void WriteContact(Contact contact)
         {
-            var contactFolderPath = $"{ContactsPath}/{contact.PublicId}"; //Folder of the current contact
-            var contactJsonPath = $"{contactFolderPath}/{contact.PublicId}.json"; //Json file of the current contact
+            var contactFolderPath = Path.Combine(ContactsPath, $"{contact.PublicId}"); //Folder of the current contact
+            var contactJsonPath = Path.Combine($"{contactFolderPath}", $"{contact.PublicId}.json"); //Json file of the current contact
             if(!Directory.Exists(contactFolderPath)) //Checking folder of the contact
             {
                 Directory.CreateDirectory(contactFolderPath); //Creating folder
