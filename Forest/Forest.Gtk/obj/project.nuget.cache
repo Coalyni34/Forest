@@ -1,13 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "XYpiPQdECiU=",
+  "dgSpecHash": "YSM3paxfrwM=",
   "success": true,
   "projectFilePath": "/run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest.Gtk/Forest.Gtk.csproj",
   "expectedPackageFiles": [
     "/home/coalyni/.nuget/packages/atksharp/3.24.24.95/atksharp.3.24.24.95.nupkg.sha512",
     "/home/coalyni/.nuget/packages/cairosharp/3.24.24.95/cairosharp.3.24.24.95.nupkg.sha512",
     "/home/coalyni/.nuget/packages/chaos.nacl.standard/1.0.0/chaos.nacl.standard.1.0.0.nupkg.sha512",
-    "/home/coalyni/.nuget/packages/eto.forms/2.10.2/eto.forms.2.10.2.nupkg.sha512",
+    "/home/coalyni/.nuget/packages/eto.forms/2.11.0/eto.forms.2.11.0.nupkg.sha512",
     "/home/coalyni/.nuget/packages/eto.platform.gtk/2.10.2/eto.platform.gtk.2.10.2.nupkg.sha512",
     "/home/coalyni/.nuget/packages/gdksharp/3.24.24.95/gdksharp.3.24.24.95.nupkg.sha512",
     "/home/coalyni/.nuget/packages/giosharp/3.24.24.95/giosharp.3.24.24.95.nupkg.sha512",
@@ -19,8 +19,7 @@
     "/home/coalyni/.nuget/packages/pangosharp/3.24.24.95/pangosharp.3.24.24.95.nupkg.sha512",
     "/home/coalyni/.nuget/packages/qrcoder/1.8.0/qrcoder.1.8.0.nupkg.sha512",
     "/home/coalyni/.nuget/packages/reusabletasks/4.0.0/reusabletasks.4.0.0.nupkg.sha512",
-    "/home/coalyni/.nuget/packages/system.drawing.common/6.0.0/system.drawing.common.6.0.0.nupkg.sha512",
-    "/home/coalyni/.nuget/packages/microsoft.netcore.app.host.linux-x64/8.0.25/microsoft.netcore.app.host.linux-x64.8.0.25.nupkg.sha512"
+    "/home/coalyni/.nuget/packages/system.drawing.common/6.0.0/system.drawing.common.6.0.0.nupkg.sha512"
   ],
   "logs": []
 }

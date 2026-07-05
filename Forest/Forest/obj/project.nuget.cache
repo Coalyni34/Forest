@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "3rD2rOWZozU=",
+  "dgSpecHash": "WEPBLIJynG4=",
   "success": true,
   "projectFilePath": "/run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest/Forest.csproj",
   "expectedPackageFiles": [
     "/home/coalyni/.nuget/packages/chaos.nacl.standard/1.0.0/chaos.nacl.standard.1.0.0.nupkg.sha512",
-    "/home/coalyni/.nuget/packages/eto.forms/2.10.2/eto.forms.2.10.2.nupkg.sha512",
+    "/home/coalyni/.nuget/packages/eto.forms/2.11.0/eto.forms.2.11.0.nupkg.sha512",
     "/home/coalyni/.nuget/packages/microsoft.netcore.platforms/5.0.0/microsoft.netcore.platforms.5.0.0.nupkg.sha512",
     "/home/coalyni/.nuget/packages/microsoft.win32.systemevents/5.0.0/microsoft.win32.systemevents.5.0.0.nupkg.sha512",
     "/home/coalyni/.nuget/packages/mono.nat/3.0.0/mono.nat.3.0.0.nupkg.sha512",

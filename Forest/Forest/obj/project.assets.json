@@ -11,7 +11,7 @@
           "lib/netstandard2.0/Chaos.NaCl.dll": {}
         }
       },
-      "Eto.Forms/2.10.2": {
+      "Eto.Forms/2.11.0": {
         "type": "package",
         "dependencies": {
           "System.ComponentModel.Annotations": "5.0.0"
@@ -284,17 +284,19 @@
         "lib/netstandard2.0/Chaos.NaCl.dll"
       ]
     },
-    "Eto.Forms/2.10.2": {
-      "sha512": "SFm7hgqhAnQ3sa3ohWedQT96wzLfScH3r1uopcLq2kBgGrP4yVd28D2/rWKSpb5hUmBRsm864UNkxjKSZzND8w==",
+    "Eto.Forms/2.11.0": {
+      "sha512": "zAWXLvZYY4MvoR8rsX/Y45IlOiPP9bxseTkLjAi5YNnqMojHa8D+tfgY56KeEVOnum8iyTh8xBiQJyhxDksYuw==",
       "type": "package",
-      "path": "eto.forms/2.10.2",
+      "path": "eto.forms/2.11.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Eto-LICENSE.txt",
         "build/Eto.Forms.targets",
-        "eto.forms.2.10.2.nupkg.sha512",
+        "eto.forms.2.11.0.nupkg.sha512",
         "eto.forms.nuspec",
+        "lib/net10.0/Eto.dll",
+        "lib/net10.0/Eto.xml",
         "lib/net6.0/Eto.dll",
         "lib/net6.0/Eto.xml",
         "lib/net8.0/Eto.dll",
@@ -784,7 +786,7 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "Chaos.NaCl.Standard >= 1.0.0",
-      "Eto.Forms >= 2.10.2",
+      "Eto.Forms >= 2.11.0",
       "MonoTorrent >= 3.0.2",
       "QRCoder >= 1.8.0"
     ]
@@ -827,7 +829,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.100"
+      "SdkAnalysisLevel": "10.0.100"
     },
     "frameworks": {
       "netcoreapp3.1": {
@@ -839,7 +841,7 @@
           },
           "Eto.Forms": {
             "target": "Package",
-            "version": "[2.10.2, )"
+            "version": "[2.11.0, )"
           },
           "MonoTorrent": {
             "target": "Package",
@@ -876,7 +878,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/lib64/dotnet/sdk/9.0.115/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/lib64/dotnet/sdk/10.0.109/RuntimeIdentifierGraph.json"
       }
     }
   }

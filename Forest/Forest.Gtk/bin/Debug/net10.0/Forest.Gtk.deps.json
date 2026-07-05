@@ -1,11 +1,11 @@
 {
   "runtimeTarget": {
-    "name": ".NETCoreApp,Version=v8.0",
+    "name": ".NETCoreApp,Version=v10.0",
     "signature": ""
   },
   "compilationOptions": {},
   "targets": {
-    ".NETCoreApp,Version=v8.0": {
+    ".NETCoreApp,Version=v10.0": {
       "Forest.Gtk/1.0.0": {
         "dependencies": {
           "Eto.Platform.Gtk": "2.10.2",
@@ -42,17 +42,17 @@
           }
         }
       },
-      "Eto.Forms/2.10.2": {
+      "Eto.Forms/2.11.0": {
         "runtime": {
-          "lib/net8.0/Eto.dll": {
-            "assemblyVersion": "2.10.0.0",
-            "fileVersion": "2.10.9400.10470"
+          "lib/net10.0/Eto.dll": {
+            "assemblyVersion": "2.11.0.0",
+            "fileVersion": "2.11.9557.38163"
           }
         }
       },
       "Eto.Platform.Gtk/2.10.2": {
         "dependencies": {
-          "Eto.Forms": "2.10.2",
+          "Eto.Forms": "2.11.0",
           "GtkSharp": "3.24.24.95"
         },
         "runtime": {
@@ -246,13 +246,13 @@
       "Forest/1.0.0": {
         "dependencies": {
           "Chaos.NaCl.Standard": "1.0.0",
-          "Eto.Forms": "2.10.2",
+          "Eto.Forms": "2.11.0",
           "MonoTorrent": "3.0.2",
           "QRCoder": "1.8.0"
         },
         "runtime": {
           "Forest.dll": {
-            "assemblyVersion": "1.0.0",
+            "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
         }
@@ -286,12 +286,12 @@
       "path": "chaos.nacl.standard/1.0.0",
       "hashPath": "chaos.nacl.standard.1.0.0.nupkg.sha512"
     },
-    "Eto.Forms/2.10.2": {
+    "Eto.Forms/2.11.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-SFm7hgqhAnQ3sa3ohWedQT96wzLfScH3r1uopcLq2kBgGrP4yVd28D2/rWKSpb5hUmBRsm864UNkxjKSZzND8w==",
-      "path": "eto.forms/2.10.2",
-      "hashPath": "eto.forms.2.10.2.nupkg.sha512"
+      "sha512": "sha512-zAWXLvZYY4MvoR8rsX/Y45IlOiPP9bxseTkLjAi5YNnqMojHa8D+tfgY56KeEVOnum8iyTh8xBiQJyhxDksYuw==",
+      "path": "eto.forms/2.11.0",
+      "hashPath": "eto.forms.2.11.0.nupkg.sha512"
     },
     "Eto.Platform.Gtk/2.10.2": {
       "type": "package",

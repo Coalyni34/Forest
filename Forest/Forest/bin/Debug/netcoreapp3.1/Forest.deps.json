@@ -9,7 +9,7 @@
       "Forest/1.0.0": {
         "dependencies": {
           "Chaos.NaCl.Standard": "1.0.0",
-          "Eto.Forms": "2.10.2",
+          "Eto.Forms": "2.11.0",
           "MonoTorrent": "3.0.2",
           "QRCoder": "1.8.0"
         },
@@ -25,22 +25,18 @@
           }
         }
       },
-      "Eto.Forms/2.10.2": {
+      "Eto.Forms/2.11.0": {
         "dependencies": {
           "System.ComponentModel.Annotations": "5.0.0"
         },
         "runtime": {
           "lib/netstandard2.0/Eto.dll": {
-            "assemblyVersion": "2.10.0.0",
-            "fileVersion": "2.10.9400.10468"
+            "assemblyVersion": "2.11.0.0",
+            "fileVersion": "2.11.9557.38163"
           }
         }
       },
-      "Microsoft.NETCore.Platforms/5.0.0": {},
       "Microsoft.Win32.SystemEvents/5.0.0": {
-        "dependencies": {
-          "Microsoft.NETCore.Platforms": "5.0.0"
-        },
         "runtime": {
           "lib/netstandard2.0/Microsoft.Win32.SystemEvents.dll": {
             "assemblyVersion": "5.0.0.0",
@@ -188,7 +184,6 @@
       },
       "System.Text.Encoding.CodePages/5.0.0": {
         "dependencies": {
-          "Microsoft.NETCore.Platforms": "5.0.0",
           "System.Runtime.CompilerServices.Unsafe": "5.0.0"
         },
         "runtime": {
@@ -221,19 +216,12 @@
       "path": "chaos.nacl.standard/1.0.0",
       "hashPath": "chaos.nacl.standard.1.0.0.nupkg.sha512"
     },
-    "Eto.Forms/2.10.2": {
+    "Eto.Forms/2.11.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-SFm7hgqhAnQ3sa3ohWedQT96wzLfScH3r1uopcLq2kBgGrP4yVd28D2/rWKSpb5hUmBRsm864UNkxjKSZzND8w==",
-      "path": "eto.forms/2.10.2",
-      "hashPath": "eto.forms.2.10.2.nupkg.sha512"
-    },
-    "Microsoft.NETCore.Platforms/5.0.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-VyPlqzH2wavqquTcYpkIIAQ6WdenuKoFN0BdYBbCWsclXacSOHNQn66Gt4z5NBqEYW0FAPm5rlvki9ZiCij5xQ==",
-      "path": "microsoft.netcore.platforms/5.0.0",
-      "hashPath": "microsoft.netcore.platforms.5.0.0.nupkg.sha512"
+      "sha512": "sha512-zAWXLvZYY4MvoR8rsX/Y45IlOiPP9bxseTkLjAi5YNnqMojHa8D+tfgY56KeEVOnum8iyTh8xBiQJyhxDksYuw==",
+      "path": "eto.forms/2.11.0",
+      "hashPath": "eto.forms.2.11.0.nupkg.sha512"
     },
     "Microsoft.Win32.SystemEvents/5.0.0": {
       "type": "package",

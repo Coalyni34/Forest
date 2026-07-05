@@ -16,7 +16,7 @@ public class DirectoryService
                 {
                     if (!Directory.Exists(name)) //Checking that the musthave folders exists (if not => creating one)
                     {
-                        Directory.CreateDirectory(MainFolderPath + "/" + name); //Creating the musthave folders
+                        Directory.CreateDirectory(Path.Combine(MainFolderPath, name)); //Creating the musthave folders
                     }
                 }
                 foreach (var name in MustHaveFoldersPath) 
@@ -29,7 +29,7 @@ public class DirectoryService
                             {
                                 if (!Directory.Exists(f)) //Checking that each folder exists (if not => creating one)
                                 {
-                                    Directory.CreateDirectory($"{MainFolderPath}/{name}/{f}");  //Creating folders
+                                    Directory.CreateDirectory(Path.Combine(Path.Combine(MainFolderPath, name), f));  //Creating folders 
                                 }
                             }
                             break;
@@ -43,7 +43,7 @@ public class DirectoryService
                 {
                     if (!Directory.Exists(name))
                     {
-                        Directory.CreateDirectory(MainFolderPath + "/" + name);
+                        Directory.CreateDirectory(Path.Combine(MainFolderPath, name));
                         switch (name)
                         {
                             case "UserInfo":
@@ -52,7 +52,7 @@ public class DirectoryService
                                 {
                                     if (!Directory.Exists(f))
                                     {
-                                        Directory.CreateDirectory($"{MainFolderPath}/{name}/{f}");
+                                        Directory.CreateDirectory(Path.Combine(Path.Combine(MainFolderPath, name), f));
                                     }
                                 }
                                 break;
