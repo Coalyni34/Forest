@@ -6,25 +6,18 @@ namespace Forest.Models
 {
     public class Message
     {
-        public ulong Id { get; set; } //Message ID
-        public string SenderId { get; set; } //Sender ID
-        public byte[] Data { get; set; } //Byte Data of the message
-        public DateTime SentAt { get; set; } = DateTime.UtcNow; //SentAt Date
-        public bool IsDownloaded { get; set; } = false; //Is the message downloaded or not
-        public MessageType MessageType { get; set; } //Type of the message
-        public List<string> MediaSourcePath { get; set; } = new List<string>(); 
-        public Message(ulong Id, string SenderId, byte[] Data, bool IsDownloaded, MessageType MessageType, List<string> MediaSourcePath)
-        {
-            this.Id = Id;
-            this.SenderId = SenderId;
-            this.Data = Data;
-            this.IsDownloaded = IsDownloaded;
-            this.MessageType = MessageType;
-            this.MediaSourcePath = MediaSourcePath;
-        }
-        public Message()
-        {
-
-        }
+        public ulong Id { get; set; }
+        public string ChatId { get; set; }
+        public string SenderId { get; set; }
+        public MessageType Type { get; set; }
+        public DateTime SentAt { get; set; }
+        public bool IsDownloaded { get; set; }
+        public string MessageFolderPath { get; set; }
+        public string TextContent { get; set; }          
+        public List<string> AudioFiles { get; set; }     
+        public List<string> VoicesFiles { get; set; }
+        public List<string> VideoFiles { get; set; }
+        public List<string> PictureFiles { get; set; }
+        public MessageType MessageType { get; internal set; }
     }
 }
