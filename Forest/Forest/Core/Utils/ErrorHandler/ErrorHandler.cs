@@ -1,8 +1,8 @@
 using System;
 using System.IO;
-using ForestMSG.FileSystem;
+using ForestMSG.Core.Services.FileSystem;
 
-namespace ForestMSG.ErrorManagement
+namespace ForestMSG.Core.ErrorManagement
 {
     public class ErrorHandler
     {

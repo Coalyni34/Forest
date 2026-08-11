@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using ForestMSG.Enums;
+using ForestMSG.Core.Enums;
 
 namespace Forest.Models
 {
@@ -12,8 +12,7 @@ namespace Forest.Models
         public DateTime SentAt { get; set; } = DateTime.UtcNow; //SentAt Date
         public bool IsDownloaded { get; set; } = false; //Is the message downloaded or not
         public MessageType MessageType { get; set; } //Type of the message
-        public List<string> MediaSourcePath { get; set; } = new List<string>(); //Magnetlinks of the media which the message contains
-
+        public List<string> MediaSourcePath { get; set; } = new List<string>(); 
         public Message(ulong Id, string SenderId, byte[] Data, bool IsDownloaded, MessageType MessageType, List<string> MediaSourcePath)
         {
             this.Id = Id;

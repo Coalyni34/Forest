@@ -1,7 +1,8 @@
 using Eto.Forms;
 using System.Threading.Tasks;
 using System;
-using static EncryptionService;
+using ForestMSG.Application.GUI;
+using static ForestMSG.Core.Services.Encryption.EncryptionService;
 
 namespace Forest
 {
@@ -50,16 +51,8 @@ namespace Forest
 
         private static void FileInitialization()
         {
-            DirectoryService.CreateAllFolders();
             PhrasesGenerator.CreateMnemonicDictionary();
         }		
-        /*private void AddTestChats()
-        {
-            for(int i = 0; i < 50; i++)
-            {
-                _mainWindow.AddChatToList("chat1", $"{i}", $"{i}+{i+5}", $"Z{i+1}");
-            }
-        }       */
         
         private void OnChatsClick(object sender, EventArgs e)
         {

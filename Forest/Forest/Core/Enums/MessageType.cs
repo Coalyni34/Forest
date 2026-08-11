@@ -1,4 +1,4 @@
-namespace ForestMSG.Enums
+namespace ForestMSG.Core.Enums
 {
     public enum MessageType
     {

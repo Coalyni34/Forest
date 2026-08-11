@@ -1,4 +1,7 @@
-public class TorManager
+namespace ForestMSG.Core.Services.Network
 {
-    
+    public class TorManager
+    {
+        
+    }
 }

@@ -1,4 +1,7 @@
-public class DhtManager
+namespace ForestMSG.Core.Services.Network
 {
-    
+    public class DhtManager
+    {
+        
+    }
 }

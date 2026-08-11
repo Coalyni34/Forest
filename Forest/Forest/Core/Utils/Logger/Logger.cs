@@ -2,10 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
-using ForestMSG.ErrorManagement;
-using ForestMSG.FileSystem;
+using ForestMSG.Core.ErrorManagement;
+using ForestMSG.Core.Services.FileSystem;
 
-namespace ForestMSG.Logging
+namespace ForestMSG.Core.Logging
 {
     public class Logger
     {

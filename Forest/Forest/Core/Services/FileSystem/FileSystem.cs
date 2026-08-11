@@ -1,4 +1,4 @@
-namespace ForestMSG.FileSystem
+namespace ForestMSG.Core.Services.FileSystem
 {
     public static class DirectoryNames
     {
