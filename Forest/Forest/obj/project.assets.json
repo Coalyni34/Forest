@@ -792,25 +792,25 @@
     ]
   },
   "packageFolders": {
-    "/home/coalyni/.nuget/packages/": {}
+    "/home/coalynilap/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest/Forest.csproj",
+      "projectUniqueName": "/home/coalynilap/GithubProjects/ForestMSG/Forest/Forest/Forest.csproj",
       "projectName": "Forest",
-      "projectPath": "/run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest/Forest.csproj",
-      "packagesPath": "/home/coalyni/.nuget/packages/",
-      "outputPath": "/run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest/obj/",
+      "projectPath": "/home/coalynilap/GithubProjects/ForestMSG/Forest/Forest/Forest.csproj",
+      "packagesPath": "/home/coalynilap/.nuget/packages/",
+      "outputPath": "/home/coalynilap/GithubProjects/ForestMSG/Forest/Forest/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/coalyni/.nuget/NuGet/NuGet.Config"
+        "/home/coalynilap/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
       ],
       "sources": {
-        "/usr/lib64/dotnet/library-packs": {},
+        "/usr/lib/dotnet/library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -878,7 +878,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/lib64/dotnet/sdk/10.0.109/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/10.0.110/RuntimeIdentifierGraph.json"
       }
     }
   }

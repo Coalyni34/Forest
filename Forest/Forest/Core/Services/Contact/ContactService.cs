@@ -18,7 +18,7 @@ public class ContactService
             }
             catch(Exception e)
             {
-                var logger = new ErrorManager();
+                var logger = new ErrorHandler();
                 logger.LogError(e.ToString());
                 return null; //If we have some problems => we'll log errors and return null value
             }

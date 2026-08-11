@@ -1,30 +1,30 @@
 {
   "version": 2,
-  "dgSpecHash": "bnrSj6RT5hk=",
+  "dgSpecHash": "J84nh1qAIy8=",
   "success": true,
-  "projectFilePath": "/run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest.Wpf/Forest.Wpf.csproj",
+  "projectFilePath": "/home/coalynilap/GithubProjects/ForestMSG/Forest/Forest.Wpf/Forest.Wpf.csproj",
   "expectedPackageFiles": [
-    "/home/coalyni/.nuget/packages/chaos.nacl.standard/1.0.0/chaos.nacl.standard.1.0.0.nupkg.sha512",
-    "/home/coalyni/.nuget/packages/eto.forms/2.11.0/eto.forms.2.11.0.nupkg.sha512",
-    "/home/coalyni/.nuget/packages/eto.platform.wpf/2.10.2/eto.platform.wpf.2.10.2.nupkg.sha512",
-    "/home/coalyni/.nuget/packages/extended.wpf.toolkit/3.6.0/extended.wpf.toolkit.3.6.0.nupkg.sha512",
-    "/home/coalyni/.nuget/packages/microsoft-windowsapicodepack-core/1.1.4/microsoft-windowsapicodepack-core.1.1.4.nupkg.sha512",
-    "/home/coalyni/.nuget/packages/microsoft-windowsapicodepack-shell/1.1.4/microsoft-windowsapicodepack-shell.1.1.4.nupkg.sha512",
-    "/home/coalyni/.nuget/packages/microsoft.win32.systemevents/6.0.0/microsoft.win32.systemevents.6.0.0.nupkg.sha512",
-    "/home/coalyni/.nuget/packages/mono.nat/3.0.0/mono.nat.3.0.0.nupkg.sha512",
-    "/home/coalyni/.nuget/packages/monotorrent/3.0.2/monotorrent.3.0.2.nupkg.sha512",
-    "/home/coalyni/.nuget/packages/qrcoder/1.8.0/qrcoder.1.8.0.nupkg.sha512",
-    "/home/coalyni/.nuget/packages/reusabletasks/4.0.0/reusabletasks.4.0.0.nupkg.sha512",
-    "/home/coalyni/.nuget/packages/system.drawing.common/6.0.0/system.drawing.common.6.0.0.nupkg.sha512"
+    "/home/coalynilap/.nuget/packages/chaos.nacl.standard/1.0.0/chaos.nacl.standard.1.0.0.nupkg.sha512",
+    "/home/coalynilap/.nuget/packages/eto.forms/2.11.0/eto.forms.2.11.0.nupkg.sha512",
+    "/home/coalynilap/.nuget/packages/eto.platform.wpf/2.10.2/eto.platform.wpf.2.10.2.nupkg.sha512",
+    "/home/coalynilap/.nuget/packages/extended.wpf.toolkit/3.6.0/extended.wpf.toolkit.3.6.0.nupkg.sha512",
+    "/home/coalynilap/.nuget/packages/microsoft-windowsapicodepack-core/1.1.4/microsoft-windowsapicodepack-core.1.1.4.nupkg.sha512",
+    "/home/coalynilap/.nuget/packages/microsoft-windowsapicodepack-shell/1.1.4/microsoft-windowsapicodepack-shell.1.1.4.nupkg.sha512",
+    "/home/coalynilap/.nuget/packages/microsoft.win32.systemevents/6.0.0/microsoft.win32.systemevents.6.0.0.nupkg.sha512",
+    "/home/coalynilap/.nuget/packages/mono.nat/3.0.0/mono.nat.3.0.0.nupkg.sha512",
+    "/home/coalynilap/.nuget/packages/monotorrent/3.0.2/monotorrent.3.0.2.nupkg.sha512",
+    "/home/coalynilap/.nuget/packages/qrcoder/1.8.0/qrcoder.1.8.0.nupkg.sha512",
+    "/home/coalynilap/.nuget/packages/reusabletasks/4.0.0/reusabletasks.4.0.0.nupkg.sha512",
+    "/home/coalynilap/.nuget/packages/system.drawing.common/6.0.0/system.drawing.common.6.0.0.nupkg.sha512"
   ],
   "logs": [
     {
       "code": "NU1701",
       "level": "Warning",
       "message": "Пакет \"Extended.Wpf.Toolkit 3.6.0\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\", а не целевой платформы проекта \"net10.0-windows7.0\". Этот пакет может быть не полностью совместим с вашим проектом.",
-      "projectPath": "/run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest.Wpf/Forest.Wpf.csproj",
+      "projectPath": "/home/coalynilap/GithubProjects/ForestMSG/Forest/Forest.Wpf/Forest.Wpf.csproj",
       "warningLevel": 1,
-      "filePath": "/run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest.Wpf/Forest.Wpf.csproj",
+      "filePath": "/home/coalynilap/GithubProjects/ForestMSG/Forest/Forest.Wpf/Forest.Wpf.csproj",
       "libraryId": "Extended.Wpf.Toolkit",
       "targetGraphs": [
         "net10.0-windows7.0"

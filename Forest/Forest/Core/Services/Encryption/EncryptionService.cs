@@ -650,7 +650,7 @@ public class EncryptionService
             }
             catch (Exception e)
             {
-                var logger = new ErrorManager();
+                var logger = new ErrorHandler();
                 logger.LogError(e.ToString());
             }
         }
@@ -695,7 +695,7 @@ public class EncryptionService
             }
             catch (Exception e)
             {
-                var logger = new ErrorManager();
+                var logger = new ErrorHandler();
                 logger.LogError(e.ToString());
                 return null;
             }

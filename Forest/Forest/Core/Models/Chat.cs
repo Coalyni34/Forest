@@ -1,9 +1,10 @@
 using System.Collections.Generic;
 using System.Text.Json;
+using Forest.Models;
 
 public class Chat 
 {
-    public string Id { get; set; } //Chat ID
+    public string Id { get; set; }     //Chat ID
     public string SelfId { set; get; } //Your ID
     public string PeerId { set; get; } //ID of your friend
     public List<Message> Messages = new List<Message>(); //All your messages
