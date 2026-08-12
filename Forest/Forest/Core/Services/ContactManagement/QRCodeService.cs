@@ -1,3 +1,4 @@
+using System.Drawing;
 using System.IO;
 using QRCoder;
 
@@ -5,7 +6,7 @@ namespace ForestMSG.Core.Services.ContactManagement
 {
     public class QRCodeCreator
     {
-        public void CreateQRCode(string data, string path)
+        public void SaveQRCodeToFile(string data, string path)
         {
             var qrGenerator = new QRCodeGenerator();
             var qrCodeData = qrGenerator.CreateQrCode(data, QRCodeGenerator.ECCLevel.Default);
