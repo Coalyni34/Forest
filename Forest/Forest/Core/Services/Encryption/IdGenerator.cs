@@ -6,20 +6,34 @@ namespace ForestMSG.Core.Services.Encryption
 {
     public class IdGenerator
     {
-        public static string GeneratePublicUserId(string seed, string salt = null)
+        public static string GeneratePublicUserId(string seed, string salt)
         {
-            string raw = seed + "|" + salt; //The raw, will be used for creating hash
+            if (string.IsNullOrEmpty(seed))
+                throw new ArgumentException("Seed не может быть пустым");
+            if (string.IsNullOrEmpty(salt))
+                throw new ArgumentException("Соль не может быть пустой");
 
-            var sha256 = SHA256.Create(); //SHA256
-            byte[] hash = sha256.ComputeHash(Encoding.UTF8.GetBytes(raw)); //Byte array of the hash
-
-            return BitConverter.ToString(hash).Replace("-", "").ToLowerInvariant(); //Converting bytes to string
+            string raw = seed + "|" + salt;
+            using var sha256 = SHA256.Create();
+            byte[] hash = sha256.ComputeHash(Encoding.UTF8.GetBytes(raw));
+            return BitConverter.ToString(hash).Replace("-", "").ToLowerInvariant();
         }
-        public static bool VerifyId(string id, string seed, string salt = "")
-        {
-            string expectedId = GeneratePublicUserId(seed, salt); //Generating public user ID from setted data
 
-            return string.Equals(id, expectedId, StringComparison.OrdinalIgnoreCase); //Verifing user's ID and expected ID
+        public static bool VerifyId(string id, string seed, string salt)
+        {
+            if (string.IsNullOrEmpty(id) || string.IsNullOrEmpty(seed) || string.IsNullOrEmpty(salt))
+                return false;
+
+            string expectedId = GeneratePublicUserId(seed, salt);
+            return string.Equals(id, expectedId, StringComparison.OrdinalIgnoreCase);
+        }
+
+        public static string GenerateSalt(int length = 32)
+        {
+            byte[] saltBytes = new byte[length];
+            using var rng = RandomNumberGenerator.Create();
+            rng.GetBytes(saltBytes);
+            return Convert.ToBase64String(saltBytes);
         }
     }
 }
