@@ -1,22 +1,39 @@
+using System;
+using System.Text.Json.Serialization;
+
 namespace ForestMSG.Core.Models
 {
     public class Contact
     {
-        public string Name { set; get; } //Public Name
-        public string PublicId { set; get; } //Public ID 
-        public string PublicKey { set; get; } //Ed25519 Public Key
-        public string EncryptionKey { set; get; } //X25519 ublic Key
-        public bool isPrivate { set; get; }  //This value means that will you share your contact by DHT with other users or not
+        public string PublicId { get; set; }        
+        public string Name { get; set; }               
+        public string Avatar { get; set; }            
+        public string Bio { get; set; }              
 
-        public Contact(string Name, bool isPrivate, string PublicId)
-        {
-            this.Name = Name;
-            this.isPrivate = isPrivate;
-            this.PublicId = PublicId;
-        }
-        public Contact()
-        {
+        public string PublicKey { get; set; }        
+        public string EncryptionKey { get; set; }    
 
+        public bool IsPrivate { get; set; }            
+        public DateTime CreatedAt { get; set; }       
+        public DateTime? LastSeen { get; set; }      
+        public string Version { get; set; } = "1.0";  
+
+        [JsonIgnore] 
+        public string Salt { get; set; }              
+
+        public string Signature { get; set; }        
+
+        public Contact() { }
+
+        public Contact(string name, string publicId, string publicKey, string encryptionKey, bool isPrivate = true)
+        {
+            Name = name;
+            PublicId = publicId;
+            PublicKey = publicKey;
+            EncryptionKey = encryptionKey;
+            IsPrivate = isPrivate;
+            CreatedAt = DateTime.UtcNow;
+            Version = "1.0";
         }
     }
 }
