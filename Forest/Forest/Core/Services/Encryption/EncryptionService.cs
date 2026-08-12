@@ -272,7 +272,12 @@ namespace ForestMSG.Core.Services.Encryption
                     message.ChatId,
                     message.MessageType,
                     message.SentAt,
-                    message.IsDownloaded
+                    message.IsDownloaded,
+                    message.TextFilePath,
+                    AudioFiles = message.AudioFiles?.Select(p => Path.GetFileName(p)).ToList(),
+                    VoicesFiles = message.VoicesFiles?.Select(p => Path.GetFileName(p)).ToList(),
+                    VideoFiles = message.VideoFiles?.Select(p => Path.GetFileName(p)).ToList(),
+                    PictureFiles = message.PictureFiles?.Select(p => Path.GetFileName(p)).ToList()
                 };
                 string metaJson = JsonSerializer.Serialize(meta);
                 await File.WriteAllTextAsync(Path.Combine(infoFolder, "message.json"), metaJson);
@@ -283,12 +288,18 @@ namespace ForestMSG.Core.Services.Encryption
                 byte[] videoKey = DeriveMediaKey(archiveKey, "VIDEO");
                 byte[] imageKey = DeriveMediaKey(archiveKey, "IMAGE");
 
-                if (!string.IsNullOrEmpty(message.TextContent))
+                if (!string.IsNullOrEmpty(message.TextFilePath))
                 {
                     string textFolder = Path.Combine(folderPath, "Text");
                     Directory.CreateDirectory(textFolder);
                     string textFilePath = Path.Combine(textFolder, "content.txt");
-                    await File.WriteAllTextAsync(textFilePath, message.TextContent);
+                    
+                    if (File.Exists(message.TextFilePath))
+                    {
+                        string textContent = await File.ReadAllTextAsync(message.TextFilePath);
+                        await File.WriteAllTextAsync(textFilePath, textContent);
+                    }
+                    
                     await EncryptSingleFileAsync(textFilePath, textKey);
                 }
 
@@ -355,17 +366,18 @@ namespace ForestMSG.Core.Services.Encryption
                         MessageType = meta.MessageType,
                         SentAt = meta.SentAt,
                         IsDownloaded = true,
-                        MessageFolderPath = extractFolder
+                        MessageFolderPath = extractFolder,
+                        TextFilePath = meta.TextFilePath
                     };
 
-                    string textEncPath = Path.Combine(extractFolder, "Text", "content.txt.enc");
-                    if (File.Exists(textEncPath))
+                    if (!string.IsNullOrEmpty(meta.TextFilePath))
                     {
-                        byte[] textKey = DeriveMediaKey(archiveKey, "TEXT");
-                        await DecryptSingleFileAsync(textEncPath, textKey);
-                        string textFilePath = Path.Combine(extractFolder, "Text", "content.txt");
-                        if (File.Exists(textFilePath))
-                            message.TextContent = await File.ReadAllTextAsync(textFilePath);
+                        string textEncPath = Path.Combine(extractFolder, meta.TextFilePath + ".enc");
+                        if (File.Exists(textEncPath))
+                        {
+                            byte[] textKey = DeriveMediaKey(archiveKey, "TEXT");
+                            await DecryptSingleFileAsync(textEncPath, textKey);
+                        }
                     }
 
                     message.AudioFiles = await DecryptMediaFilesAsync(extractFolder, "Audio", DeriveMediaKey(archiveKey, "AUDIO"));
@@ -410,6 +422,11 @@ namespace ForestMSG.Core.Services.Encryption
                 public MessageType MessageType { get; set; }
                 public DateTime SentAt { get; set; }
                 public bool IsDownloaded { get; set; }
+                public string TextFilePath { get; set; }
+                public List<string> AudioFiles { get; set; }
+                public List<string> VoicesFiles { get; set; }
+                public List<string> VideoFiles { get; set; }
+                public List<string> PictureFiles { get; set; }
             }
 
             private void ValidateParameters(Message message, ChatSession session, byte[] senderPrivateKey)
@@ -419,7 +436,7 @@ namespace ForestMSG.Core.Services.Encryption
                 if (senderPrivateKey == null || senderPrivateKey.Length != 64)
                     throw new ArgumentException("PrivateKey must be 64 bytes");
 
-                bool hasText = !string.IsNullOrEmpty(message.TextContent);
+                bool hasText = !string.IsNullOrEmpty(message.TextFilePath) && File.Exists(message.TextFilePath);
                 bool hasMedia = (message.AudioFiles != null && message.AudioFiles.Any()) ||
                                 (message.VoicesFiles != null && message.VoicesFiles.Any()) ||
                                 (message.VideoFiles != null && message.VideoFiles.Any()) ||

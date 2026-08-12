@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using ForestMSG.Core.Enums;
 
 namespace Forest.Models
@@ -13,7 +14,7 @@ namespace Forest.Models
         public DateTime SentAt { get; set; }
         public bool IsDownloaded { get; set; }
         public string MessageFolderPath { get; set; }
-        public string TextContent { get; set; }          
+        public string TextFilePath { get; set; } = Path.Combine("Text", "content.txt");          
         public List<string> AudioFiles { get; set; }     
         public List<string> VoicesFiles { get; set; }
         public List<string> VideoFiles { get; set; }
