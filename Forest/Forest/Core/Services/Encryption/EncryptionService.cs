@@ -293,13 +293,13 @@ namespace ForestMSG.Core.Services.Encryption
                     string textFolder = Path.Combine(folderPath, "Text");
                     Directory.CreateDirectory(textFolder);
                     string textFilePath = Path.Combine(textFolder, "content.txt");
-                    
+
                     if (File.Exists(message.TextFilePath))
                     {
                         string textContent = await File.ReadAllTextAsync(message.TextFilePath);
                         await File.WriteAllTextAsync(textFilePath, textContent);
                     }
-                    
+
                     await EncryptSingleFileAsync(textFilePath, textKey);
                 }
 
@@ -606,6 +606,13 @@ namespace ForestMSG.Core.Services.Encryption
                 if (keyPair?.PrivateKey == null) throw new ArgumentNullException(nameof(keyPair));
 
                 return Ed25519.Sign(data, keyPair.PrivateKey);
+            }
+            public static byte[] SignData(byte[] data, byte[] privateKey)
+            {
+                if (data == null) throw new ArgumentNullException(nameof(data));
+                if (privateKey == null || privateKey.Length != 64)
+                    throw new ArgumentException("PrivateKey must be 64 bytes");
+                return Ed25519.Sign(data, privateKey);
             }
 
             public static bool VerifySignature(byte[] data, byte[] signature, byte[] publicKey)

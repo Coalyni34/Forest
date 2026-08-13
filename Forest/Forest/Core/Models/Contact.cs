@@ -15,7 +15,6 @@ namespace ForestMSG.Core.Models
 
         public bool IsPrivate { get; set; }            
         public DateTime CreatedAt { get; set; }       
-        public DateTime? LastSeen { get; set; }      
         public string Version { get; set; } = "1.0";  
 
         [JsonIgnore] 

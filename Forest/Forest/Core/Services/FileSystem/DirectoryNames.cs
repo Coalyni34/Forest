@@ -6,5 +6,8 @@ namespace ForestMSG.Core.Services.FileSystem
         public static readonly string Security = "Security";
         public static readonly string BaseDictionary = "BaseDictionary";
         public static readonly string Mnemonic = "Mnemonic";
+        public static readonly string Contacts = "Contacts";
+        public static readonly string Torrents = "Torrents";
+        public static readonly string TorrentContacts = "TorrentContacts";
     }    
 }
