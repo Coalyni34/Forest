@@ -6,7 +6,7 @@ namespace ForestMSG.Core.ErrorManagement
 {
     public class ErrorHandler
     {
-        public void LogError(string text)
+        public static void LogError(string text)
         {
             var errorLogFolderName = $"Error_Log_{DateTime.Now:dd:MM:yyyy}";
             var errorLogFolderPath = Path.Combine(DirectoryNames.MainFolder, errorLogFolderName);

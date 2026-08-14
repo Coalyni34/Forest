@@ -687,6 +687,63 @@ namespace ForestMSG.Core.Services.Encryption
 
                 return Convert.ToBase64String(result);
             }
+            public static KeyPair ImportKeyPair(string encryptedData, string password)
+            {
+                var exportData = JsonSerializer.Deserialize<ExportData>(encryptedData);
+
+                byte[] privateKey = DecryptPrivateKey(exportData.EncryptedPrivateKey, password);
+
+                byte[] publicKey = Convert.FromBase64String(exportData.PublicKey);
+                byte[] encryptionPublicKey = Convert.FromBase64String(exportData.EncryptionPublicKey);
+
+                byte[] encryptionPrivateKey = Ed25519.ExpandedPrivateKeyFromSeed(privateKey.Take(32).ToArray())
+                    .Take(32).ToArray();
+
+                return new KeyPair
+                {
+                    PublicKey = publicKey,
+                    PrivateKey = privateKey,
+                    EncryptionPrivateKey = encryptionPrivateKey,
+                    EncryptionPublicKey = encryptionPublicKey,
+                    GenerateAt = exportData.GeneratedAt
+                };
+            }
+
+            private class ExportData
+            {
+                public string Version { get; set; }
+                public string PublicKey { get; set; }
+                public string EncryptedPrivateKey { get; set; }
+                public string EncryptionPublicKey { get; set; }
+                public DateTime GeneratedAt { get; set; }
+            }
+
+            private static byte[] DecryptPrivateKey(string encryptedPrivateKeyBase64, string password)
+            {
+                byte[] encryptedData = Convert.FromBase64String(encryptedPrivateKeyBase64);
+
+                byte[] salt = new byte[16];
+                Buffer.BlockCopy(encryptedData, 0, salt, 0, 16);
+
+                byte[] nonce = new byte[12];
+                Buffer.BlockCopy(encryptedData, 16, nonce, 0, 12);
+
+                int tagLength = 16;
+                int ciphertextLength = encryptedData.Length - 16 - 12 - 16;
+                byte[] ciphertext = new byte[ciphertextLength];
+                byte[] tag = new byte[tagLength];
+                Buffer.BlockCopy(encryptedData, 16 + 12, ciphertext, 0, ciphertextLength);
+                Buffer.BlockCopy(encryptedData, 16 + 12 + ciphertextLength, tag, 0, tagLength);
+
+                using var pbkdf2 = new Rfc2898DeriveBytes(password, salt, 100000);
+                byte[] key = pbkdf2.GetBytes(32);
+
+                byte[] plaintext = new byte[ciphertext.Length];
+                using var aes = new AesGcm(key);
+                aes.Decrypt(nonce, ciphertext, tag, plaintext);
+
+                return plaintext;
+            }
         }
 
         public class PhrasesGenerator
@@ -713,8 +770,7 @@ namespace ForestMSG.Core.Services.Encryption
                 }
                 catch (Exception e)
                 {
-                    var logger = new ErrorHandler();
-                    logger.LogError(e.ToString());
+                    ErrorHandler.LogError($"[Encryption Service] {e}");
                 }
             }
 
@@ -757,8 +813,7 @@ namespace ForestMSG.Core.Services.Encryption
                 }
                 catch (Exception e)
                 {
-                    var logger = new ErrorHandler();
-                    logger.LogError(e.ToString());
+                    ErrorHandler.LogError($"[Encryption Service] {e}");
                     return null;
                 }
             }

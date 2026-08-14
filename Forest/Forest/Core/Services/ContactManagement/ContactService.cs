@@ -22,11 +22,7 @@ namespace ForestMSG.Core.Services.ContactManagement
             _contactsFolder = Path.Combine(DirectoryNames.MainFolder, DirectoryNames.Contacts);
             _torrentService = torrentService;
 
-
-            if (!Directory.Exists(_contactsFolder))
-            {
-                Directory.CreateDirectory(_contactsFolder);
-            }
+            Directory.CreateDirectory(_contactsFolder);
         }
 
         public async Task<(Contact contact, string mnemonic)> CreateUserAsync(string name, string password, bool isPrivate = true)
@@ -34,7 +30,7 @@ namespace ForestMSG.Core.Services.ContactManagement
             string mnemonic = PhrasesGenerator.CreateSecureMnemonicPhraseString();
             var keyPair = CryptoKeysGenerator.GenerateFromMnemonic(mnemonic);
 
-            string  salt = IdGenerator.GenerateSalt(32);
+            string salt = IdGenerator.GenerateSalt(32);
 
             string publicId = IdGenerator.GeneratePublicUserId(name, salt);
 
@@ -52,6 +48,8 @@ namespace ForestMSG.Core.Services.ContactManagement
 
             await SaveContactAsync(contact);
 
+            await SaveContactAsMeAsync(contact);
+
             await SaveKeysAsync(keyPair, contact.PublicId, password);
             await SaveMnemonicAsync(mnemonic, contact.PublicId);
 
@@ -59,10 +57,22 @@ namespace ForestMSG.Core.Services.ContactManagement
 
         }
 
+        private async Task SaveContactAsMeAsync(Contact contact)
+        {
+            string meFolder = Path.Combine(_contactsFolder, DirectoryNames.Me);
+            Directory.CreateDirectory(meFolder);
+
+            string mePath = Path.Combine(meFolder, "Me.json");
+            var options = new JsonSerializerOptions { WriteIndented = true };
+            string json = JsonSerializer.Serialize(contact, options);
+            await File.WriteAllTextAsync(mePath, json);
+
+        }
+
         public async Task<CryptoKeysGenerator.KeyPair> LoadKeysAsync(string publicId, string password = "")
         {
             string keysPath = Path.Combine(DirectoryNames.MainFolder, DirectoryNames.Security, publicId, "keys.encrypted");
-            if(!File.Exists(keysPath))
+            if (!File.Exists(keysPath))
             { throw new FileNotFoundException("Файл ключей не найден"); }
 
             //TODO: Реализовать импорт ключей, пока заглушка
@@ -72,21 +82,19 @@ namespace ForestMSG.Core.Services.ContactManagement
         private async Task SaveMnemonicAsync(string mnemonic, string publicId)
         {
             string securityFolder = Path.Combine(DirectoryNames.MainFolder, DirectoryNames.Security, publicId);
-            if(!Directory.Exists(securityFolder))
-            { Directory.CreateDirectory(securityFolder); }
+            Directory.CreateDirectory(securityFolder);
 
             string mnemonicPath = Path.Combine(securityFolder, "mnemonic.txt");
-            await File.WriteAllTextAsync(mnemonicPath, mnemonic);                        
+            await File.WriteAllTextAsync(mnemonicPath, mnemonic);
         }
 
         private async Task SaveKeysAsync(CryptoKeysGenerator.KeyPair keyPair, string publicId, string password)
         {
-            if(string.IsNullOrEmpty(password))
+            if (string.IsNullOrEmpty(password))
             { throw new ArgumentException("Пароль не может быть пустым"); }
-            
+
             string securityFolder = Path.Combine(DirectoryNames.MainFolder, DirectoryNames.Security, publicId);
-            if(!Directory.Exists(securityFolder))
-            { Directory.CreateDirectory(securityFolder); }
+            Directory.CreateDirectory(securityFolder);
 
             string encryptedKeys = CryptoKeysGenerator.ExportKeyPair(keyPair, password);
             string keysPath = Path.Combine(securityFolder, "keys.encrypted");
@@ -95,12 +103,12 @@ namespace ForestMSG.Core.Services.ContactManagement
 
         public async Task<Contact> LoadContactAsync(string publicId)
         {
-            if(string.IsNullOrEmpty(publicId))
+            if (string.IsNullOrEmpty(publicId))
             { throw new ArgumentException("PublicId не может быть пустым"); }
 
             string filePath = Path.Combine(_contactsFolder, publicId, $"{publicId}.json");
 
-            if(!File.Exists(filePath))
+            if (!File.Exists(filePath))
             { return null; }
 
             string json = await File.ReadAllTextAsync(filePath);
@@ -109,20 +117,17 @@ namespace ForestMSG.Core.Services.ContactManagement
 
         public async Task<Contact> LoadMyContactAsync()
         {
-            if(!Directory.Exists(_contactsFolder))
-            { return null; }
+            string mePath = Path.Combine(_contactsFolder, "Me", "Me.json");
+            if (!File.Exists(mePath))
+                return null;
 
-            var directories = Directory.GetDirectories(_contactsFolder);
-            if(directories.Length == 0)
-            { return null; }
-            
-            string publicId = Path.GetFileName(Path.Combine(DirectoryNames.MainFolder, DirectoryNames.Contacts, "Me"));
-            return await LoadContactAsync(publicId);
+            string json = await File.ReadAllTextAsync(mePath);
+            return JsonSerializer.Deserialize<Contact>(json);
         }
 
         public async Task<Contact> FindContactInDHTAsync(string publicId)
         {
-            if(_torrentService == null)
+            if (_torrentService == null)
             { throw new InvalidOperationException("TorrenService не инициализирован"); }
 
             var localContact = await LoadContactAsync(publicId);
@@ -131,7 +136,7 @@ namespace ForestMSG.Core.Services.ContactManagement
 
             var contact = await _torrentService.FindContactInDHTAsync(publicId);
 
-            if(contact != null && VerifyContact(contact))
+            if (contact != null && VerifyContact(contact))
             {
                 await SaveContactAsync(contact);
                 return contact;
@@ -142,25 +147,24 @@ namespace ForestMSG.Core.Services.ContactManagement
 
         public async Task PublishContactAsync(Contact contact)
         {
-            if(_torrentService == null)
+            if (_torrentService == null)
             { throw new InvalidOperationException("TorrentService не инициализирован"); }
 
-            if(!VerifyContact(contact))
+            if (!VerifyContact(contact))
             { throw new InvalidOperationException("Контакт не подписан или подпись недействительная"); }
 
             await SaveContactAsync(contact);
 
-            await _torrentService.PublishContactAsync(contact);;
+            await _torrentService.PublishContactAsync(contact); ;
         }
 
         private async Task SaveContactAsync(Contact contact)
         {
-            if(contact == null || string.IsNullOrEmpty(contact.PublicId))
+            if (contact == null || string.IsNullOrEmpty(contact.PublicId))
             { throw new ArgumentException("Контакт или PublicId не может быть null"); }
 
             string contactFolder = Path.Combine(_contactsFolder, contact.PublicId);
-            if(!Directory.Exists(contactFolder))
-            { Directory.CreateDirectory(contactFolder); }
+            Directory.CreateDirectory(contactFolder);
 
             string filePath = Path.Combine(contactFolder, $"{contact.PublicId}.json");
 
@@ -181,7 +185,7 @@ namespace ForestMSG.Core.Services.ContactManagement
                 contact.EncryptionKey,
                 contact.IsPrivate,
                 contact.CreatedAt,
-                contact.Version                
+                contact.Version
             };
 
             string json = JsonSerializer.Serialize(dataToSign);
@@ -193,7 +197,7 @@ namespace ForestMSG.Core.Services.ContactManagement
 
         public bool VerifyContact(Contact contact)
         {
-            if(string.IsNullOrEmpty(contact.Signature))
+            if (string.IsNullOrEmpty(contact.Signature))
             {
                 return false;
             }
@@ -208,7 +212,7 @@ namespace ForestMSG.Core.Services.ContactManagement
                 contact.EncryptionKey,
                 contact.IsPrivate,
                 contact.CreatedAt,
-                contact.Version                
+                contact.Version
             };
 
             string json = JsonSerializer.Serialize(dataToVerify);
@@ -217,7 +221,7 @@ namespace ForestMSG.Core.Services.ContactManagement
             byte[] publicKey = Convert.FromBase64String(contact.PublicKey);
 
             return CryptoKeysGenerator.VerifySignature(data, signature, publicKey);
-        }      
+        }
 
     }
 }

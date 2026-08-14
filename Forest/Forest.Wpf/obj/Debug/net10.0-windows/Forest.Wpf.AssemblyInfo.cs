@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Forest.Wpf")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+efe7c535f968263243b55f8754cabf87f557fd8b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d960d3ecaf4af9f6425847c0bb39ae0ce7b068cf")]
 [assembly: System.Reflection.AssemblyProductAttribute("Forest.Wpf")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Forest.Wpf")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

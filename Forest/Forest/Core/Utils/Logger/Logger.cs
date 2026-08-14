@@ -54,8 +54,7 @@ namespace ForestMSG.Core.Logging
             }
             catch (Exception e)
             {
-                ErrorHandler errorManager = new ErrorHandler();
-                errorManager.LogError(e.Message);
+                ErrorHandler.LogError(e.ToString());
             }
             finally
             {                
