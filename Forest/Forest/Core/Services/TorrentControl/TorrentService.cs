@@ -8,12 +8,9 @@ using System.Threading.Tasks;
 using ForestMSG.Core.ErrorManagement;
 using ForestMSG.Core.Logging;
 using ForestMSG.Core.Models;
-using ForestMSG.Core.Services.ContactManagement;
 using ForestMSG.Core.Services.FileSystem;
 using MonoTorrent;
 using MonoTorrent.Client;
-using MonoTorrent.TrackerServer;
-using ReusableTasks;
 
 namespace ForestMSG.Core.Services.TorrentControl
 {
@@ -74,8 +71,7 @@ namespace ForestMSG.Core.Services.TorrentControl
 
                 if (!isPrivate)
                 {
-                    var trackers = new List<string>() { };
-                    creator.Announces.Add(trackers);
+                    creator.Announces.Add(PublicTrackers);
                 }
 
                 await Task.Run(() => creator.Create(new TorrentFileSource(contactJsonPath), torrentPath));
@@ -106,6 +102,12 @@ namespace ForestMSG.Core.Services.TorrentControl
 
                     var jsonFile = manager.Torrent.Files.FirstOrDefault(f =>
                 f.Path.EndsWith(".json", StringComparison.OrdinalIgnoreCase));
+
+                    if (manager.Torrent == null)
+                    {
+                        Logger.WriteLog($"[TorrentService] Торрент не содержит метаданных для {publicId}");
+                        return null;
+                    }
 
 
                     if (jsonFile == null)
@@ -193,7 +195,10 @@ namespace ForestMSG.Core.Services.TorrentControl
         private readonly string _contactsFolder;
         private readonly List<string> PublicTrackers = new List<string>()
         {
-
+            "udp://tracker.opentrackr.org:1337/announce",
+            "udp://tracker.coppersurfer.tk:6969/announce",
+            "udp://tracker.leechers-paradise.org:6969/announce",
+            "udp://tracker.cyberia.is:6969/announce"
         };
 
         public TorrentService(string baseFolder = null)

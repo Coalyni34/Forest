@@ -3,7 +3,6 @@ using System.IO;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
-using ForestMSG.Core.ErrorManagement;
 using ForestMSG.Core.Models;
 using ForestMSG.Core.Services.Encryption;
 using ForestMSG.Core.Services.FileSystem;
