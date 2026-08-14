@@ -15,9 +15,9 @@ namespace ForestMSG.Core.Services.ContactManagement
     public class ContactService
     {
         private readonly string _contactsFolder;
-        private readonly TorrentService _torrentService;
+        private readonly TorrentService.ContactTorrentService _torrentService;
 
-        public ContactService(TorrentService torrentService = null)
+        public ContactService(TorrentService.ContactTorrentService torrentService = null)
         {
             _contactsFolder = Path.Combine(DirectoryNames.MainFolder, DirectoryNames.Contacts);
             _torrentService = torrentService;
@@ -71,12 +71,16 @@ namespace ForestMSG.Core.Services.ContactManagement
 
         public async Task<CryptoKeysGenerator.KeyPair> LoadKeysAsync(string publicId, string password = "")
         {
+            if (string.IsNullOrEmpty(password))
+                throw new ArgumentException("Пароль не может быть пустым");
+
             string keysPath = Path.Combine(DirectoryNames.MainFolder, DirectoryNames.Security, publicId, "keys.encrypted");
             if (!File.Exists(keysPath))
-            { throw new FileNotFoundException("Файл ключей не найден"); }
+                throw new FileNotFoundException($"Файл ключей не найден: {keysPath}");
 
-            //TODO: Реализовать импорт ключей, пока заглушка
-            throw new NotImplementedException("Импорт ключей еще не реализован");
+            string encryptedData = await File.ReadAllTextAsync(keysPath);
+            return CryptoKeysGenerator.ImportKeyPair(encryptedData, password);
+
         }
 
         private async Task SaveMnemonicAsync(string mnemonic, string publicId)
