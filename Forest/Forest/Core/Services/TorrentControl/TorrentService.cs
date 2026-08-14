@@ -97,18 +97,17 @@ namespace ForestMSG.Core.Services.TorrentControl
                     var manager = await engine.AddAsync(magnetLink, _torrentsFolder);
                     await manager.StartAsync();
 
-                    string downloadPath = Path.Combine(_torrentsFolder, "Downloads");
-                    Directory.CreateDirectory(downloadPath);
-
-                    var jsonFile = manager.Torrent.Files.FirstOrDefault(f =>
-                f.Path.EndsWith(".json", StringComparison.OrdinalIgnoreCase));
-
                     if (manager.Torrent == null)
                     {
                         Logger.WriteLog($"[TorrentService] Торрент не содержит метаданных для {publicId}");
                         return null;
                     }
 
+                    string downloadPath = Path.Combine(_torrentsFolder, "Downloads");
+                    Directory.CreateDirectory(downloadPath);
+
+                    var jsonFile = manager.Torrent.Files.FirstOrDefault(f =>
+                f.Path.EndsWith(".json", StringComparison.OrdinalIgnoreCase));
 
                     if (jsonFile == null)
                     {
