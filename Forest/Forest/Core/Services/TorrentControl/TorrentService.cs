@@ -186,6 +186,24 @@ namespace ForestMSG.Core.Services.TorrentControl
                 byte[] hash = sha1.ComputeHash(Encoding.UTF8.GetBytes(publicId));
                 return BitConverter.ToString(hash).Replace("-", "").ToLowerInvariant();
             }
+
+            public async Task PublishHandshakeAsync(HandshakePacket handshake)
+            {
+                
+            }
+            public async Task PublishConfirmationAsync(HandshakeConfirmation confirmation)
+            {
+                
+            }
+
+            public async Task<List<HandshakePacket>> FindHandshakesForMeAsync(string myPublicId)
+            {
+                return null;
+            }
+            public async Task RemoveHandshakeFromDHTAsync(string chatId)
+            {
+
+            }
         }
         private readonly ClientEngine engine;
         private readonly string _torrentsFolder;
