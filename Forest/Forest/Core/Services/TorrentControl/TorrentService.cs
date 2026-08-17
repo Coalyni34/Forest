@@ -189,20 +189,197 @@ namespace ForestMSG.Core.Services.TorrentControl
 
             public async Task PublishHandshakeAsync(HandshakePacket handshake)
             {
-                
+                if(handshake == null)
+                { throw new ArgumentNullException(nameof(handshake)); }
+
+                string handshakeFolder = Path.Combine(_torrentsFolder, "Handshakes");
+                Directory.CreateDirectory(handshakeFolder);
+
+                string jsonPath = Path.Combine(handshakeFolder, $"{handshake.ChatId}_handshake.json");
+                var options = new JsonSerializerOptions { WriteIndented = true };
+                string json = JsonSerializer.Serialize(handshake, options);
+                await File.WriteAllTextAsync(jsonPath, json);
+
+                string torrentName = $"{handshake.ChatId}_handshake.torrent";
+                string torrentPath = Path.Combine(handshakeFolder, torrentName);
+
+                var creator = new TorrentCreator
+                {
+                    Comment = $"Forest Handshake: {handshake.ChatId}",
+                    CreatedBy = "Forest Messenger v1.0",
+                    Name = $"handshake_{handshake.ChatId}",
+                    Private = true                  
+                };
+
+                creator.Announces.Add(PublicTrackers);
+
+                await Task.Run(() => creator.Create(new TorrentFileSource(jsonPath), torrentPath));
+
+                var torrent = await Task.Run(() => Torrent.Load(torrentPath));
+                var manager = await engine.AddAsync(torrent, handshakeFolder);
+                await manager.StartAsync();
+
+                Logger.WriteLog($"[TorrentService] Рукопожатие {handshake.ChatId} опубликовано");
+                Logger.WriteLog($"State: {manager.State}");
+                Logger.WriteLog($"Magnet: {manager.MagnetLink?.ToV1String() ?? "N/A"}");
+
+                manager.TorrentStateChanged += (s, e) =>
+                    Logger.WriteLog($"Handshake state changed to: {manager.State}");
+                manager.PeerConnected += (s, e) =>
+                    Logger.WriteLog($"Handshake peer connected: {e.Peer.Uri}");
             }
             public async Task PublishConfirmationAsync(HandshakeConfirmation confirmation)
             {
-                
+                if(confirmation == null)
+                { throw new ArgumentException(nameof(confirmation)); }
+
+                string handshakeFolder = Path.Combine(_torrentsFolder, "Handshakes");
+                Directory.CreateDirectory(handshakeFolder);
+
+                string jsonPath = Path.Combine(handshakeFolder, $"{confirmation.ChatId}_confirmation.json");
+                var options = new JsonSerializerOptions { WriteIndented = true };
+                string json = JsonSerializer.Serialize(confirmation, options);
+                await File.WriteAllTextAsync(jsonPath, json);
+
+                string torrentName = $"{confirmation.ChatId}_confirmation.torrent";
+                string torrentPath = Path.Combine(handshakeFolder, torrentName);
+
+                var creator = new TorrentCreator
+                {
+                    Comment = $"Forest Confirmation: {confirmation.ChatId}",
+                    CreatedBy = "Forest Messenger v1.0",
+                    Name = $"confirmation_{confirmation.ChatId}",
+                    Private = false                     
+                };
+
+                creator.Announces.Add(PublicTrackers);
+
+                await Task.Run(() => Torrent.Load(torrentPath));
+
+                var torrent = await Task.Run(() => Torrent.Load(torrentPath));
+                var manager = await engine.AddAsync(torrent, handshakeFolder);
+                await manager.StartAsync();
+
+                Logger.WriteLog($"[TorrentService] Квитанция для {confirmation.ChatId} опубликовано");
+                Logger.WriteLog($"State: {manager.State}");
             }
 
             public async Task<List<HandshakePacket>> FindHandshakesForMeAsync(string myPublicId)
             {
-                return null;
+                var result = new List<HandshakePacket>();
+                string handshakeFolder = Path.Combine(_torrentsFolder, "Handshakes");
+
+                if(!Directory.Exists(handshakeFolder))
+                { return result; }
+
+                try
+                {
+                    var torrentFiles = Directory.GetFiles(handshakeFolder, "*_handshake.torrent");
+
+                    foreach(var torrentPath in torrentFiles)
+                    {
+                        try
+                        {
+                            var torrent = await Task.Run(() => Torrent.Load(torrentPath));
+
+                            var jsonFile = torrent.Files.FirstOrDefault(
+                                f => f.Path.EndsWith("_handshake.json", StringComparison.OrdinalIgnoreCase)
+                            );
+
+                            if (jsonFile == null)
+                            { continue; }
+
+                            string jsonPath = Path.Combine(handshakeFolder, jsonFile.Path);
+                            if (!File.Exists(jsonPath))
+                            { continue; }
+
+                            string json = await File.ReadAllTextAsync(jsonPath);
+                            var handshake = JsonSerializer.Deserialize<HandshakePacket>(json);
+                            
+                            if (handshake == null)
+                            { continue; }
+
+                            if (handshake.RecipientId == myPublicId)
+                            {
+                                if (!handshake.IsExpired())
+                                {
+                                    result.Add(handshake);
+                                }
+                                else
+                                {
+                                    File.Delete(torrentPath);
+                                    File.Delete(jsonPath);
+                                    Logger.WriteLog($"[TorrentService] Удалено просроченное рукопожатие {handshake.ChatId}");
+                                }
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            Logger.WriteLog($"[TorrentService] Ошибка обработки {torrentPath}");                            
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Logger.WriteLog($"[TorrentService] Ошибка поиска рукопожатий: {ex.Message}");
+                }
+
+                return result;
             }
             public async Task RemoveHandshakeFromDHTAsync(string chatId)
             {
+                string handshakeFolder = Path.Combine(_torrentsFolder, "Handshakes");
+                string torrentPath = Path.Combine(handshakeFolder, $"{chatId}_handshake.torrent");
+                string jsonPath = Path.Combine(handshakeFolder, $"{chatId}_handshake.json");
 
+                try
+                {
+                    foreach (var manager in engine.Torrents)
+                    {
+                        if (manager.Torrent?.Name == $"handshake_{chatId}")
+                        {
+                            await manager.StopAsync();
+                            await engine.RemoveAsync(manager);
+                            Logger.WriteLog($"[TorrentService] раздача рукопожатия {chatId} остановлена");
+                            break;
+                        }
+                    }
+
+                    if (File.Exists(torrentPath))
+                    {
+                        File.Delete(torrentPath);
+                        Logger.WriteLog($"[TorrentService] Удален .torrent: {torrentPath}");
+                    }
+
+                    if (File.Exists(jsonPath))
+                    {
+                        File.Delete(jsonPath);
+                        Logger.WriteLog($"[TorrentService] Удален JSON: {jsonPath}");
+                    }
+
+                    string confTorrentPath = Path.Combine(handshakeFolder, $"{chatId}_confirmation.torrent");
+                    string confJsonPath = Path.Combine(handshakeFolder, $"{chatId}_confirmation");
+
+                    if (File.Exists(confTorrentPath))
+                    {
+                        foreach (var manager in engine.Torrents)
+                        {
+                            if (manager.Torrent?.Name == $"confirmation_{chatId}")
+                            {
+                                await manager.StopAsync();
+                                await engine.RemoveAsync(manager);
+                                break;
+                            }
+                        }
+                        File.Delete(confTorrentPath);
+                        File.Delete(confJsonPath);
+                        Logger.WriteLog($"[TorrentService] Удалена квитанция для {chatId}");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Logger.WriteLog($"[TorrentService] Ошибка удаления рукопожатия {chatId}: {ex.Message}");
+                }
             }
         }
         private readonly ClientEngine engine;
