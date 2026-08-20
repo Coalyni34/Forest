@@ -49,9 +49,17 @@
               "target": "Package",
               "version": "[1.0.0, )"
             },
+            "DotI2p": {
+              "target": "Package",
+              "version": "[0.6.3, )"
+            },
             "Eto.Forms": {
               "target": "Package",
               "version": "[2.11.0, )"
+            },
+            "Knapcode.TorSharp": {
+              "target": "Package",
+              "version": "[2.15.0, )"
             },
             "MonoTorrent": {
               "target": "Package",
@@ -60,6 +68,10 @@
             "QRCoder": {
               "target": "Package",
               "version": "[1.8.0, )"
+            },
+            "ZXing.Net": {
+              "target": "Package",
+              "version": "[0.16.11, )"
             }
           },
           "imports": [
@@ -88,7 +100,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/10.0.110/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/10.0.111/RuntimeIdentifierGraph.json"
         }
       }
     }
