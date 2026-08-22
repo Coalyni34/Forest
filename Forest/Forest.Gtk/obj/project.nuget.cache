@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "+NrohaTPbVE=",
+  "dgSpecHash": "6YQdhot9boI=",
   "success": true,
   "projectFilePath": "/home/coalynilap/GithubProjects/ForestMSG/Forest/Forest.Gtk/Forest.Gtk.csproj",
   "expectedPackageFiles": [
@@ -14,7 +14,6 @@
     "/home/coalynilap/.nuget/packages/giosharp/3.24.24.95/giosharp.3.24.24.95.nupkg.sha512",
     "/home/coalynilap/.nuget/packages/glibsharp/3.24.24.95/glibsharp.3.24.24.95.nupkg.sha512",
     "/home/coalynilap/.nuget/packages/gtksharp/3.24.24.95/gtksharp.3.24.24.95.nupkg.sha512",
-    "/home/coalynilap/.nuget/packages/knapcode.torsharp/2.15.0/knapcode.torsharp.2.15.0.nupkg.sha512",
     "/home/coalynilap/.nuget/packages/microsoft.win32.systemevents/6.0.0/microsoft.win32.systemevents.6.0.0.nupkg.sha512",
     "/home/coalynilap/.nuget/packages/mono.nat/3.0.0/mono.nat.3.0.0.nupkg.sha512",
     "/home/coalynilap/.nuget/packages/monotorrent/3.0.2/monotorrent.3.0.2.nupkg.sha512",
@@ -22,24 +21,9 @@
     "/home/coalynilap/.nuget/packages/pangosharp/3.24.24.95/pangosharp.3.24.24.95.nupkg.sha512",
     "/home/coalynilap/.nuget/packages/qrcoder/1.8.0/qrcoder.1.8.0.nupkg.sha512",
     "/home/coalynilap/.nuget/packages/reusabletasks/4.0.0/reusabletasks.4.0.0.nupkg.sha512",
-    "/home/coalynilap/.nuget/packages/sharpcompress/0.32.2/sharpcompress.0.32.2.nupkg.sha512",
     "/home/coalynilap/.nuget/packages/system.drawing.common/6.0.0/system.drawing.common.6.0.0.nupkg.sha512",
     "/home/coalynilap/.nuget/packages/system.io.hashing/10.0.8/system.io.hashing.10.0.8.nupkg.sha512",
-    "/home/coalynilap/.nuget/packages/system.servicemodel.syndication/6.0.0/system.servicemodel.syndication.6.0.0.nupkg.sha512",
     "/home/coalynilap/.nuget/packages/zxing.net/0.16.11/zxing.net.0.16.11.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1902",
-      "level": "Warning",
-      "message": "У пакета \"SharpCompress\" 0.32.2 есть известная уязвимость https://github.com/advisories/GHSA-6c8g-7p36-r338 (уровень серьезности: средний)",
-      "projectPath": "/home/coalynilap/GithubProjects/ForestMSG/Forest/Forest.Gtk/Forest.Gtk.csproj",
-      "warningLevel": 1,
-      "filePath": "/home/coalynilap/GithubProjects/ForestMSG/Forest/Forest.Gtk/Forest.Gtk.csproj",
-      "libraryId": "SharpCompress",
-      "targetGraphs": [
-        "net10.0"
-      ]
-    }
-  ]
+  "logs": []
 }

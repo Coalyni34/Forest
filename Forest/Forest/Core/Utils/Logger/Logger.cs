@@ -22,14 +22,14 @@ namespace ForestMSG.Core.Logging
         }
         public static void WriteLog(string LogText)
         {     
-            var folderPath = Path.Combine(DirectoryNames.MainFolder, $"{DateTime.Today}");
+            var folderPath = Path.Combine(DirectoryNames.MainFolder, $"{DateTime.Now:dd:MM:yyyy}");
             if (!Directory.Exists(folderPath))
             {
                 Directory.CreateDirectory(folderPath);
-                Console.WriteLine($"[Logger] Folder {folderPath} has created");
+                Console.WriteLine($"[Logger] {folderPath} был создан | {DateTime.Now:g}");
             }
            
-            var jsonFileName = $"Log_{DateTime.Today}.json";
+            var jsonFileName = $"Log_{DateTime.Now:dd:MM:yyyy}.json";
             var jsonFilePath = Path.Combine(folderPath, jsonFileName);
 
             try
@@ -58,7 +58,7 @@ namespace ForestMSG.Core.Logging
             }
             finally
             {                
-                Console.WriteLine($"[Logger] {jsonFileName} has edited at {DateTime.Now}");
+                Console.WriteLine($"[Logger] {jsonFileName} был изменен | {DateTime.Now:g}");
             }
         }
     }

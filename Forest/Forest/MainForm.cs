@@ -3,6 +3,9 @@ using System.Threading.Tasks;
 using System;
 using ForestMSG.Application.GUI;
 using static ForestMSG.Core.Services.Encryption.EncryptionService;
+using ForestMSG.Core.Services.Network;
+using ForestMSG.Core.Logging;
+using ForestMSG.Tests;
 
 namespace Forest
 {
@@ -27,7 +30,6 @@ namespace Forest
         private async void MainForm_Load(object sender, EventArgs e)
         {
             await MainFormInitialization();
-
         }
 
         private void SubscribeToUIEvents()
@@ -46,14 +48,18 @@ namespace Forest
 
         private async Task MainFormInitialization()
         {
-            FileInitialization();     
+           await FileInitialization();     
         }     
 
-        private static void FileInitialization()
+        private async Task FileInitialization()
         {
             PhrasesGenerator.CreateMnemonicDictionary();
-        }		
-        
+
+            await I2PServiceTest.RunTest();
+
+            await TorServiceTest.RunTest();
+        }
+
         private void OnChatsClick(object sender, EventArgs e)
         {
             _mainWindow.SetChatTitle("Чаты");

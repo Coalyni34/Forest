@@ -58,23 +58,6 @@
           "build/Eto.Platform.Mac64.targets": {}
         }
       },
-      "Knapcode.TorSharp/2.15.0": {
-        "type": "package",
-        "dependencies": {
-          "SharpCompress": "0.32.2",
-          "System.ServiceModel.Syndication": "6.0.0"
-        },
-        "compile": {
-          "lib/netstandard2.0/Knapcode.TorSharp.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/netstandard2.0/Knapcode.TorSharp.dll": {
-            "related": ".xml"
-          }
-        }
-      },
       "Microsoft.Win32.SystemEvents/6.0.0": {
         "type": "package",
         "compile": {
@@ -232,15 +215,6 @@
           "build/_._": {}
         }
       },
-      "SharpCompress/0.32.2": {
-        "type": "package",
-        "compile": {
-          "lib/net6.0/SharpCompress.dll": {}
-        },
-        "runtime": {
-          "lib/net6.0/SharpCompress.dll": {}
-        }
-      },
       "System.Drawing.Common/6.0.0": {
         "type": "package",
         "dependencies": {
@@ -286,22 +260,6 @@
           "buildTransitive/net8.0/_._": {}
         }
       },
-      "System.ServiceModel.Syndication/6.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/net6.0/System.ServiceModel.Syndication.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net6.0/System.ServiceModel.Syndication.dll": {
-            "related": ".xml"
-          }
-        },
-        "build": {
-          "buildTransitive/netcoreapp3.1/_._": {}
-        }
-      },
       "ZXing.Net/0.16.11": {
         "type": "package",
         "compile": {
@@ -322,7 +280,6 @@
           "Chaos.NaCl.Standard": "1.0.0",
           "DotI2p": "0.6.3",
           "Eto.Forms": "2.11.0",
-          "Knapcode.TorSharp": "2.15.0",
           "MonoTorrent": "3.0.2",
           "QRCoder": "1.8.0",
           "ZXing.Net": "0.16.11"
@@ -392,23 +349,6 @@
           "build/Eto.Platform.Mac64.targets": {}
         }
       },
-      "Knapcode.TorSharp/2.15.0": {
-        "type": "package",
-        "dependencies": {
-          "SharpCompress": "0.32.2",
-          "System.ServiceModel.Syndication": "6.0.0"
-        },
-        "compile": {
-          "lib/netstandard2.0/Knapcode.TorSharp.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/netstandard2.0/Knapcode.TorSharp.dll": {
-            "related": ".xml"
-          }
-        }
-      },
       "Microsoft.Win32.SystemEvents/6.0.0": {
         "type": "package",
         "compile": {
@@ -560,15 +500,6 @@
           "build/_._": {}
         }
       },
-      "SharpCompress/0.32.2": {
-        "type": "package",
-        "compile": {
-          "lib/net6.0/SharpCompress.dll": {}
-        },
-        "runtime": {
-          "lib/net6.0/SharpCompress.dll": {}
-        }
-      },
       "System.Drawing.Common/6.0.0": {
         "type": "package",
         "dependencies": {
@@ -604,22 +535,6 @@
           "buildTransitive/net8.0/_._": {}
         }
       },
-      "System.ServiceModel.Syndication/6.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/net6.0/System.ServiceModel.Syndication.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net6.0/System.ServiceModel.Syndication.dll": {
-            "related": ".xml"
-          }
-        },
-        "build": {
-          "buildTransitive/netcoreapp3.1/_._": {}
-        }
-      },
       "ZXing.Net/0.16.11": {
         "type": "package",
         "compile": {
@@ -640,7 +555,6 @@
           "Chaos.NaCl.Standard": "1.0.0",
           "DotI2p": "0.6.3",
           "Eto.Forms": "2.11.0",
-          "Knapcode.TorSharp": "2.15.0",
           "MonoTorrent": "3.0.2",
           "QRCoder": "1.8.0",
           "ZXing.Net": "0.16.11"
@@ -710,23 +624,6 @@
           "build/Eto.Platform.Mac64.targets": {}
         }
       },
-      "Knapcode.TorSharp/2.15.0": {
-        "type": "package",
-        "dependencies": {
-          "SharpCompress": "0.32.2",
-          "System.ServiceModel.Syndication": "6.0.0"
-        },
-        "compile": {
-          "lib/netstandard2.0/Knapcode.TorSharp.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/netstandard2.0/Knapcode.TorSharp.dll": {
-            "related": ".xml"
-          }
-        }
-      },
       "Microsoft.Win32.SystemEvents/6.0.0": {
         "type": "package",
         "compile": {
@@ -878,15 +775,6 @@
           "build/_._": {}
         }
       },
-      "SharpCompress/0.32.2": {
-        "type": "package",
-        "compile": {
-          "lib/net6.0/SharpCompress.dll": {}
-        },
-        "runtime": {
-          "lib/net6.0/SharpCompress.dll": {}
-        }
-      },
       "System.Drawing.Common/6.0.0": {
         "type": "package",
         "dependencies": {
@@ -922,22 +810,6 @@
           "buildTransitive/net8.0/_._": {}
         }
       },
-      "System.ServiceModel.Syndication/6.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/net6.0/System.ServiceModel.Syndication.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net6.0/System.ServiceModel.Syndication.dll": {
-            "related": ".xml"
-          }
-        },
-        "build": {
-          "buildTransitive/netcoreapp3.1/_._": {}
-        }
-      },
       "ZXing.Net/0.16.11": {
         "type": "package",
         "compile": {
@@ -958,7 +830,6 @@
           "Chaos.NaCl.Standard": "1.0.0",
           "DotI2p": "0.6.3",
           "Eto.Forms": "2.11.0",
-          "Knapcode.TorSharp": "2.15.0",
           "MonoTorrent": "3.0.2",
           "QRCoder": "1.8.0",
           "ZXing.Net": "0.16.11"
@@ -1049,25 +920,6 @@
         "eto.platform.mac64.nuspec",
         "lib/netstandard2.0/Eto.Mac64.dll",
         "lib/netstandard2.0/MonoMac.dll"
-      ]
-    },
-    "Knapcode.TorSharp/2.15.0": {
-      "sha512": "uFIymeYyF2HZ/9nhmouwg42e/ya5Qxqwzx+xo0/poB50DUIapDu+rtFu8eiig9jc0ppeQSM9abjZxU5C9duR9g==",
-      "type": "package",
-      "path": "knapcode.torsharp/2.15.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "README.md",
-        "icon.png",
-        "knapcode.torsharp.2.15.0.nupkg.sha512",
-        "knapcode.torsharp.nuspec",
-        "lib/net462/Knapcode.TorSharp.dll",
-        "lib/net462/Knapcode.TorSharp.xml",
-        "lib/net472/Knapcode.TorSharp.dll",
-        "lib/net472/Knapcode.TorSharp.xml",
-        "lib/netstandard2.0/Knapcode.TorSharp.dll",
-        "lib/netstandard2.0/Knapcode.TorSharp.xml"
       ]
     },
     "Microsoft.Win32.SystemEvents/6.0.0": {
@@ -1327,23 +1179,6 @@
         "reusabletasks.nuspec"
       ]
     },
-    "SharpCompress/0.32.2": {
-      "sha512": "MSt6TKAg2c0uFFDtf7oACB4DfvXKq5Cvot2e0wjy5nAiVujpIRQ8laiIqCU/VMRGyytasGzg+nODKTkkDjbr/g==",
-      "type": "package",
-      "path": "sharpcompress/0.32.2",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE.txt",
-        "lib/net461/SharpCompress.dll",
-        "lib/net6.0/SharpCompress.dll",
-        "lib/netcoreapp3.1/SharpCompress.dll",
-        "lib/netstandard2.0/SharpCompress.dll",
-        "lib/netstandard2.1/SharpCompress.dll",
-        "sharpcompress.0.32.2.nupkg.sha512",
-        "sharpcompress.nuspec"
-      ]
-    },
     "System.Drawing.Common/6.0.0": {
       "sha512": "NfuoKUiP2nUWwKZN6twGqXioIe1zVD0RIj2t976A+czLHr2nY454RwwXs6JU9Htc6mwqL6Dn/nEL3dpVf2jOhg==",
       "type": "package",
@@ -1409,31 +1244,6 @@
         "lib/netstandard2.0/System.IO.Hashing.xml",
         "system.io.hashing.10.0.8.nupkg.sha512",
         "system.io.hashing.nuspec",
-        "useSharedDesignerContext.txt"
-      ]
-    },
-    "System.ServiceModel.Syndication/6.0.0": {
-      "sha512": "cp1mMNG87iJtE0oHXFtfWT6cfski2JNo5iU0siTPi/uN2k1CIJI6FE4jr4v3got2dzt7wBq17fSy44btun9GiA==",
-      "type": "package",
-      "path": "system.servicemodel.syndication/6.0.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "Icon.png",
-        "LICENSE.TXT",
-        "THIRD-PARTY-NOTICES.TXT",
-        "buildTransitive/netcoreapp2.0/System.ServiceModel.Syndication.targets",
-        "buildTransitive/netcoreapp3.1/_._",
-        "lib/net461/System.ServiceModel.Syndication.dll",
-        "lib/net461/System.ServiceModel.Syndication.xml",
-        "lib/net6.0/System.ServiceModel.Syndication.dll",
-        "lib/net6.0/System.ServiceModel.Syndication.xml",
-        "lib/netcoreapp3.1/System.ServiceModel.Syndication.dll",
-        "lib/netcoreapp3.1/System.ServiceModel.Syndication.xml",
-        "lib/netstandard2.0/System.ServiceModel.Syndication.dll",
-        "lib/netstandard2.0/System.ServiceModel.Syndication.xml",
-        "system.servicemodel.syndication.6.0.0.nupkg.sha512",
-        "system.servicemodel.syndication.nuspec",
         "useSharedDesignerContext.txt"
       ]
     },
@@ -1917,19 +1727,5 @@
         "#import": []
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1902",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "У пакета \"SharpCompress\" 0.32.2 есть известная уязвимость https://github.com/advisories/GHSA-6c8g-7p36-r338 (уровень серьезности: средний)",
-      "libraryId": "SharpCompress",
-      "targetGraphs": [
-        "net10.0",
-        "net10.0/osx-arm64",
-        "net10.0/osx-x64"
-      ]
-    }
-  ]
+  }
 }

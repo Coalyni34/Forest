@@ -94,3 +94,7 @@
 /home/coalynilap/GithubProjects/ForestMSG/Forest/Forest.Gtk/obj/Debug/net10.0/Forest.Gtk.pdb
 /home/coalynilap/GithubProjects/ForestMSG/Forest/Forest.Gtk/obj/Debug/net10.0/Forest.Gtk.genruntimeconfig.cache
 /home/coalynilap/GithubProjects/ForestMSG/Forest/Forest.Gtk/obj/Debug/net10.0/ref/Forest.Gtk.dll
+/home/coalynilap/GithubProjects/ForestMSG/Forest/Forest.Gtk/bin/Debug/net10.0/DotI2p.dll
+/home/coalynilap/GithubProjects/ForestMSG/Forest/Forest.Gtk/bin/Debug/net10.0/Multiformats.Base.dll
+/home/coalynilap/GithubProjects/ForestMSG/Forest/Forest.Gtk/bin/Debug/net10.0/System.IO.Hashing.dll
+/home/coalynilap/GithubProjects/ForestMSG/Forest/Forest.Gtk/bin/Debug/net10.0/zxing.dll

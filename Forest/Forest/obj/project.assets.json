@@ -43,23 +43,6 @@
           "build/Eto.Forms.targets": {}
         }
       },
-      "Knapcode.TorSharp/2.15.0": {
-        "type": "package",
-        "dependencies": {
-          "SharpCompress": "0.32.2",
-          "System.ServiceModel.Syndication": "6.0.0"
-        },
-        "compile": {
-          "lib/netstandard2.0/Knapcode.TorSharp.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/netstandard2.0/Knapcode.TorSharp.dll": {
-            "related": ".xml"
-          }
-        }
-      },
       "Microsoft.NETCore.Platforms/5.0.0": {
         "type": "package",
         "compile": {
@@ -228,15 +211,6 @@
           "build/_._": {}
         }
       },
-      "SharpCompress/0.32.2": {
-        "type": "package",
-        "compile": {
-          "lib/netcoreapp3.1/SharpCompress.dll": {}
-        },
-        "runtime": {
-          "lib/netcoreapp3.1/SharpCompress.dll": {}
-        }
-      },
       "StandardSocketsHttpHandler/2.2.0.4": {
         "type": "package",
         "compile": {
@@ -336,22 +310,6 @@
           }
         }
       },
-      "System.ServiceModel.Syndication/6.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/netcoreapp3.1/System.ServiceModel.Syndication.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/netcoreapp3.1/System.ServiceModel.Syndication.dll": {
-            "related": ".xml"
-          }
-        },
-        "build": {
-          "buildTransitive/netcoreapp3.1/_._": {}
-        }
-      },
       "System.Text.Encoding.CodePages/5.0.0": {
         "type": "package",
         "dependencies": {
@@ -437,25 +395,6 @@
         "lib/netstandard2.0/Eto.xml",
         "sdk/Sdk.props",
         "sdk/Sdk.targets"
-      ]
-    },
-    "Knapcode.TorSharp/2.15.0": {
-      "sha512": "uFIymeYyF2HZ/9nhmouwg42e/ya5Qxqwzx+xo0/poB50DUIapDu+rtFu8eiig9jc0ppeQSM9abjZxU5C9duR9g==",
-      "type": "package",
-      "path": "knapcode.torsharp/2.15.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "README.md",
-        "icon.png",
-        "knapcode.torsharp.2.15.0.nupkg.sha512",
-        "knapcode.torsharp.nuspec",
-        "lib/net462/Knapcode.TorSharp.dll",
-        "lib/net462/Knapcode.TorSharp.xml",
-        "lib/net472/Knapcode.TorSharp.dll",
-        "lib/net472/Knapcode.TorSharp.xml",
-        "lib/netstandard2.0/Knapcode.TorSharp.dll",
-        "lib/netstandard2.0/Knapcode.TorSharp.xml"
       ]
     },
     "Microsoft.NETCore.Platforms/5.0.0": {
@@ -732,23 +671,6 @@
         "reusabletasks.nuspec"
       ]
     },
-    "SharpCompress/0.32.2": {
-      "sha512": "MSt6TKAg2c0uFFDtf7oACB4DfvXKq5Cvot2e0wjy5nAiVujpIRQ8laiIqCU/VMRGyytasGzg+nODKTkkDjbr/g==",
-      "type": "package",
-      "path": "sharpcompress/0.32.2",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE.txt",
-        "lib/net461/SharpCompress.dll",
-        "lib/net6.0/SharpCompress.dll",
-        "lib/netcoreapp3.1/SharpCompress.dll",
-        "lib/netstandard2.0/SharpCompress.dll",
-        "lib/netstandard2.1/SharpCompress.dll",
-        "sharpcompress.0.32.2.nupkg.sha512",
-        "sharpcompress.nuspec"
-      ]
-    },
     "StandardSocketsHttpHandler/2.2.0.4": {
       "sha512": "9R9D1HHfU9+pOrsJ/FwLWNMZGAAeQQNCmWMDq/y1ojlRBjh0ur1S+lzmTa63Ik0zE5gxe4BvwgTZbodYyBtPWQ==",
       "type": "package",
@@ -997,31 +919,6 @@
         "version.txt"
       ]
     },
-    "System.ServiceModel.Syndication/6.0.0": {
-      "sha512": "cp1mMNG87iJtE0oHXFtfWT6cfski2JNo5iU0siTPi/uN2k1CIJI6FE4jr4v3got2dzt7wBq17fSy44btun9GiA==",
-      "type": "package",
-      "path": "system.servicemodel.syndication/6.0.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "Icon.png",
-        "LICENSE.TXT",
-        "THIRD-PARTY-NOTICES.TXT",
-        "buildTransitive/netcoreapp2.0/System.ServiceModel.Syndication.targets",
-        "buildTransitive/netcoreapp3.1/_._",
-        "lib/net461/System.ServiceModel.Syndication.dll",
-        "lib/net461/System.ServiceModel.Syndication.xml",
-        "lib/net6.0/System.ServiceModel.Syndication.dll",
-        "lib/net6.0/System.ServiceModel.Syndication.xml",
-        "lib/netcoreapp3.1/System.ServiceModel.Syndication.dll",
-        "lib/netcoreapp3.1/System.ServiceModel.Syndication.xml",
-        "lib/netstandard2.0/System.ServiceModel.Syndication.dll",
-        "lib/netstandard2.0/System.ServiceModel.Syndication.xml",
-        "system.servicemodel.syndication.6.0.0.nupkg.sha512",
-        "system.servicemodel.syndication.nuspec",
-        "useSharedDesignerContext.txt"
-      ]
-    },
     "System.Text.Encoding.CodePages/5.0.0": {
       "sha512": "NyscU59xX6Uo91qvhOs2Ccho3AR2TnZPomo1Z0K6YpyztBPM/A5VbkzOO19sy3A3i1TtEnTxA7bCe3Us+r5MWg==",
       "type": "package",
@@ -1157,7 +1054,6 @@
       "Chaos.NaCl.Standard >= 1.0.0",
       "DotI2p >= 0.6.3",
       "Eto.Forms >= 2.11.0",
-      "Knapcode.TorSharp >= 2.15.0",
       "MonoTorrent >= 3.0.2",
       "QRCoder >= 1.8.0",
       "ZXing.Net >= 0.16.11"
@@ -1218,10 +1114,6 @@
           "Eto.Forms": {
             "target": "Package",
             "version": "[2.11.0, )"
-          },
-          "Knapcode.TorSharp": {
-            "target": "Package",
-            "version": "[2.15.0, )"
           },
           "MonoTorrent": {
             "target": "Package",

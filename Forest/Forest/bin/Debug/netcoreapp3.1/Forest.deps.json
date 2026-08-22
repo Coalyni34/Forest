@@ -9,9 +9,11 @@
       "Forest/1.0.0": {
         "dependencies": {
           "Chaos.NaCl.Standard": "1.0.0",
+          "DotI2p": "0.6.3",
           "Eto.Forms": "2.11.0",
           "MonoTorrent": "3.0.2",
-          "QRCoder": "1.8.0"
+          "QRCoder": "1.8.0",
+          "ZXing.Net": "0.16.11"
         },
         "runtime": {
           "Forest.dll": {}
@@ -22,6 +24,18 @@
           "lib/netstandard2.0/Chaos.NaCl.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "DotI2p/0.6.3": {
+        "dependencies": {
+          "Multiformats.Base": "2.0.2",
+          "System.IO.Hashing": "10.0.8"
+        },
+        "runtime": {
+          "lib/netstandard2.1/DotI2p.dll": {
+            "assemblyVersion": "0.6.3.0",
+            "fileVersion": "0.6.3.0"
           }
         }
       },
@@ -113,6 +127,14 @@
           }
         }
       },
+      "Multiformats.Base/2.0.2": {
+        "runtime": {
+          "lib/netstandard2.0/Multiformats.Base.dll": {
+            "assemblyVersion": "2.0.2.0",
+            "fileVersion": "2.0.2.0"
+          }
+        }
+      },
       "QRCoder/1.8.0": {
         "dependencies": {
           "System.Drawing.Common": "5.0.3",
@@ -174,6 +196,14 @@
           }
         }
       },
+      "System.IO.Hashing/10.0.8": {
+        "runtime": {
+          "lib/netstandard2.0/System.IO.Hashing.dll": {
+            "assemblyVersion": "10.0.0.8",
+            "fileVersion": "10.0.826.23019"
+          }
+        }
+      },
       "System.Runtime.CompilerServices.Unsafe/5.0.0": {
         "runtime": {
           "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.dll": {
@@ -200,6 +230,14 @@
             "fileVersion": "5.0.20.51904"
           }
         }
+      },
+      "ZXing.Net/0.16.11": {
+        "runtime": {
+          "lib/netcoreapp3.1/zxing.dll": {
+            "assemblyVersion": "0.16.11.0",
+            "fileVersion": "0.16.11.0"
+          }
+        }
       }
     }
   },
@@ -215,6 +253,13 @@
       "sha512": "sha512-8ajPyzu49LSIdPgeg56eDdKu1j8FZJngKgTn9rXHV3GNVly49XFvPAwoWuUT8xPze3OjVUOWQZaO82HWrYFFEw==",
       "path": "chaos.nacl.standard/1.0.0",
       "hashPath": "chaos.nacl.standard.1.0.0.nupkg.sha512"
+    },
+    "DotI2p/0.6.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-BAvWlW3l9Z9ykHB80SKf5eaoVYW7HQShEPTfHEbxt812QsB7t6DseYJDrBCX4yQpC+BPwy99JidkesqliJGvIA==",
+      "path": "doti2p/0.6.3",
+      "hashPath": "doti2p.0.6.3.nupkg.sha512"
     },
     "Eto.Forms/2.11.0": {
       "type": "package",
@@ -243,6 +288,13 @@
       "sha512": "sha512-kWy0mLj2MKX9uUGe3lnNYfyQhthjUK4IAMNJO8llXP9yB3ZYfGaAy9ag20wMcjTz2YfhKOW/uZ5FR//BYZGeYA==",
       "path": "monotorrent/3.0.2",
       "hashPath": "monotorrent.3.0.2.nupkg.sha512"
+    },
+    "Multiformats.Base/2.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-uMUDZLjkdI7zrkRFCC7tPV//1y9NnFNQnvyrzoLrn9lPNvSGQhHoA5BEBxO58S5Ow3R580UP8W6mfWDKtIuSYQ==",
+      "path": "multiformats.base/2.0.2",
+      "hashPath": "multiformats.base.2.0.2.nupkg.sha512"
     },
     "QRCoder/1.8.0": {
       "type": "package",
@@ -279,6 +331,13 @@
       "path": "system.drawing.common/5.0.3",
       "hashPath": "system.drawing.common.5.0.3.nupkg.sha512"
     },
+    "System.IO.Hashing/10.0.8": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-+dJsbPJ3FyUbTZNplFj0RCKePFizmv6ewDV46JE9q/IVH4c3xTCftHfHelLsAKf0jryIPqgMb5GpS0x7TAY3mg==",
+      "path": "system.io.hashing/10.0.8",
+      "hashPath": "system.io.hashing.10.0.8.nupkg.sha512"
+    },
     "System.Runtime.CompilerServices.Unsafe/5.0.0": {
       "type": "package",
       "serviceable": true,
@@ -292,6 +351,13 @@
       "sha512": "sha512-NyscU59xX6Uo91qvhOs2Ccho3AR2TnZPomo1Z0K6YpyztBPM/A5VbkzOO19sy3A3i1TtEnTxA7bCe3Us+r5MWg==",
       "path": "system.text.encoding.codepages/5.0.0",
       "hashPath": "system.text.encoding.codepages.5.0.0.nupkg.sha512"
+    },
+    "ZXing.Net/0.16.11": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-OZfAVu88hl87BffQ+rlWCj/vLvAhhCK4QnFaoveeF/MY8SjHNSYBQ3qyUEWlPKNgBQGh1syXhCDg10vUnCsqkg==",
+      "path": "zxing.net/0.16.11",
+      "hashPath": "zxing.net.0.16.11.nupkg.sha512"
     }
   }
 }
