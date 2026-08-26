@@ -10,5 +10,6 @@ namespace ForestMSG.Core.Services.FileSystem
         public static readonly string Torrents = "Torrents";
         public static readonly string TorrentContacts = "TorrentContacts";
         public static readonly string Me = "Me";
+        public static readonly string Chats = "Chats";
     }    
 }
