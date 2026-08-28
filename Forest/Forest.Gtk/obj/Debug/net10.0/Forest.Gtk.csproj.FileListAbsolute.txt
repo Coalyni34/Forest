@@ -98,3 +98,7 @@
 /home/coalynilap/GithubProjects/ForestMSG/Forest/Forest.Gtk/bin/Debug/net10.0/Multiformats.Base.dll
 /home/coalynilap/GithubProjects/ForestMSG/Forest/Forest.Gtk/bin/Debug/net10.0/System.IO.Hashing.dll
 /home/coalynilap/GithubProjects/ForestMSG/Forest/Forest.Gtk/bin/Debug/net10.0/zxing.dll
+/run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest.Gtk/bin/Debug/net10.0/DotI2p.dll
+/run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest.Gtk/bin/Debug/net10.0/Multiformats.Base.dll
+/run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest.Gtk/bin/Debug/net10.0/System.IO.Hashing.dll
+/run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest.Gtk/bin/Debug/net10.0/zxing.dll
