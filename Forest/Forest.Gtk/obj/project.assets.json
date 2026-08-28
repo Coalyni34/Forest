@@ -959,33 +959,33 @@
     ]
   },
   "packageFolders": {
-    "/home/coalynilap/.nuget/packages/": {}
+    "/home/coalyni/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/coalynilap/GithubProjects/ForestMSG/Forest/Forest.Gtk/Forest.Gtk.csproj",
+      "projectUniqueName": "/run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest.Gtk/Forest.Gtk.csproj",
       "projectName": "Forest.Gtk",
-      "projectPath": "/home/coalynilap/GithubProjects/ForestMSG/Forest/Forest.Gtk/Forest.Gtk.csproj",
-      "packagesPath": "/home/coalynilap/.nuget/packages/",
-      "outputPath": "/home/coalynilap/GithubProjects/ForestMSG/Forest/Forest.Gtk/obj/",
+      "projectPath": "/run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest.Gtk/Forest.Gtk.csproj",
+      "packagesPath": "/home/coalyni/.nuget/packages/",
+      "outputPath": "/run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest.Gtk/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/coalynilap/.nuget/NuGet/NuGet.Config"
+        "/home/coalyni/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net10.0"
       ],
       "sources": {
-        "/usr/lib/dotnet/library-packs": {},
+        "/usr/lib64/dotnet/library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net10.0": {
           "targetAlias": "net10.0",
           "projectReferences": {
-            "/home/coalynilap/GithubProjects/ForestMSG/Forest/Forest/Forest.csproj": {
-              "projectPath": "/home/coalynilap/GithubProjects/ForestMSG/Forest/Forest/Forest.csproj"
+            "/run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest/Forest.csproj": {
+              "projectPath": "/run/media/coalyni/Ommi/ForestMSG/Forest/Forest/Forest/Forest.csproj"
             }
           }
         }
@@ -1027,7 +1027,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/10.0.111/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "/usr/lib64/dotnet/sdk/10.0.111/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.CSharp": "(,4.7.32767]",
           "Microsoft.VisualBasic": "(,10.4.32767]",
