@@ -5,7 +5,6 @@ using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
-using ForestMSG.Core.ErrorManagement;
 using ForestMSG.Core.Logging;
 using ForestMSG.Core.Models;
 using ForestMSG.Core.Services.FileSystem;
@@ -146,7 +145,7 @@ namespace ForestMSG.Core.Services.TorrentControl
                 }
                 catch (Exception e)
                 {
-                    ErrorHandler.LogError($"[TorrentService] {e}");
+                    Logger.WriteLog($"[TorrentService] {e}");
                     return null;
                 }
             }

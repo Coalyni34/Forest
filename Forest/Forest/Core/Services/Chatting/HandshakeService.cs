@@ -1,11 +1,7 @@
-using System;
 using System.Collections.Concurrent;
-using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json;
-using System.Threading;
-using System.Threading.Tasks;
 using ForestMSG.Core.Models;
 using ForestMSG.Core.Services.TorrentControl;
 using ForestMSG.Core.Logging;
@@ -119,7 +115,6 @@ namespace ForestMSG.Core.Services.ContactManagement
                     catch (Exception ex)
                     {
                         Logger.WriteLog($"[Handshake] Ошибка сканирования: {ex.Message}");
-                        ErrorManagement.ErrorHandler.LogError($"[Handshake] Ошибка сканирования: {ex.Message}");
                         await Task.Delay(TimeSpan.FromSeconds(30));
                     }
                 }
@@ -221,7 +216,6 @@ namespace ForestMSG.Core.Services.ContactManagement
             catch (Exception ex)
             {
                 Logger.WriteLog($"[Handshake] Ошибка обработки: {ex.Message}");
-                ErrorManagement.ErrorHandler.LogError($"[Handshake] Ошибка обработки: {ex}");
             }
         }
 
@@ -266,6 +260,12 @@ namespace ForestMSG.Core.Services.ContactManagement
             _sessions.TryGetValue(chatId, out var session);
             return session;
         }
+
+        public List<ChatSession> GetAllSessions()
+        {
+            return new (_sessions.Values);
+        }
+
         public bool HasSession(string chatId) => _sessions.ContainsKey(chatId);
 
         private byte[] DecryptForRecipient(byte[] encryptedData, byte[] privateKey)
