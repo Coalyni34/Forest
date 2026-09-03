@@ -6,8 +6,9 @@ using ForestMSG.Core.Models;
 using ForestMSG.Core.Services.TorrentControl;
 using ForestMSG.Core.Logging;
 using static ForestMSG.Core.Services.Encryption.EncryptionService;
+using ForestMSG.Core.Services.ContactManagement;
 
-namespace ForestMSG.Core.Services.ContactManagement
+namespace ForestMSG.Core.Services.Chatting
 {
     public class HandshakeService : IDisposable
     {

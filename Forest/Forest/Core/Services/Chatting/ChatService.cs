@@ -1,4 +1,4 @@
-namespace ForestMSG.Core.Services.ContactManagement
+namespace ForestMSG.Core.Services.Chatting
 {
     public class ChatService
     {

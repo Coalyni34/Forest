@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
-using ForestMSG.Core.ErrorManagement;
 using ForestMSG.Core.Services.FileSystem;
 
 namespace ForestMSG.Core.Logging
@@ -54,7 +53,7 @@ namespace ForestMSG.Core.Logging
             }
             catch (Exception e)
             {
-                ErrorHandler.LogError(e.ToString());
+                File.WriteAllText($"ELog_{DateTime.Now:dd:MM:yyyy}.json", e.ToString());
             }
             finally
             {                
