@@ -44,7 +44,7 @@ Forest Messenger — это P2P-мессенджер, построенный н�
 | Контакты (ContactService) | ✅ Готово |
 | Рукопожатие (HandshakeService) | ✅ Готово |
 | Отправка сообщений (MessageSendService) | ✅ Готово |
-| Приём сообщений (MessageReceiveService) | 🟡 В разработке |
+| Приём сообщений (MessageReceiveService) | ✅ Готово |
 | I2P-интеграция | ✅ Готово |
 | Tor-интеграция | ✅ Готово |
 | BitTorrent-слой | ✅ Готово |
