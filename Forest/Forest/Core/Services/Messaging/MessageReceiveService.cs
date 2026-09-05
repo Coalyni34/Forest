@@ -1,7 +1,7 @@
 using System.Text.Json;
 using Forest.Models;
 using ForestMSG.Core.Logging;
-using ForestMSG.Core.Services.ContactManagement;
+using ForestMSG.Core.Services.Chatting;
 using ForestMSG.Core.Services.FileSystem;
 using ForestMSG.Core.Services.TorrentControl;
 using static ForestMSG.Core.Services.Encryption.EncryptionService;

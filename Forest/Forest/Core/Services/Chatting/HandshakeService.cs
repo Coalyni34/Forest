@@ -16,10 +16,10 @@ namespace ForestMSG.Core.Services.Chatting
         private readonly ContactService _contactService;
         private readonly ConcurrentDictionary<string, ChatSession> _sessions;
         private readonly ConcurrentDictionary<string, CancellationTokenSource> _handshakeTimers;
-        private CancellationTokenSource _listenerCts;
+        private CancellationTokenSource? _listenerCts;
         private bool _isListening;
 
-        public event Func<string, string, Task<bool>> HandshakeRequested;
+        public event Func<string, string, Task<bool>>? HandshakeRequested;
 
         public HandshakeService(
             TorrentService.ContactTorrentService torrentService,
@@ -256,7 +256,7 @@ namespace ForestMSG.Core.Services.Chatting
             }
         }
 
-        public ChatSession GetSession(string chatId)
+        public ChatSession? GetSession(string chatId)
         {
             _sessions.TryGetValue(chatId, out var session);
             return session;
@@ -265,6 +265,14 @@ namespace ForestMSG.Core.Services.Chatting
         public List<ChatSession> GetAllSessions()
         {
             return new (_sessions.Values);
+        }
+
+        public void RemoveSession(string chatId)
+        {
+            if (_sessions.TryRemove(chatId, out _))
+            {
+                Logger.WriteLog($"[HandshakeService] Сессия {chatId} удалена");
+            }
         }
 
         public bool HasSession(string chatId) => _sessions.ContainsKey(chatId);
