@@ -1,6 +1,5 @@
 using Eto.Forms;
 using Eto.Drawing;
-using System;
 
 namespace ForestMSG.Application.GUI
 {
